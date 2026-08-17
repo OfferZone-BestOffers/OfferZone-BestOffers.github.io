@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OfferZone — Gaming Offers & Rewards</title>
+  <meta name="description" content="Discover gaming offers, digital rewards and interesting opportunities for gamers.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #0b1020;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #11182d;
+      border-bottom: 1px solid #222b48;
+    }
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .logo span {
+      color: #6c63ff;
+    }
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+    nav a:hover {
+      color: #6c63ff;
+    }
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background:
+        radial-gradient(circle at top, #24245c 0%, #0b1020 55%);
+    }
+    .hero h1 {
+      font-size: 48px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.15;
+    }
+    .hero h1 span {
+      color: #6c63ff;
+    }
+    .hero p {
+      max-width: 650px;
+      margin: 25px auto;
+      color: #b8bfd4;
+      font-size: 18px;
+    }
+    .button {
+      display: inline-block;
+      background: #6c63ff;
+      color: white;
+      padding: 15px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: 0.2s;
+    }
+    .button:hover {
+      background: #574fff;
+      transform: translateY(-2px);
+    }
+    .section {
+      padding: 70px 8%;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .section-intro {
+      color: #aeb6ce;
+      max-width: 650px;
+      margin: 0 auto 40px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .card {
+      background: #121a31;
+      border: 1px solid #242e4d;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: left;
+    }
+    .icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #aeb6ce;
+      font-size: 15px;
+    }
+    .about {
+      background: #10172b;
+    }
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+    }
+    .about-content p {
+      color: #b8bfd4;
+      margin-top: 15px;
+    }
+    .contact {
+      max-width: 600px;
+      margin: auto;
+    }
+    .contact a {
+      color: #6c63ff;
+      text-decoration: none;
+    }
+    footer {
+      background: #080c18;
+      padding: 30px 20px;
+      text-align: center;
+      color: #78819b;
+      font-size: 14px;
+    }
+    .footer-links {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: #aeb6ce;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    @media (max-width: 800px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        display: none;
+      }
+      .section {
+        padding: 55px 6%;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">Offer<span>Zone</span></div>
+  <nav>
+    <a href="#offers">Offers</a>
+    <a href="#gaming">Gaming</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<section class="hero">
+  <h1>
+    Discover Gaming <span>Offers & Rewards</span>
+  </h1>
+  <p>
+    Explore interesting gaming opportunities, digital offers,
+    rewards and activities collected for gamers in one place.
+  </p>
+  <a href="#offers" class="button">
+    Explore Offers
+  </a>
+</section>
+<section class="section" id="offers">
+  <h2>Featured Categories</h2>
+  <p class="section-intro">
+    Explore different categories and discover opportunities
+    that match your interests.
+  </p>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🎮</div>
+      <h3>Gaming Offers</h3>
+      <p>
+        Discover gaming-related opportunities, promotions
+        and digital experiences.
+      </p>
+    </div>
+    <div class="card">
+      <div class="icon">🎁</div>
+      <h3>Rewards</h3>
+      <p>
+        Explore available reward opportunities and learn
+        how different promotions work.
+      </p>
+    </div>
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>Digital Offers</h3>
+      <p>
+        Browse digital opportunities and discover useful
+        offers from different categories.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section about" id="gaming">
+  <h2>For Gamers</h2>
+  <p class="section-intro">
+    Gaming is more than just playing. We collect interesting
+    digital opportunities and gaming-related content in one
+    simple place.
+  </p>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🕹️</div>
+      <h3>Discover</h3>
+      <p>
+        Find new gaming-related opportunities and digital
+        experiences.
+      </p>
+    </div>
+    <div class="card">
+      <div class="icon">⭐</div>
+      <h3>Explore</h3>
+      <p>
+        Explore different categories and choose the offers
+        that interest you.
+      </p>
+    </div>
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Stay Updated</h3>
+      <p>
+        Keep exploring new opportunities as the website
+        develops.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section about" id="about">
+  <div class="about-content">
+    <h2>About OfferZone</h2>
+    <p>
+      OfferZone is a small independent website focused on
+      gaming-related content, digital opportunities and
+      reward offers.
+    </p>
+    <p>
+      Our goal is to make it easier for visitors to discover
+      interesting digital experiences in a simple and
+      easy-to-navigate environment.
+    </p>
+    <p>
+      OfferZone is not affiliated with any game publisher,
+      platform or brand unless explicitly stated.
+    </p>
+  </div>
+</section>
+<section class="section" id="contact">
+  <div class="contact">
+    <h2>Contact Us</h2>
+    <p class="section-intro">
+      Have a question or want to contact us?
+      You can reach us by email.
+    </p>
+    <!-- CHANGE THIS EMAIL -->
+    <p>
+      Email:
+      <a href="mailto:YOUR_EMAIL@example.com">
+        YOUR_EMAIL@example.com
+      </a>
+    </p>
+  </div>
+</section>
+<footer>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+  </div>
+  <p>
+    © 2026 OfferZone. All rights reserved.
+  </p>
+</footer>
+</body>
+</html>
