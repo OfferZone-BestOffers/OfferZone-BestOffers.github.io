@@ -767,6 +767,45 @@
       }
 
     }
+  /* --- لمسات تزيين عصرية لـ OfferZone --- */
+
+  /* 1. خلفية غامقة وعصرية للموقع كامل */
+  body {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+  }
+
+  /* 2. هيدر ضبابي شفاف (Glassmorphism Header) */
+  header {
+    position: sticky !important;
+    top: 0;
+    background: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  /* 3. تأثير التحريك والتوهج على البطاقات فاش تدوز الماوس */
+  .card, .step, .contact-box {
+    transition: all 0.3s ease-in-out !important;
+    border-radius: 12px;
+  }
+
+  .card:hover, .step:hover, .contact-box:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3) !important;
+  }
+
+  /* 4. تحسين الأزرار وتأثير الضغط/المرور */
+  a[href="#offers"], a[href="#gaming"] {
+    transition: all 0.3s ease !important;
+    border-radius: 8px !important;
+  }
+
+  a[href="#offers"]:hover, a[href="#gaming"]:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5) !important;
+  }
 
   </style>
 
