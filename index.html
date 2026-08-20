@@ -848,6 +848,43 @@
     box-shadow: 0 0 0 0 rgba(255, 75, 43, 0);
   }
 }
+/* تصميم متناسق ومربع بنفس زوايا الأزرار الأخرى */
+.locker-btn {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important; /* شكل مربع بزوايا دائرية خفيفة متناسق مع الأزرار */
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4) !important;
+  transition: all 0.3s ease !important;
+  animation: pulse-border 2s infinite !important;
+}
+
+.locker-btn:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7) !important;
+}
+
+/* حركة وهج الحدود دون تغيير شكل الزر */
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 65, 108, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 65, 108, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 65, 108, 0);
+  }
+}
+
 /* إظهار وتعديل الزر فـ الهواتف */
 @media (max-width: 768px) {
   .nav {
@@ -856,10 +893,12 @@
   }
   .locker-btn {
     display: inline-flex !important;
-    font-size: 11px !important;
-    padding: 6px 12px !important;
+    font-size: 12px !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
     margin: 5px 0 !important;
   }
+
 }
 
   </style>
