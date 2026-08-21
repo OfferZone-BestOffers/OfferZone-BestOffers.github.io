@@ -1,1023 +1,144 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfferZone — Gaming Offers & Rewards</title>
+<meta name="description" content="Discover gaming-related opportunities, digital offers and reward experiences at OfferZone.">
+<style>
+/* تنسيق قسم العروض */
+.offers-grid-section {padding: 40px 20px; text-align: center; }
+.section-title {font-size: 1.8rem; color: #fff; margin-bottom: 25px; }
+.offers-container {display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.offer-card {background: #1a1d28; border: 1px solid #2e3548; border-radius: 12px; padding: 20px; width: 280px; text-align: left; position: relative; transition: transform 0.3s ease, border-color 0.3s ease; }
+.offer-card:hover {transform: translateY(-5px); border-color: #6366f1; }
+.badge-tag {background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.offer-card h3 {color: #fff; margin: 15px 0 10px; font-size: 1.2rem; }
+.offer-card p {color: #9ca3af; font-size: 0.9rem; line-height: 1.4; margin-bottom: 20px; }
+.offer-btn {display: block; text-align: center; background: #6366f1; color: #fff; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.2s ease; }
+.offer-btn:hover {background: #4f46e5; }
 
-  <meta charset="UTF-8">
+* {margin: 0; padding: 0; box-sizing: border-box; }
+html {scroll-behavior: smooth; }
+body {font-family: Arial, Helvetica, sans-serif; background: #0f172a !important; color: #f8fafc !important; line-height: 1.6; overflow-x: hidden; }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ================= NAVBAR ================= */
+header {position: sticky !important; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.8) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.nav {max-width: 1150px; margin: auto; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; }
+.logo {font-size: 25px; font-weight: 800; letter-spacing: -1px; }
+.logo span {color: #7667ff; }
+nav a {color: #aeb5c9; text-decoration: none; margin-left: 24px; font-size: 14px; transition: 0.2s; }
+nav a:hover {color: #ffffff; }
 
-  <title>OfferZone — Gaming Offers & Rewards</title>
+/* ================= HERO ================= */
+.hero {position: relative; min-height: 570px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 65px 20px 75px; overflow: hidden; background: radial-gradient(circle at 50% 0%, #302a72 0%, #171a3b 30%, #080b16 72% ); }
+.hero::before {content: ""; position: absolute; width: 360px; height: 360px; background: #6c63ff; opacity: 0.10; filter: blur(100px); border-radius: 50%; top: -180px; left: 50%; transform: translateX(-50%); }
+.hero-content {position: relative; z-index: 2; max-width: 850px; }
+.badge {display: inline-block; padding: 8px 16px; border-radius: 50px; color: #aaa3ff; background: rgba(118,103,255,0.10); border: 1px solid rgba(118,103,255,0.45); font-size: 13px; margin-bottom: 22px; }
+.hero h1 {font-size: clamp(42px, 7vw, 72px); line-height: 1.04; letter-spacing: -2px; margin-bottom: 22px; }
+.hero h1 span {color: #7667ff; }
+.hero p {color: #abb3c8; max-width: 680px; margin: auto; font-size: 17px; }
+.hero-buttons {margin-top: 30px; }
+.button {display: inline-block; padding: 15px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; margin: 5px; transition: 0.25s; }
+.primary {background: #6c63ff; color: #ffffff; box-shadow: 0 12px 35px rgba(108,99,255,0.24); }
+.primary:hover {background: #7a72ff; transform: translateY(-3px); }
+.secondary {color: #ffffff; background: rgba(255,255,255,0.025); border: 1px solid #303650; }
+.secondary:hover {border-color: #6c63ff; transform: translateY(-3px); }
 
-  <meta name="description" content="Discover gaming-related opportunities, digital offers and reward experiences at OfferZone.">
-  
-  <style>
-    /* تنسيق قسم العروض */
-.offers-grid-section {
-  padding: 40px 20px;
-  text-align: center;
+/* ================= SECTIONS ================= */
+.section {max-width: 1150px; margin: auto; padding: 75px 24px; }
+.section-header {text-align: center; max-width: 700px; margin: 0 auto 42px; }
+.section-header h2 {font-size: 34px; margin-bottom: 10px; }
+.section-header p {color: #9ea7be; }
+
+/* ================= CARDS ================= */
+.cards {display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card {position: relative; padding: 30px; background: linear-gradient(145deg, #12172b, #0e1324); border: 1px solid #252c45; border-radius: 12px; overflow: hidden; transition: all 0.3s ease-in-out !important; }
+.card:hover {transform: translateY(-8px) !important; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3) !important; border-color: #494181; }
+.card h3 {font-size: 19px; margin-bottom: 9px; }
+.card p {color: #9da6bd; font-size: 14px; }
+
+/* ================= HOW IT WORKS ================= */
+.how-section {background: #0e1324; border-top: 1px solid #1c2339; border-bottom: 1px solid #1c2339; }
+.steps {max-width: 950px; margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step {text-align: center; padding: 25px 20px; transition: all 0.3s ease-in-out !important; border-radius: 12px; }
+.step:hover {transform: translateY(-8px) !important; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3) !important; }
+.step-number {width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; margin: 0 auto 17px; border-radius: 50%; background: #6c63ff; font-size: 19px; font-weight: 800; }
+.step h3 {margin-bottom: 8px; font-size: 18px; }
+.step p {color: #969fb6; font-size: 14px; }
+
+/* ================= FEATURE ================= */
+.feature-box {max-width: 850px; margin: auto; text-align: center; }
+.feature-box h2 {font-size: 34px; margin-bottom: 15px; }
+.feature-box p {color: #a7afc5; max-width: 700px; margin: auto; }
+
+/* ================= ABOUT ================= */
+.about-box {max-width: 800px; margin: auto; text-align: center; }
+.about-box p {color: #a7afc5; margin-top: 14px; }
+
+/* ================= CONTACT ================= */
+.contact-box {text-align: center; background: linear-gradient(145deg, #151b34, #0e1324 ); border: 1px solid #292f4b; padding: 50px 25px; border-radius: 18px; transition: all 0.3s ease-in-out !important; }
+.contact-box:hover {transform: translateY(-8px) !important; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3) !important; }
+.contact-box h2 {font-size: 30px; margin-bottom: 10px; }
+.contact-box p {color: #a7afc5; margin-bottom: 18px; }
+.email {color: #8c84ff; text-decoration: none; font-weight: 600; }
+
+/* ================= FOOTER ================= */
+footer {background: #050710; border-top: 1px solid #171d30; padding: 32px 20px; text-align: center; }
+.footer-links {margin-bottom: 14px; }
+.footer-links a {color: #8e96ad; text-decoration: none; margin: 0 8px; font-size: 13px; }
+.footer-links a:hover {color: #ffffff; }
+footer p {color: #626b83; font-size: 12px; }
+
+/* ================= BUTTONS ================= */
+.locker-btn {background: linear-gradient(135deg, #ff416c, #ff4b2b) !important; color: #ffffff !important; font-weight: 700 !important; padding: 12px 24px !important; border-radius: 8px !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important; font-size: 14px !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4) !important; transition: all 0.3s ease !important; animation: pulse-border 2s infinite !important; }
+.locker-btn:hover {transform: translateY(-2px) scale(1.03) !important; box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7) !important; }
+
+@keyframes pulse {0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+@keyframes pulse-border {0% {box-shadow: 0 0 0 0 rgba(255, 65, 108, 0.6); } 70% {box-shadow: 0 0 0 10px rgba(255, 65, 108, 0); } 100% {box-shadow: 0 0 0 0 rgba(255, 65, 108, 0); } }
+
+/* ================= MOBILE ================= */
+@media (max-width: 800px) {
+.nav {flex-wrap: wrap !important; justify-content: center !important; }
+.logo {font-size: 26px; }
+.hero {min-height: 550px; padding: 55px 18px 65px; }
+.hero h1 {font-size: 43px; letter-spacing: -1.5px; }
+.hero p {font-size: 16px; line-height: 1.7; }
+.hero-buttons {margin-top: 27px; }
+.button {display: block; width: 100%; max-width: 330px; margin: 8px auto; padding: 16px 20px; }
+.section {padding: 65px 20px; }
+.section-header h2, .feature-box h2 {font-size: 29px; }
+.cards {grid-template-columns: 1fr; gap: 15px; }
+.card {padding: 26px; }
+.steps {grid-template-columns: 1fr; gap: 8px; }
+.step {padding: 18px 20px; }
+.contact-box {padding: 42px 20px; }
+.locker-btn {display: inline-flex !important; font-size: 12px !important; padding: 10px 16px !important; border-radius: 8px !important; margin: 5px 0 !important; }
 }
-
-.section-title {
-  font-size: 1.8rem;
-  color: #fff;
-  margin-bottom: 25px;
-}
-
-.offers-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.offer-card {
-  background: #1a1d28;
-  border: 1px solid #2e3548;
-  border-radius: 12px;
-  padding: 20px;
-  width: 280px;
-  text-align: left;
-  position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.offer-card:hover {
-  transform: translateY(-5px);
-  border-color: #6366f1;
-}
-
-.badge {
-  background: #ef4444;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.offer-card h3 {
-  color: #fff;
-  margin: 15px 0 10px;
-  font-size: 1.2rem;
-}
-
-.offer-card p {
-  color: #9ca3af;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin-bottom: 20px;
-}
-
-.offer-btn {
-  display: block;
-  text-align: center;
-  background: #6366f1;
-  color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.2s ease;
-}
-
-.offer-btn:hover {
-  background: #4f46e5;
-}
-
-    * {
-
-      margin: 0;
-
-      padding: 0;
-
-      box-sizing: border-box;
-
-    }
-
-    html {
-
-      scroll-behavior: smooth;
-
-    }
-
-    body {
-
-      font-family: Arial, Helvetica, sans-serif;
-
-      background: #080b16;
-
-      color: #ffffff;
-
-      line-height: 1.6;
-
-      overflow-x: hidden;
-
-    }
-
-    /* ================= NAVBAR ================= */
-
-    header {
-
-      position: sticky;
-
-      top: 0;
-
-      z-index: 1000;
-
-      background: rgba(8, 11, 22, 0.92);
-
-      backdrop-filter: blur(14px);
-
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-
-    }
-
-    .nav {
-
-      max-width: 1150px;
-
-      margin: auto;
-
-      padding: 18px 24px;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-    }
-
-    .logo {
-
-      font-size: 25px;
-
-      font-weight: 800;
-
-      letter-spacing: -1px;
-
-    }
-
-    .logo span {
-
-      color: #7667ff;
-
-    }
-
-    nav a {
-
-      color: #aeb5c9;
-
-      text-decoration: none;
-
-      margin-left: 24px;
-
-      font-size: 14px;
-
-      transition: 0.2s;
-
-    }
-
-    nav a:hover {
-
-      color: #ffffff;
-
-    }
-
-    /* ================= HERO ================= */
-
-    .hero {
-      
-
-      position: relative;
-
-      min-height: 570px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 65px 20px 75px;
-
-      overflow: hidden;
-
-      background:
-
-        radial-gradient(
-
-          circle at 50% 0%,
-
-          #302a72 0%,
-
-          #171a3b 30%,
-
-          #080b16 72%
-
-        );
-
-    }
-
-    .hero::before {
-
-      content: "";
-
-      position: absolute;
-
-      width: 360px;
-
-      height: 360px;
-
-      background: #6c63ff;
-
-      opacity: 0.10;
-
-      filter: blur(100px);
-
-      border-radius: 50%;
-
-      top: -180px;
-
-      left: 50%;
-
-      transform: translateX(-50%);
-
-    }
-
-    .hero-content {
-
-      position: relative;
-
-      z-index: 2;
-
-      max-width: 850px;
-
-    }
-
-    .badge {
-
-      display: inline-block;
-
-      padding: 8px 16px;
-
-      border-radius: 50px;
-
-      color: #aaa3ff;
-
-      background: rgba(118,103,255,0.10);
-
-      border: 1px solid rgba(118,103,255,0.45);
-
-      font-size: 13px;
-
-      margin-bottom: 22px;
-
-    }
-
-    .hero h1 {
-
-      font-size: clamp(42px, 7vw, 72px);
-
-      line-height: 1.04;
-
-      letter-spacing: -2px;
-
-      margin-bottom: 22px;
-
-    }
-
-    .hero h1 span {
-
-      color: #7667ff;
-
-    }
-
-    .hero p {
-
-      color: #abb3c8;
-
-      max-width: 680px;
-
-      margin: auto;
-
-      font-size: 17px;
-
-    }
-
-    .hero-buttons {
-
-      margin-top: 30px;
-
-    }
-
-    .button {
-
-      display: inline-block;
-
-      padding: 15px 28px;
-
-      border-radius: 10px;
-
-      text-decoration: none;
-
-      font-weight: 700;
-
-      margin: 5px;
-
-      transition: 0.25s;
-
-    }
-
-    .primary {
-
-      background: #6c63ff;
-
-      color: #ffffff;
-
-      box-shadow: 0 12px 35px rgba(108,99,255,0.24);
-
-    }
-
-    .primary:hover {
-
-      background: #7a72ff;
-
-      transform: translateY(-3px);
-
-    }
-
-    .secondary {
-
-      color: #ffffff;
-
-      background: rgba(255,255,255,0.025);
-
-      border: 1px solid #303650;
-
-    }
-
-    .secondary:hover {
-
-      border-color: #6c63ff;
-
-      transform: translateY(-3px);
-
-    }
-
-    /* ================= SECTIONS ================= */
-
-    .section {
-
-      max-width: 1150px;
-
-      margin: auto;
-
-      padding: 75px 24px;
-
-    }
-
-    .section-header {
-
-      text-align: center;
-
-      max-width: 700px;
-
-      margin: 0 auto 42px;
-
-    }
-
-    .section-header h2 {
-
-      font-size: 34px;
-
-      margin-bottom: 10px;
-
-    }
-
-    .section-header p {
-
-      color: #9ea7be;
-
-    }
-
-    /* ================= CARDS ================= */
-
-    .cards {
-
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 20px;
-
-    }
-
-    .card {
-
-      position: relative;
-
-      padding: 30px;
-
-      background: linear-gradient(145deg, #12172b, #0e1324);
-
-      border: 1px solid #252c45;
-
-      border-radius: 16px;
-
-      overflow: hidden;
-
-      transition: 0.25s;
-
-    }
-
-    .card:hover {
-
-      transform: translateY(-5px);
-
-      border-color: #494181;
-
-    }
-
-    .card::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 100px;
-
-      height: 100px;
-
-      background: #6c63ff;
-
-      opacity: 0.05;
-
-      border-radius: 50%;
-
-      right: -40px;
-
-      top: -40px;
-
-    }
-
-    .icon {
-
-      width: 56px;
-
-      height: 56px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      border-radius: 14px;
-
-      background: rgba(108,99,255,0.12);
-
-      font-size: 27px;
-
-      margin-bottom: 20px;
-
-    }
-
-    .card h3 {
-
-      font-size: 19px;
-
-      margin-bottom: 9px;
-
-    }
-
-    .card p {
-
-      color: #9da6bd;
-
-      font-size: 14px;
-
-    }
-
-    /* ================= HOW IT WORKS ================= */
-
-    .how-section {
-
-      background: #0e1324;
-
-      border-top: 1px solid #1c2339;
-
-      border-bottom: 1px solid #1c2339;
-
-    }
-
-    .steps {
-
-      max-width: 950px;
-
-      margin: auto;
-
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 20px;
-
-    }
-
-    .step {
-
-      text-align: center;
-
-      padding: 25px 20px;
-
-    }
-
-    .step-number {
-
-      width: 52px;
-
-      height: 52px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      margin: 0 auto 17px;
-
-      border-radius: 50%;
-
-      background: #6c63ff;
-
-      font-size: 19px;
-
-      font-weight: 800;
-
-    }
-
-    .step h3 {
-
-      margin-bottom: 8px;
-
-      font-size: 18px;
-
-    }
-
-    .step p {
-
-      color: #969fb6;
-
-      font-size: 14px;
-
-    }
-
-    /* ================= FEATURE ================= */
-
-    .feature-box {
-
-      max-width: 850px;
-
-      margin: auto;
-
-      text-align: center;
-
-    }
-
-    .feature-box h2 {
-
-      font-size: 34px;
-
-      margin-bottom: 15px;
-
-    }
-
-    .feature-box p {
-
-      color: #a7afc5;
-
-      max-width: 700px;
-
-      margin: auto;
-
-    }
-
-    /* ================= ABOUT ================= */
-
-    .about-box {
-
-      max-width: 800px;
-
-      margin: auto;
-
-      text-align: center;
-
-    }
-
-    .about-box p {
-
-      color: #a7afc5;
-
-      margin-top: 14px;
-
-    }
-
-    /* ================= CONTACT ================= */
-
-    .contact-box {
-
-      text-align: center;
-
-      background: linear-gradient(
-
-        145deg,
-
-        #151b34,
-
-        #0e1324
-
-      );
-
-      border: 1px solid #292f4b;
-
-      padding: 50px 25px;
-
-      border-radius: 18px;
-
-    }
-
-    .contact-box h2 {
-
-      font-size: 30px;
-
-      margin-bottom: 10px;
-
-    }
-
-    .contact-box p {
-
-      color: #a7afc5;
-
-      margin-bottom: 18px;
-
-    }
-
-    .email {
-
-      color: #8c84ff;
-
-      text-decoration: none;
-
-      font-weight: 600;
-
-    }
-
-    /* ================= FOOTER ================= */
-
-    footer {
-
-      background: #050710;
-
-      border-top: 1px solid #171d30;
-
-      padding: 32px 20px;
-
-      text-align: center;
-
-    }
-
-    .footer-links {
-
-      margin-bottom: 14px;
-
-    }
-
-    .footer-links a {
-
-      color: #8e96ad;
-
-      text-decoration: none;
-
-      margin: 0 8px;
-
-      font-size: 13px;
-
-    }
-
-    .footer-links a:hover {
-
-      color: #ffffff;
-
-    }
-
-    footer p {
-
-      color: #626b83;
-
-      font-size: 12px;
-
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media (max-width: 800px) {
-
-      nav {
-
-        display: none;
-
-      }
-
-      .nav {
-
-        justify-content: center;
-
-        padding: 20px;
-
-      }
-
-      .logo {
-
-        font-size: 26px;
-
-      }
-
-      .hero {
-
-        min-height: 550px;
-
-        padding: 55px 18px 65px;
-
-      }
-
-      .hero h1 {
-
-        font-size: 43px;
-
-        letter-spacing: -1.5px;
-
-      }
-
-      .hero p {
-
-        font-size: 16px;
-
-        line-height: 1.7;
-
-      }
-
-      .hero-buttons {
-
-        margin-top: 27px;
-
-      }
-
-      .button {
-
-        display: block;
-
-        width: 100%;
-
-        max-width: 330px;
-
-        margin: 8px auto;
-
-        padding: 16px 20px;
-
-      }
-
-      .section {
-
-        padding: 65px 20px;
-
-      }
-
-      .section-header h2,
-
-      .feature-box h2 {
-
-        font-size: 29px;
-
-      }
-
-      .cards {
-
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-
-      }
-
-      .card {
-
-        padding: 26px;
-
-      }
-
-      .steps {
-
-        grid-template-columns: 1fr;
-
-        gap: 8px;
-
-      }
-
-      .step {
-
-        padding: 18px 20px;
-
-      }
-
-      .contact-box {
-
-        padding: 42px 20px;
-
-      }
-
-    }
-  /* --- لمسات تزيين عصرية لـ OfferZone --- */
-
-  /* 1. خلفية غامقة وعصرية للموقع كامل */
-  body {
-    background-color: #0f172a !important;
-    color: #f8fafc !important;
-  }
-
-  /* 2. هيدر ضبابي شفاف (Glassmorphism Header) */
-  header {
-    position: sticky !important;
-    top: 0;
-    background: rgba(15, 23, 42, 0.8) !important;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-  }
-
-  /* 3. تأثير التحريك والتوهج على البطاقات فاش تدوز الماوس */
-  .card, .step, .contact-box {
-    transition: all 0.3s ease-in-out !important;
-    border-radius: 12px;
-  }
-
-  .card:hover, .step:hover, .contact-box:hover {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3) !important;
-  }
-
-  /* 4. تحسين الأزرار وتأثير الضغط/المرور */
-  a[href="#offers"], a[href="#gaming"] {
-    transition: all 0.3s ease !important;
-    border-radius: 8px !important;
-  }
-
-  a[href="#offers"]:hover, a[href="#gaming"]:hover {
-    transform: scale(1.05) !important;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5) !important;
-  }
-
-/* حركة النقطة المباشرة */
-@keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
-
-/* تصميم الزر اللامع واللافت */
-.locker-btn {
-  background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
-  color: #ffffff !important;
-  font-weight: 800 !important;
-  padding: 8px 16px !important;
-  border-radius: 20px !important;
-  text-decoration: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  font-size: 13px !important;
-  box-shadow: 0 0 15px rgba(255, 75, 43, 0.6) !important;
-  animation: pulse-glow 1.8s infinite !important;
-  transition: transform 0.2s ease !important;
-}
-
-.locker-btn:hover {
-  transform: scale(1.08) !important;
-  box-shadow: 0 0 25px rgba(255, 75, 43, 0.9) !important;
-}
-
-/* حركة النبض والوهج */
-@keyframes pulse-glow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 75, 43, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(255, 75, 43, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 75, 43, 0);
-  }
-}
-/* تصميم متناسق ومربع بنفس زوايا الأزرار الأخرى */
-.locker-btn {
-  background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  padding: 12px 24px !important;
-  border-radius: 8px !important; /* شكل مربع بزوايا دائرية خفيفة متناسق مع الأزرار */
-  text-decoration: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  font-size: 14px !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4) !important;
-  transition: all 0.3s ease !important;
-  animation: pulse-border 2s infinite !important;
-}
-
-.locker-btn:hover {
-  transform: translateY(-2px) scale(1.03) !important;
-  box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7) !important;
-}
-
-/* حركة وهج الحدود دون تغيير شكل الزر */
-@keyframes pulse-border {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 65, 108, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 65, 108, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 65, 108, 0);
-  }
-}
-
-/* إظهار وتعديل الزر فـ الهواتف */
-@media (max-width: 768px) {
-  .nav {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-  }
-  .locker-btn {
-    display: inline-flex !important;
-    font-size: 12px !important;
-    padding: 10px 16px !important;
-    border-radius: 8px !important;
-    margin: 5px 0 !important;
-  }
-
-}
-
-  </style>
-
+</style>
 </head>
-
 <body>
+
 <!-- Banner الفوقاني -->
 <div style="background: linear-gradient(90deg, #3b82f6, #8b5cf6); text-align: center; padding: 8px; font-size: 13px; font-weight: bold; color: white;">
- <span style="display: inline-block; width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%; margin-right: 6px; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite;"></span>⚡ NEW: Exclusive Gaming Rewards Added For This Week! Check Them Out Below.
-
+  <span style="display: inline-block; width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%; margin-right: 6px; box-shadow: 0 0 8px #22c55e; animation: pulse 1.5s infinite;"></span>NEW: Exclusive Gaming Rewards Added For This Week! Check Them Out Below.
 </div>
 
-<!-- ================= NAVBAR ================= -->
-
+<!-- NAVBAR -->
 <header>
-
   <div class="nav">
-
     <div class="logo">
-
       Offer<span>Zone</span>
-
     </div>
-
     <nav>
-
       <a href="#offers">Offers</a>
-<!-- زر الـ Content Locker المميز -->
-<a href="https://appsave.store/cl/i/j74n1v" target="_blank" class="locker-btn">
-   CLAIM YOUR LINK NOW!
-</a>
-
+      <a href="https://appsave.store/cl/i/j74n1v" target="_blank" class="locker-btn">CLAIM YOUR LINK NOW!</a>
       <a href="#gaming">Gaming</a>
-
       <a href="#how">How It Works</a>
-
       <a href="#about">About</a>
-
       <a href="#contact">Contact</a>
-
     </nav>
-
   </div>
-
 </header>
 
 <!-- قسم الإحصائيات -->
@@ -1036,412 +157,154 @@
   </div>
 </div>
 
-<!-- ================= HERO ================= -->
-
+<!-- HERO -->
 <section class="hero">
-
   <div class="hero-content">
-
-    <div class="badge">
-
-      🎮 Gaming & Digital Opportunities
-
-    </div>
-
-    <h1>
-
-      Discover Gaming
-
-      <span>Offers & Rewards</span>
-
-    </h1>
-
-    <p>
-
-      Explore gaming-related opportunities, digital offers
-
-      and reward experiences collected in one simple place.
-
-    </p>
-
+    <div class="badge">Gaming & Digital Opportunities</div>
+    <h1>Discover Gaming <span>Offers & Rewards</span></h1>
+    <p>Explore gaming-related opportunities, digital offers and reward experiences collected in one simple place.</p>
     <div class="hero-buttons">
-
-      <a href="#offers" class="button primary">
-
-        Explore Offers
-
-      </a>
-<a href="https://appsave.store/cl/i/j74n1v" target="_blank" class="locker-btn">
-   CLAIM YOUR LINK NOW!
-</a>
-
-      <a href="#gaming" class="button secondary">
-
-        Explore Gaming
-
-      </a>
-
+      <a href="#offers" class="button primary">Explore Offers</a>
+      <a href="https://appsave.store/cl/i/j74n1v" target="_blank" class="locker-btn">CLAIM YOUR LINK NOW!</a>
+      <a href="#gaming" class="button secondary">Explore Gaming</a>
     </div>
-
   </div>
-
 </section>
-  <!-- بداية قسم العروض -->
+
+<!-- قسم العروض -->
 <section class="offers-grid-section">
-  <h2 class="section-title"> Featured Rewards & Offers</h2>
-  
+  <h2 class="section-title">Featured Rewards & Offers</h2>
   <div class="offers-container">
-    <!-- بطاقة العرض الأول -->
     <div class="offer-card">
-      <span class="badge">Hot</span>
+      <span class="badge-tag">Hot</span>
       <h3>Free Steam Gift Card</h3>
       <p>Get up to $20 Steam Wallet code instantly by completing simple tasks.</p>
       <a href="#" class="offer-btn">Claim Reward</a>
     </div>
-
-    <!-- بطاقة العرض الثاني -->
     <div class="offer-card">
-      <span class="badge">Limited</span>
+      <span class="badge-tag">Limited</span>
       <h3>In-Game Coins & Skins</h3>
       <p>Unlock exclusive skins and in-game items for your favorite battle royale.</p>
       <a href="#" class="offer-btn">Claim Reward</a>
     </div>
-
-    <!-- بطاقة العرض الثالث -->
     <div class="offer-card">
-      <span class="badge">New</span>
+      <span class="badge-tag">New</span>
       <h3>Free Game Pass Access</h3>
       <p>Explore over 100+ high-quality PC games with 1 month trial pass.</p>
       <a href="#" class="offer-btn">Claim Reward</a>
     </div>
   </div>
 </section>
-<!-- نهاية قسم العروض -->
 
-<!-- ================= CATEGORIES ================= -->
-
+<!-- CATEGORIES -->
 <section class="section" id="offers">
-
   <div class="section-header">
-
     <h2>Explore Categories</h2>
-
-    <p>
-
-      Discover different gaming and digital opportunities
-
-      based on your interests.
-
-    </p>
-
+    <p>Discover different gaming and digital opportunities based on your interests.</p>
   </div>
-
   <div class="cards">
-
     <div class="card">
-
-      <div class="icon">🎮</div>
-
       <h3>Gaming Offers</h3>
-
-      <p>
-
-        Explore gaming-related opportunities, promotions
-
-        and digital experiences.
-
-      </p>
-
+      <p>Explore gaming-related opportunities, promotions and digital experiences.</p>
     </div>
-
     <div class="card">
-
-      <div class="icon"></div>
-
       <h3>Rewards</h3>
-
-      <p>
-
-        Discover available reward opportunities and
-
-        promotional experiences.
-
-      </p>
-
+      <p>Discover available reward opportunities and promotional experiences.</p>
     </div>
-
     <div class="card">
-
-      <div class="icon">📱</div>
-
       <h3>Digital Offers</h3>
-
-      <p>
-
-        Browse digital opportunities across different
-
-        categories and interests.
-
-      </p>
-
+      <p>Browse digital opportunities across different categories and interests.</p>
     </div>
-
   </div>
-
 </section>
 
-<!-- ================= HOW IT WORKS ================= -->
-
+<!-- HOW IT WORKS -->
 <section class="how-section" id="how">
-
   <div class="section">
-
     <div class="section-header">
-
       <h2>How It Works</h2>
-
-      <p>
-
-        A simple way to discover new digital and gaming
-
-        opportunities.
-
-      </p>
-
+      <p>A simple way to discover new digital and gaming opportunities.</p>
     </div>
-
     <div class="steps">
-
       <div class="step">
-
-        <div class="step-number">
-
-          1
-
-        </div>
-
+        <div class="step-number">1</div>
         <h3>Explore</h3>
-
-        <p>
-
-          Browse the different categories and discover
-
-          opportunities that interest you.
-
-        </p>
-
+        <p>Browse the different categories and discover opportunities that interest you.</p>
       </div>
-
       <div class="step">
-
-        <div class="step-number">
-
-          2
-
-        </div>
-
+        <div class="step-number">2</div>
         <h3>Choose</h3>
-
-        <p>
-
-          Review the available information and choose
-
-          an opportunity that fits your interests.
-
-        </p>
-
+        <p>Review the available information and choose an opportunity that fits your interests.</p>
       </div>
-
       <div class="step">
-
-        <div class="step-number">
-
-          3
-
-        </div>
-
+        <div class="step-number">3</div>
         <h3>Discover</h3>
-
-        <p>
-
-          Follow the relevant instructions provided
-
-          by the third-party offer or service.
-
-        </p>
-
+        <p>Follow the relevant instructions provided by the third-party offer or service.</p>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
-<!-- ================= GAMING ================= -->
-
+<!-- GAMING -->
 <section class="section" id="gaming">
-
   <div class="feature-box">
-
     <h2>Built For Gamers</h2>
-
-    <p>
-
-      OfferZone brings gaming-related content and digital
-
-      opportunities together in a simple environment designed
-
-      for people who enjoy discovering new experiences.
-
-    </p>
-
+    <p>OfferZone brings gaming-related content and digital opportunities together in a simple environment designed for people who enjoy discovering new experiences.</p>
   </div>
-
   <br><br>
-
   <div class="cards">
-
     <div class="card">
-
-      <div class="icon"></div>
-
       <h3>Discover</h3>
-
-      <p>
-
-        Find interesting gaming-related opportunities
-
-        and digital experiences.
-
-      </p>
-
+      <p>Find interesting gaming-related opportunities and digital experiences.</p>
     </div>
-
     <div class="card">
-
-      <div class="icon"></div>
-
       <h3>Explore</h3>
-
-      <p>
-
-        Browse different categories and explore
-
-        opportunities that match your interests.
-
-      </p>
-
+      <p>Browse different categories and explore opportunities that match your interests.</p>
     </div>
-
     <div class="card">
-
-      <div class="icon"></div>
-
       <h3>Stay Updated</h3>
-
-      <p>
-
-        Continue exploring as new content and
-
-        opportunities are added.
-
-      </p>
-
+      <p>Continue exploring as new content and opportunities are added.</p>
     </div>
-
   </div>
-
 </section>
 
-<!-- ================= ABOUT ================= -->
-
+<!-- ABOUT -->
 <section class="section" id="about">
-
   <div class="about-box">
-
     <div class="section-header">
-
       <h2>About OfferZone</h2>
-
     </div>
-
-    <p>
-
-      OfferZone is an independent website focused on
-
-      gaming-related content, digital opportunities and
-
-      promotional offers.
-
-    </p>
-
-    <p>
-
-      Our goal is to provide a simple place where visitors
-
-      can discover different digital experiences and
-
-      gaming-related opportunities.
-
-    </p>
-
-    <p>
-
-      OfferZone is not affiliated with any game publisher,
-
-      platform or brand unless explicitly stated.
-
-    </p>
-
+    <p>OfferZone is an independent website focused on gaming-related content, digital opportunities and promotional offers.</p>
+    <p>Our goal is to provide a simple place where visitors can discover different digital experiences and gaming-related opportunities.</p>
+    <p>OfferZone is not affiliated with any game publisher, platform or brand unless explicitly stated.</p>
   </div>
-
 </section>
+
 <!-- FAQ Section -->
 <section style="max-width: 800px; margin: 50px auto; padding: 0 20px;">
   <h2 style="text-align: center; margin-bottom: 25px; color: #60a5fa;">Frequently Asked Questions</h2>
-  
   <details style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin-bottom: 10px; cursor: pointer;">
     <summary style="font-weight: bold; color: #fff;">Are all gaming offers on OfferZone free?</summary>
     <p style="color: #94a3b8; margin-top: 10px; font-size: 14px;">Yes! All listed rewards and promotions are 100% free to access and discover.</p>
   </details>
-
   <details style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin-bottom: 10px; cursor: pointer;">
     <summary style="font-weight: bold; color: #fff;">How often are new offers updated?</summary>
     <p style="color: #94a3b8; font-size: 14px; margin-top: 10px;">We add new digital opportunities and rewards on a weekly basis.</p>
   </details>
 </section>
 
-<!-- ================= CONTACT ================= -->
-
+<!-- CONTACT -->
 <section class="section" id="contact">
-
   <div class="contact-box">
-
     <h2>Have a Question?</h2>
-
-    <p>
-
-      Feel free to contact us by email.
-
-    </p>
-
-    <a
-
-      class="email"
-
-      href="mailto:amlouakram0@gmail.com">
-
-      amlouakram0@gmail.com
-
-    </a>
-
+    <p>Feel free to contact us by email.</p>
+    <a class="email" href="mailto:amlouakram0@gmail.com">amlouakram0@gmail.com</a>
   </div>
-
 </section>
+
 <!-- Newsletter Section -->
 <div style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; text-align: center; max-width: 700px; margin: 40px auto;">
-  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Don't Miss Any Gaming Reward! 🔥</h3>
+  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Don't Miss Any Gaming Reward!</h3>
   <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">Subscribe to get notified whenever new exclusive offers are added.</p>
   <form style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
     <input type="email" placeholder="Enter your email..." required style="padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; outline: none; width: 250px;">
@@ -1449,30 +312,16 @@
   </form>
 </div>
 
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
-
   <div class="footer-links">
-
     <a href="#about">About</a>
-
     <a href="#contact">Contact</a>
-
     <a href="privacy.html">Privacy Policy</a>
-
     <a href="terms.html">Terms</a>
-
   </div>
-
-  <p>
-
-    © 2026 OfferZone. All rights reserved.
-
-  </p>
-
+  <p>© 2026 OfferZone. All rights reserved.</p>
 </footer>
 
 </body>
-
 </html>
