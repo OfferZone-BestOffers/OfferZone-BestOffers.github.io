@@ -11,8 +11,81 @@
   <title>OfferZone — Gaming Offers & Rewards</title>
 
   <meta name="description" content="Discover gaming-related opportunities, digital offers and reward experiences at OfferZone.">
-
+  
   <style>
+    /* تنسيق قسم العروض */
+.offers-grid-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.offers-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.offer-card {
+  background: #1a1d28;
+  border: 1px solid #2e3548;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  border-color: #6366f1;
+}
+
+.badge {
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.offer-card h3 {
+  color: #fff;
+  margin: 15px 0 10px;
+  font-size: 1.2rem;
+}
+
+.offer-card p {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.offer-btn {
+  display: block;
+  text-align: center;
+  background: #6366f1;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.offer-btn:hover {
+  background: #4f46e5;
+}
 
     * {
 
@@ -117,6 +190,7 @@
     /* ================= HERO ================= */
 
     .hero {
+      
 
       position: relative;
 
@@ -1012,6 +1086,37 @@
   </div>
 
 </section>
+  <!-- بداية قسم العروض -->
+<section class="offers-grid-section">
+  <h2 class="section-title">🔥 Featured Rewards & Offers</h2>
+  
+  <div class="offers-container">
+    <!-- بطاقة العرض الأول -->
+    <div class="offer-card">
+      <span class="badge">Hot</span>
+      <h3>Free Steam Gift Card</h3>
+      <p>Get up to $20 Steam Wallet code instantly by completing simple tasks.</p>
+      <a href="#" class="offer-btn">Claim Reward</a>
+    </div>
+
+    <!-- بطاقة العرض الثاني -->
+    <div class="offer-card">
+      <span class="badge">Limited</span>
+      <h3>In-Game Coins & Skins</h3>
+      <p>Unlock exclusive skins and in-game items for your favorite battle royale.</p>
+      <a href="#" class="offer-btn">Claim Reward</a>
+    </div>
+
+    <!-- بطاقة العرض الثالث -->
+    <div class="offer-card">
+      <span class="badge">New</span>
+      <h3>Free Game Pass Access</h3>
+      <p>Explore over 100+ high-quality PC games with 1 month trial pass.</p>
+      <a href="#" class="offer-btn">Claim Reward</a>
+    </div>
+  </div>
+</section>
+<!-- نهاية قسم العروض -->
 
 <!-- ================= CATEGORIES ================= -->
 
