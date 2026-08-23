@@ -1,318 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OfferZone — Exclusive Gaming Rewards & Gift Cards</title>
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OfferZone - Claim Your Exclusive Rewards</title>
+  
+  <meta property="og:title" content="OfferZone - Free Gift Codes">
+  <meta property="og:description" content="Claim your free rewards and gift codes now!">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=OfferZone">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: #0d0e15; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; overflow-x: hidden; position: relative; }
     
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #0b0e14; color: #fff; line-height: 1.6; overflow-x: hidden; }
+    /* Background Canvas */
+    #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    
+    /* Content Wrapper */
+    .content-layer { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh; justify-content: space-between; }
 
-        /* Top Bar Urgency */
-        .top-banner { background: linear-gradient(90deg, #ff416c, #ff4b2b); text-align: center; padding: 8px 15px; font-size: 0.85rem; font-weight: 600; }
+    /* Top Bar */
+    .top-banner { background: #1a1c29; border-bottom: 1px solid #2d3142; padding: 8px; text-align: center; font-size: 13px; color: #a0a5ba; }
+    .top-banner span { color: #ff4757; font-weight: bold; }
 
-        /* Header Clean */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.6rem; font-weight: 900; color: #fff; text-transform: uppercase; }
-        .logo span { color: #8a2be2; }
-        .live-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
-        .dot { width: 8px; height: 8px; background: #00ff66; border-radius: 50%; box-shadow: 0 0 10px #00ff66; }
+    /* Nav */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(26, 28, 41, 0.8); backdrop-filter: blur(8px); border-bottom: 1px solid #2d3142; }
+    .logo { font-size: 22px; font-weight: bold; color: #00d2d3; display: flex; align-items: center; gap: 8px; }
+    
+    /* Hero */
+    .hero { text-align: center; padding: 40px 20px 20px 20px; max-width: 800px; margin: 0 auto; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    .hero p { color: #8f94a6; font-size: 1rem; }
 
-        /* Hero Section */
-        .hero { text-align: center; padding: 25px 15px 15px; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; background: linear-gradient(180deg, #fff, #a5a5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: #a0a0a0; font-size: 0.88rem; margin-bottom: 15px; }
+    /* Counter Badge */
+    .claim-badge { display: inline-block; background: rgba(255, 71, 87, 0.15); color: #ff4757; border: 1px solid #ff4757; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 15px; }
 
-        .timer-box { display: inline-flex; gap: 10px; background: rgba(138, 43, 226, 0.15); border: 1px solid rgba(138, 43, 226, 0.4); padding: 6px 15px; border-radius: 12px; margin-bottom: 25px; font-size: 0.85rem; font-weight: bold; }
-        .timer-box span { color: #00ff66; }
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 30px 20px; max-width: 900px; margin: 0 auto; width: 100%; }
+    .card { background: #1a1c29; border: 1px solid #2d3142; border-radius: 12px; padding: 25px 20px; text-align: center; transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); border-color: #00d2d3; box-shadow: 0 8px 20px rgba(0, 210, 211, 0.15); }
+    .card i { font-size: 38px; color: #00d2d3; margin-bottom: 15px; }
+    .card h3 { font-size: 18px; margin-bottom: 15px; }
+    
+    .btn { background: #00d2d3; color: #0d0e15; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.2s; }
+    .btn:hover { background: #00b5b5; }
 
-        /* Container & Cards */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 15px 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        
-        .card { background: #141824; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 20px; text-align: center; position: relative; transition: transform 0.3s; }
-        .badge { position: absolute; top: 12px; right: 12px; background: #ff4757; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; }
-        .card-icon { font-size: 2.8rem; color: #8a2be2; margin-bottom: 12px; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 6px; }
-        .card p { color: #8c93a4; font-size: 0.82rem; margin-bottom: 12px; }
-        
-        /* Stock Bar */
-        .stock-wrapper { margin-bottom: 15px; text-align: left; }
-        .stock-label { font-size: 0.72rem; color: #ff4757; font-weight: bold; display: flex; justify-content: space-between; margin-bottom: 4px; }
-        .stock-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-        .stock-fill { height: 100%; background: #ff4757; border-radius: 10px; }
+    /* Modal */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center; }
+    .modal-box { background: #1a1c29; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; border: 1px solid #2d3142; position: relative; }
+    .close-btn { position: absolute; top: 15px; right: 15px; color: #8f94a6; cursor: pointer; font-size: 18px; }
+    
+    .input-group { margin: 15px 0; text-align: left; }
+    .input-group label { display: block; margin-bottom: 5px; font-size: 12px; color: #8f94a6; }
+    .input-group input, .input-group select { width: 100%; padding: 10px; background: #0d0e15; border: 1px solid #2d3142; color: #fff; border-radius: 6px; outline: none; }
 
-        .btn-cpa { display: block; width: 100%; padding: 13px; background: linear-gradient(45deg, #8a2be2, #4a00e0); color: #fff; font-weight: 700; border: none; border-radius: 10px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); cursor: pointer; transition: 0.2s; }
-        .btn-cpa:active { transform: scale(0.98); }
+    /* Progress Bar */
+    .progress-wrapper { display: none; margin-top: 20px; }
+    .progress-bg { background: #0d0e15; border-radius: 10px; height: 12px; overflow: hidden; border: 1px solid #2d3142; }
+    .progress-fill { width: 0%; height: 100%; background: #00d2d3; transition: width 0.3s ease; }
+    .status-text { font-size: 12px; color: #00d2d3; margin-top: 10px; font-family: monospace; }
 
-        /* Mobile-Optimized Comments Section */
-        .comments-section { margin-top: 40px; background: #141824; padding: 20px 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
-        .comments-header { font-size: 1.05rem; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        
-        .comment-item { display: flex; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px; align-items: flex-start; }
-        .avatar { width: 38px; height: 38px; min-width: 38px; border-radius: 50%; background: #8a2be2; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.95rem; }
-        .comment-content { flex: 1; overflow: hidden; }
-        .comment-content h5 { font-size: 0.85rem; margin-bottom: 2px; color: #fff; }
-        .comment-content p { font-size: 0.8rem; color: #b0b5c0; margin-bottom: 4px; word-break: break-word; }
-        .comment-meta { font-size: 0.7rem; color: #6c757d; display: flex; gap: 10px; align-items: center; }
-        .comment-meta span.verified { color: #00ff66; display: flex; align-items: center; gap: 3px; }
-
-        /* Trust Badges Bar */
-        .trust-badges { display: flex; justify-content: center; gap: 20px; margin-top: 30px; font-size: 0.75rem; color: #8c93a4; flex-wrap: wrap; }
-        .trust-item { display: flex; align-items: center; gap: 6px; }
-
-        /* Generator Modal Popup */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; align-items: center; justify-content: center; padding: 15px; }
-        .modal-box { background: #141824; border: 1px solid #8a2be2; border-radius: 16px; max-width: 420px; width: 100%; padding: 25px 20px; text-align: center; box-shadow: 0 0 30px rgba(138,43,226,0.3); position: relative; }
-        .modal-box h3 { margin-bottom: 12px; font-size: 1.25rem; }
-        .input-group { margin-bottom: 12px; text-align: left; }
-        .input-group label { display: block; font-size: 0.75rem; color: #8c93a4; margin-bottom: 4px; }
-        .input-group input, .input-group select { width: 100%; padding: 10px; background: #0b0e14; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.85rem; outline: none; }
-        
-        .gen-status { display: none; margin-top: 12px; background: #0b0e14; padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #00ff66; text-align: left; font-family: monospace; }
-
-        /* Notification Popup Mobile Friendly */
-        .notification { position: fixed; bottom: 15px; left: 15px; right: 15px; max-width: 320px; background: #192030; border-left: 4px solid #00ff66; padding: 10px 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); animation: slideIn 0.5s ease-out; z-index: 1000; }
-        @keyframes slideIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
-
-        footer { text-align: center; padding: 25px 15px; border-top: 1px solid rgba(255,255,255,0.05); color: #6c757d; font-size: 0.75rem; }
-    </style>
+    /* Footer */
+    footer { background: #1a1c29; border-top: 1px solid #2d3142; text-align: center; padding: 20px; font-size: 13px; color: #8f94a6; }
+    footer a { color: #00d2d3; text-decoration: none; margin: 0 8px; }
+  </style>
 </head>
 <body>
 
+  <!-- Background Particle Animation Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="content-layer">
+    <!-- Top Announcement -->
     <div class="top-banner">
-        ⚡ SPECIAL PROMO: Complete 1 quick task to claim your code!
+      ⚡ System Status: <span style="color:#2ed573">ONLINE</span> | Remaining Keys Today: <span id="claims-left">18</span>
     </div>
 
-    <header>
-        <div class="logo">OFFER<span>ZONE</span></div>
-        <div class="live-status">
-            <span class="dot"></span> 1,420 Gamers Online
+    <!-- Navigation -->
+    <nav>
+      <div class="logo"><i class="fa-solid fa-gift"></i> OfferZone</div>
+    </nav>
+
+    <!-- Main Content -->
+    <div>
+      <div class="hero">
+        <h1>Select Your Reward</h1>
+        <p>Choose an item below to generate your unique redemption code.</p>
+        <div class="claim-badge">🔥 High Demand - Limited Availability</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-gamepad"></i>
+          <h3>Game Pass & Cards</h3>
+          <button class="btn" onclick="openModal('Game Pass')">Claim Reward</button>
         </div>
-    </header>
-
-    <section class="hero">
-        <h1>Select Your Free Gaming Reward</h1>
-        <p>Pick a card below, enter your ID, complete quick verification, and claim your code.</p>
-        
-        <div class="timer-box">
-            Offers Refresh In: <span id="timer">04:59</span>
+        <div class="card">
+          <i class="fa-solid fa-gem"></i>
+          <h3>In-Game Items</h3>
+          <button class="btn" onclick="openModal('In-Game Items')">Claim Reward</button>
         </div>
-    </section>
-
-    <div class="container">
-        <div class="grid">
-            <!-- Offer Card 1 -->
-            <div class="card">
-                <span class="badge">Popular</span>
-                <i class="fa-brands fa-steam card-icon"></i>
-                <h3>$20 Steam Gift Card</h3>
-                <p>Instant wallet funds for games & DLCs on PC.</p>
-                <div class="stock-wrapper">
-                    <div class="stock-label"><span>Stock Remaining:</span> <span>3 Left</span></div>
-                    <div class="stock-bar"><div class="stock-fill" style="width: 6%;"></div></div>
-                </div>
-                <button class="btn-cpa" onclick="openGenerator('$20 Steam Gift Card')"><i class="fa-solid fa-bolt"></i> Claim Code</button>
-            </div>
-
-            <!-- Offer Card 2 -->
-            <div class="card">
-                <span class="badge" style="background:#00d2d3; color:#000;">In Stock</span>
-                <i class="fa-solid fa-gamepad card-icon"></i>
-                <h3>Free Game Pass Access</h3>
-                <p>1 Month access to 100+ high-quality games.</p>
-                <div class="stock-wrapper">
-                    <div class="stock-label"><span>Stock Remaining:</span> <span>7 Left</span></div>
-                    <div class="stock-bar"><div class="stock-fill" style="width: 14%;"></div></div>
-                </div>
-                <button class="btn-cpa" onclick="openGenerator('Free Game Pass Access')"><i class="fa-solid fa-bolt"></i> Claim Pass</button>
-            </div>
-
-            <!-- Offer Card 3 -->
-            <div class="card">
-                <span class="badge" style="background:#ff9f43; color:#000;">Hot</span>
-                <i class="fa-solid fa-coins card-icon"></i>
-                <h3>In-Game Coins & Skins</h3>
-                <p>Battle Pass, V-Bucks & Diamonds pack generator.</p>
-                <div class="stock-wrapper">
-                    <div class="stock-label"><span>Stock Remaining:</span> <span>2 Left</span></div>
-                    <div class="stock-bar"><div class="stock-fill" style="width: 4%;"></div></div>
-                </div>
-                <button class="btn-cpa" onclick="openGenerator('In-Game Coins & Skins')"><i class="fa-solid fa-bolt"></i> Unlock Skins</button>
-            </div>
+        <div class="card">
+          <i class="fa-solid fa-wallet"></i>
+          <h3>Gift Balance</h3>
+          <button class="btn" onclick="openModal('Gift Balance')">Claim Reward</button>
         </div>
-
-        <!-- Humanized Comments Section -->
-        <div class="comments-section">
-            <div class="comments-header">
-                <i class="fa-solid fa-comments" style="color: #8a2be2;"></i> Community Feedback & Activity
-            </div>
-            
-            <div class="comment-item">
-                <div class="avatar" style="background:#3b5998;">J</div>
-                <div class="comment-content">
-                    <h5>Jake_Gamer92</h5>
-                    <p>yooo it actually worked!! completed the quick survey on my phone and got the $20 steam code right away 🔥</p>
-                    <div class="comment-meta">
-                        <span class="verified"><i class="fa-solid fa-check"></i> Verified Claim</span> • <span>2 mins ago</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment-item">
-                <div class="avatar" style="background:#00d2d3; color:#000;">M</div>
-                <div class="comment-content">
-                    <h5>Mike_T</h5>
-                    <p>Is this working for Xbox in Europe?</p>
-                    <div class="comment-meta">
-                        <span>14 mins ago</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment-item" style="margin-left: 20px; border-left: 2px solid rgba(138,43,226,0.3); padding-left: 10px;">
-                <div class="avatar" style="background:#ff9f43; color:#000;">S</div>
-                <div class="comment-content">
-                    <h5>Sam_R (Admin)</h5>
-                    <p>@Mike_T Yes! Just select Xbox/Console platform before generating.</p>
-                    <div class="comment-meta">
-                        <span class="verified"><i class="fa-solid fa-check"></i> Admin Reply</span> • <span>8 mins ago</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment-item">
-                <div class="avatar" style="background:#25d366;">A</div>
-                <div class="comment-content">
-                    <h5>Alex_K</h5>
-                    <p>make sure you download the app till the end during verification guys, otherwise code won't reveal. smooth overall thanks!</p>
-                    <div class="comment-meta">
-                        <span class="verified"><i class="fa-solid fa-check"></i> Verified Claim</span> • <span>31 mins ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="trust-badges">
-            <div class="trust-item"><i class="fa-solid fa-shield-halved" style="color:#00ff66;"></i> 256-Bit SSL Encrypted</div>
-            <div class="trust-item"><i class="fa-solid fa-lock" style="color:#8a2be2;"></i> No Password Needed</div>
-            <div class="trust-item"><i class="fa-solid fa-bolt" style="color:#ff9f43;"></i> Instant Delivery</div>
-        </div>
+      </div>
     </div>
 
-    <!-- Generator Modal Popup -->
-    <div class="modal" id="genModal">
-        <div class="modal-box">
-            <h3 id="modalTitle">Unlock Your Reward</h3>
-            
-            <div id="genForm">
-                <div class="input-group">
-                    <label>Gamertag / Username / Email:</label>
-                    <input type="text" id="username" placeholder="e.g. GamerPro99">
-                </div>
-                <div class="input-group">
-                    <label>Select Platform:</label>
-                    <select id="platform">
-                        <option>PC / Windows</option>
-                        <option>PlayStation 4 / 5</option>
-                        <option>Xbox Series X/S / One</option>
-                        <option>Android / iOS</option>
-                    </select>
-                </div>
-                <button class="btn-cpa" onclick="startGenerator()"><i class="fa-solid fa-gear"></i> Generate Code</button>
-            </div>
-
-            <!-- Console Log Status -->
-            <div class="gen-status" id="genStatus">
-                <p id="statusLine">> Connecting to secure server...</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Live Proof Notification Popup -->
-    <div class="notification" id="notify-box">
-        <i class="fa-solid fa-circle-check" style="color: #00ff66; font-size: 1.1rem;"></i>
-        <div>
-            <div style="font-size: 0.8rem; font-weight: bold;" id="notify-user">David K. (US)</div>
-            <div style="font-size: 0.72rem; color: #a0a0a0;" id="notify-action">claimed $20 Steam Card</div>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <footer>
-        <p>© 2026 OfferZone. All rights reserved. Third-party logos belong to their respective owners.</p>
+      <p>&copy; 2026 OfferZone. All rights reserved.</p>
+      <p style="margin-top: 5px;">
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="terms.html">Terms of Service</a>
+      </p>
     </footer>
+  </div>
 
-    <!-- JavaScript Engine -->
-    <script>
-        const CPA_LOCKER_URL = "https://appsave.store/cl/i/j74n1v";
+  <!-- Modal -->
+  <div class="modal" id="genModal">
+    <div class="modal-box">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title" style="margin-bottom:15px;">Unlock Code</h3>
+      
+      <!-- Input Form -->
+      <div id="genForm">
+        <div class="input-group">
+          <label>Username or Gamertag:</label>
+          <input type="text" id="username" placeholder="e.g. PlayerOne">
+        </div>
+        <div class="input-group">
+          <label>Platform:</label>
+          <select>
+            <option>Android / iOS</option>
+            <option>PC / Windows</option>
+            <option>Console</option>
+          </select>
+        </div>
+        <button class="btn" onclick="startGeneration()">Generate Code</button>
+      </div>
 
-        // Countdown Timer
-        let time = 300;
-        const timerElement = document.getElementById('timer');
-        setInterval(() => {
-            let minutes = Math.floor(time / 60);
-            let seconds = time % 60;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            timerElement.innerHTML = `0${minutes}:${seconds}`;
-            if(time > 0) time--;
-        }, 1000);
+      <!-- Generator Status & Progress Bar -->
+      <div id="genStatus" style="display: none;">
+        <div class="progress-wrapper" id="progressWrapper">
+          <div class="progress-bg">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+        <div class="status-text" id="statusLine">> Initializing...</div>
+      </div>
+    </div>
+  </div>
 
-        // Social Proof Notifications
-        const recentClaims = [
-            { name: "David K. (UK)", reward: "claimed 1-Month Game Pass" },
-            { name: "Omar H. (SA)", reward: "claimed $20 Steam Gift Card" },
-            { name: "Marco R. (DE)", reward: "unlocked In-Game Coins Pack" },
-            { name: "Sarah B. (US)", reward: "claimed $20 Steam Gift Card" }
-        ];
+  <script>
+    const CPA_LOCKER_URL = "https://example.com"; // ضع رابط العرض هنا
 
-        let index = 0;
-        setInterval(() => {
-            index = (index + 1) % recentClaims.length;
-            document.getElementById('notify-user').innerText = recentClaims[index].name;
-            document.getElementById('notify-action').innerText = recentClaims[index].reward;
-            
-            const box = document.getElementById('notify-box');
-            box.style.animation = 'none';
-            box.offsetHeight;
-            box.style.animation = 'slideIn 0.5s ease-out';
-        }, 6500);
+    // Audio Synthesizer (Web Audio API - No external file needed)
+    function playSound(type) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
 
-        // Modal Handler
-        function openGenerator(rewardName) {
-            document.getElementById('modalTitle').innerText = "Claim " + rewardName;
-            document.getElementById('genModal').style.display = 'flex';
-            document.getElementById('genForm').style.display = 'block';
-            document.getElementById('genStatus').style.display = 'none';
+        if (type === 'click') {
+          osc.frequency.setValueAtTime(400, ctx.currentTime);
+          gain.gain.setValueAtTime(0.1, ctx.currentTime);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.05);
+        } else if (type === 'alert') {
+          osc.frequency.setValueAtTime(800, ctx.currentTime);
+          gain.gain.setValueAtTime(0.15, ctx.currentTime);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.2);
         }
+      } catch(e) {}
+    }
 
-        function startGenerator() {
-            const user = document.getElementById('username').value;
-            if(!user) {
-                alert("Please enter your Gamertag or Username first.");
-                return;
-            }
+    // Modal Controls
+    function openModal(title) {
+      playSound('click');
+      document.getElementById('modal-title').innerText = "Unlock " + title;
+      document.getElementById('genModal').style.display = 'flex';
+    }
 
-            document.getElementById('genForm').style.display = 'none';
-            const statusBox = document.getElementById('genStatus');
-            const statusLine = document.getElementById('statusLine');
-            statusBox.style.display = 'block';
+    function closeModal() {
+      playSound('click');
+      document.getElementById('genModal').style.display = 'none';
+      resetModal();
+    }
 
-            setTimeout(() => { statusLine.innerText = "> Fetching unused gift code from database..."; }, 1000);
-            setTimeout(() => { statusLine.innerText = "> Validating key for user: " + user + "..."; }, 2200);
-            setTimeout(() => { statusLine.innerText = "> Key Found: XXXX-XXXX-9821-KEY"; }, 3400);
-            setTimeout(() => { 
-                statusLine.innerHTML = "<b style='color:#ff4757;'>[!] Human Verification Required</b><br>Complete 1 quick offer to reveal your code."; 
-            }, 4600);
+    function resetModal() {
+      document.getElementById('genForm').style.display = 'block';
+      document.getElementById('genStatus').style.display = 'none';
+      document.getElementById('progressWrapper').style.display = 'none';
+      document.getElementById('progressFill').style.width = '0%';
+    }
 
-            setTimeout(() => {
-                window.location.href = CPA_LOCKER_URL;
-            }, 5800);
+    // Generation Process with Progress Bar
+    function startGeneration() {
+      const user = document.getElementById('username').value;
+      if (!user) {
+        alert("Please enter your Username or Gamertag first.");
+        return;
+      }
+
+      playSound('click');
+      document.getElementById('genForm').style.display = 'none';
+      document.getElementById('genStatus').style.display = 'block';
+      document.getElementById('progressWrapper').style.display = 'block';
+
+      const statusLine = document.getElementById('statusLine');
+      const progressFill = document.getElementById('progressFill');
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 25;
+        progressFill.style.width = progress + '%';
+
+        if (progress === 25) {
+          statusLine.innerText = "> Connecting to server...";
+        } else if (progress === 50) {
+          statusLine.innerText = "> Validating key for user: " + user;
+        } else if (progress === 75) {
+          statusLine.innerText = "> Key Found: XXXX-XXXX-9821-KEY";
+        } else if (progress >= 100) {
+          clearInterval(interval);
+          playSound('alert');
+          statusLine.innerHTML = "<b style='color:#ff4757;'>[!] Human Verification Required</b>";
+          setTimeout(() => {
+            window.location.href = CPA_LOCKER_URL;
+          }, 1200);
         }
-    </script>
+      }, 900);
+    }
+
+    // Live Claims Counter Decrease
+    let claims = 18;
+    setInterval(() => {
+      if (claims > 3) {
+        claims--;
+        document.getElementById('claims-left').innerText = claims;
+      }
+    }, 14000);
+
+    // Canvas Particle Background
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 40; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(0, 210, 211, 0.3)';
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
 </body>
 </html>
