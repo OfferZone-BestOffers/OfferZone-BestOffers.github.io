@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OfferZone — Exclusive Gaming Rewards & Gift Cards</title>
     
-    <!-- Favicon SVG (حرف O بنفسجي بخلفية سوداء) -->
+    <!-- Favicon SVG (Logo O) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0e14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%238a2be2' stroke-width='14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300ff66' stroke-width='3' stroke-dasharray='10 15'/></svg>">
 
     <!-- Google Fonts & FontAwesome -->
@@ -23,14 +23,16 @@
         .page-wrapper { position: relative; z-index: 1; }
 
         /* Top Bar Urgency */
-        .top-banner { background: linear-gradient(90deg, #ff416c, #ff4b2b); text-align: center; padding: 8px 15px; font-size: 0.85rem; font-weight: 600; }
+        .top-banner { background: linear-gradient(90deg, #ff416c, #ff4b2b); text-align: center; padding: 8px 15px; font-size: 0.85rem; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 8px; }
 
         /* Header Clean */
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.6rem; font-weight: 900; color: #fff; text-transform: uppercase; }
+        .logo { font-size: 1.6rem; font-weight: 900; color: #fff; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0e14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%238a2be2' stroke-width='14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300ff66' stroke-width='3' stroke-dasharray='10 15'/></svg>") center/contain no-repeat; }
         .logo span { color: #8a2be2; }
         
         .header-controls { display: flex; align-items: center; gap: 10px; }
+        .geo-tag { background: rgba(138, 43, 226, 0.2); border: 1px solid rgba(138, 43, 226, 0.4); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: #00ff66; display: flex; align-items: center; gap: 5px; }
         .live-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
         .dot { width: 8px; height: 8px; background: #00ff66; border-radius: 50%; box-shadow: 0 0 10px #00ff66; }
         
@@ -39,11 +41,29 @@
 
         /* Hero Section */
         .hero { text-align: center; padding: 25px 15px 15px; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; background: linear-gradient(180deg, #fff, #a5a5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: #a0a0a0; font-size: 0.88rem; margin-bottom: 15px; }
+        .hero h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; background: linear-gradient(180deg, #fff, #a5a5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #a0a0a0; font-size: 0.88rem; margin-bottom: 12px; }
+
+        /* Rating & Global Meter */
+        .rating-box { font-size: 0.8rem; color: #ffca28; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 5px; }
+        .rating-box span { color: #8c93a4; font-size: 0.75rem; }
+
+        .global-progress { max-width: 400px; margin: 0 auto 20px; text-align: left; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px 15px; border-radius: 12px; }
+        .global-progress-label { font-size: 0.75rem; display: flex; justify-content: space-between; margin-bottom: 5px; color: #b0b5c0; }
+        .global-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+        .global-fill { height: 100%; width: 92%; background: linear-gradient(90deg, #8a2be2, #ff4757); border-radius: 10px; }
 
         .timer-box { display: inline-flex; gap: 10px; background: rgba(138, 43, 226, 0.15); border: 1px solid rgba(138, 43, 226, 0.4); padding: 6px 15px; border-radius: 12px; margin-bottom: 25px; font-size: 0.85rem; font-weight: bold; }
         .timer-box span { color: #00ff66; }
+
+        /* Filter & Search Bar */
+        .filter-container { max-width: 1100px; margin: 0 auto 20px; padding: 0 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #b0b5c0; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+        .filter-btn.active, .filter-btn:hover { background: #8a2be2; color: #fff; border-color: #8a2be2; }
+        .search-box { position: relative; min-width: 200px; flex: 1; max-width: 300px; }
+        .search-box input { width: 100%; padding: 8px 12px 8px 32px; background: #141824; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; color: #fff; font-size: 0.8rem; outline: none; }
+        .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.8rem; color: #6c757d; }
 
         /* Container & Cards */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 15px 50px; }
@@ -64,6 +84,11 @@
 
         .btn-cpa { display: block; width: 100%; padding: 13px; background: linear-gradient(45deg, #8a2be2, #4a00e0); color: #fff; font-weight: 700; border: none; border-radius: 10px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); cursor: pointer; transition: 0.2s; }
         .btn-cpa:active { transform: scale(0.98); }
+
+        /* Social Share Box */
+        .share-box { text-align: center; margin-top: 30px; background: rgba(20, 24, 36, 0.5); padding: 15px; border-radius: 12px; border: 1px dashed rgba(138,43,226,0.3); }
+        .share-box p { font-size: 0.8rem; color: #b0b5c0; margin-bottom: 8px; }
+        .share-btn { background: #25d366; color: #fff; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
 
         /* Comments Section */
         .comments-section { margin-top: 40px; background: rgba(20, 24, 36, 0.9); padding: 20px 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
@@ -92,15 +117,21 @@
         .trust-badges { display: flex; justify-content: center; gap: 20px; margin-top: 30px; font-size: 0.75rem; color: #8c93a4; flex-wrap: wrap; }
         .trust-item { display: flex; align-items: center; gap: 6px; }
 
-        /* Generator Modal Popup & Exit-Intent Modal */
+        /* Generator Modal Popup & Step Tracker */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; align-items: center; justify-content: center; padding: 15px; }
         .modal-box { background: #141824; border: 1px solid #8a2be2; border-radius: 16px; max-width: 420px; width: 100%; padding: 25px 20px; text-align: center; box-shadow: 0 0 30px rgba(138,43,226,0.3); position: relative; }
         .modal-box h3 { margin-bottom: 12px; font-size: 1.25rem; }
+        
+        .step-tracker { display: flex; justify-content: space-between; margin-bottom: 20px; position: relative; }
+        .step-tracker::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.1); z-index: 1; transform: translateY(-50%); }
+        .step { position: relative; z-index: 2; background: #141824; width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #8c93a4; }
+        .step.active { border-color: #8a2be2; color: #8a2be2; background: rgba(138,43,226,0.2); }
+        .step.completed { border-color: #00ff66; color: #000; background: #00ff66; }
+
         .input-group { margin-bottom: 12px; text-align: left; }
         .input-group label { display: block; font-size: 0.75rem; color: #8c93a4; margin-bottom: 4px; }
         .input-group input, .input-group select { width: 100%; padding: 10px; background: #0b0e14; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.85rem; outline: none; }
         
-        /* Progress Bar inside Modal */
         .progress-container { display: none; margin-top: 15px; background: #0b0e14; border-radius: 10px; height: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
         .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #8a2be2, #00ff66); transition: width 0.4s ease; }
 
@@ -120,12 +151,16 @@
 
     <div class="page-wrapper">
         <div class="top-banner">
-            ⚡ SPECIAL PROMO: Complete 1 quick task to claim your code!
+            <span>⚡ SPECIAL PROMO:</span> Complete 1 quick task to claim your code!
         </div>
 
         <header>
-            <div class="logo">OFFER<span>ZONE</span></div>
+            <div class="logo">
+                <div class="logo-icon"></div>
+                OFFER<span>ZONE</span>
+            </div>
             <div class="header-controls">
+                <div class="geo-tag" id="geoTag"><i class="fa-solid fa-location-dot"></i> <span id="countryName">Global</span></div>
                 <button class="sound-toggle" id="soundBtn" onclick="toggleSound()" title="Toggle Sound">
                     <i class="fa-solid fa-volume-high" id="soundIcon"></i>
                 </button>
@@ -139,15 +174,43 @@
             <h1>Select Your Free Gaming Reward</h1>
             <p>Pick a card below, enter your ID, complete quick verification, and claim your code.</p>
             
+            <div class="rating-box">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <b>4.9/5</b> <span>(14,280 Verified Claims)</span>
+            </div>
+
+            <!-- Global Stock Meter -->
+            <div class="global-progress">
+                <div class="global-progress-label">
+                    <span>Daily Stock Allocation:</span>
+                    <b style="color: #ff4757;">92% Claimed</b>
+                </div>
+                <div class="global-bar"><div class="global-fill"></div></div>
+            </div>
+
             <div class="timer-box">
                 Offers Refresh In: <span id="timer">04:59</span>
             </div>
         </section>
 
+        <!-- Filter & Search Controls -->
+        <div class="filter-container">
+            <div class="filter-btns">
+                <button class="filter-btn active" onclick="filterCards('all')">All Rewards</button>
+                <button class="filter-btn" onclick="filterCards('steam')">Steam</button>
+                <button class="filter-btn" onclick="filterCards('console')">Console / Pass</button>
+                <button class="filter-btn" onclick="filterCards('coins')">Skins & Coins</button>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" onkeyup="searchCards()" placeholder="Search reward...">
+            </div>
+        </div>
+
         <div class="container">
-            <div class="grid">
+            <div class="grid" id="rewardsGrid">
                 <!-- Offer Card 1 -->
-                <div class="card">
+                <div class="card" data-category="steam" data-title="$20 steam gift card">
                     <span class="badge">Popular</span>
                     <i class="fa-brands fa-steam card-icon"></i>
                     <h3>$20 Steam Gift Card</h3>
@@ -160,7 +223,7 @@
                 </div>
 
                 <!-- Offer Card 2 -->
-                <div class="card">
+                <div class="card" data-category="console" data-title="free game pass access">
                     <span class="badge" style="background:#00d2d3; color:#000;">In Stock</span>
                     <i class="fa-solid fa-gamepad card-icon"></i>
                     <h3>Free Game Pass Access</h3>
@@ -173,7 +236,7 @@
                 </div>
 
                 <!-- Offer Card 3 -->
-                <div class="card">
+                <div class="card" data-category="coins" data-title="in-game coins skins">
                     <span class="badge" style="background:#ff9f43; color:#000;">Hot</span>
                     <i class="fa-solid fa-coins card-icon"></i>
                     <h3>In-Game Coins & Skins</h3>
@@ -184,6 +247,12 @@
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('In-Game Coins & Skins')"><i class="fa-solid fa-bolt"></i> Unlock Skins</button>
                 </div>
+            </div>
+
+            <!-- Social Share Component -->
+            <div class="share-box">
+                <p>Want 1 Extra Claim? Share this reward portal with a gamer friend!</p>
+                <button class="share-btn" onclick="shareWebsite()"><i class="fa-solid fa-share-nodes"></i> Share Offer Link</button>
             </div>
 
             <!-- Comments Section -->
@@ -227,7 +296,7 @@
                     </div>
                 </div>
 
-                <!-- User Interactive Add Comment -->
+                <!-- Add Comment Form -->
                 <div class="add-comment-box">
                     <input type="text" id="userCommentInput" placeholder="Write a comment...">
                     <button onclick="postComment()">Post</button>
@@ -262,6 +331,12 @@
         <!-- Generator Modal Popup -->
         <div class="modal" id="genModal">
             <div class="modal-box">
+                <div class="step-tracker">
+                    <div class="step active" id="st1">1</div>
+                    <div class="step" id="st2">2</div>
+                    <div class="step" id="st3">3</div>
+                </div>
+
                 <h3 id="modalTitle">Unlock Your Reward</h3>
                 
                 <div id="genForm">
@@ -320,6 +395,60 @@
     <script>
         const CPA_LOCKER_URL = "https://appsave.store/cl/i/j74n1v";
         let isSoundMuted = false;
+
+        // Auto Country/Geo Detection via Free API
+        async function fetchUserCountry() {
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.country_name) {
+                        document.getElementById('countryName').innerText = data.country_name;
+                    }
+                }
+            } catch (e) {}
+        }
+        fetchUserCountry();
+
+        // Card Filtering Functionality
+        function filterCards(category) {
+            playSound('click');
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Card Search Functionality
+        function searchCards() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const title = card.dataset.title;
+                if (title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Social Share Trigger
+        function shareWebsite() {
+            playSound('click');
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Offer link copied to clipboard! Share it with your friends.");
+            }
+        }
 
         // Dynamic Tab Title Change
         let originalTitle = document.title;
@@ -470,7 +599,7 @@
             document.getElementById('exitModal').style.display = 'none';
         }
 
-        // Modal & Generator Handler
+        // Modal & Generator Handler with Steps
         function openGenerator(rewardName) {
             playSound('click');
             document.getElementById('modalTitle').innerText = "Claim " + rewardName;
@@ -479,6 +608,11 @@
             document.getElementById('genStatus').style.display = 'none';
             document.getElementById('progressContainer').style.display = 'none';
             document.getElementById('progressBar').style.width = '0%';
+            
+            // Reset Steps
+            document.getElementById('st1').className = 'step active';
+            document.getElementById('st2').className = 'step';
+            document.getElementById('st3').className = 'step';
         }
 
         function startGenerator() {
@@ -498,6 +632,10 @@
             statusBox.style.display = 'block';
             pContainer.style.display = 'block';
 
+            // Step 2 Active
+            document.getElementById('st1').className = 'step completed';
+            document.getElementById('st2').className = 'step active';
+
             let progress = 0;
             const progressInterval = setInterval(() => {
                 progress += 25;
@@ -510,6 +648,8 @@
             setTimeout(() => { statusLine.innerText = "> Key Found: XXXX-XXXX-9821-KEY"; }, 3400);
             setTimeout(() => { 
                 playSound('alert');
+                document.getElementById('st2').className = 'step completed';
+                document.getElementById('st3').className = 'step active';
                 if (typeof confetti === 'function') {
                     confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
                 }
@@ -521,7 +661,7 @@
             }, 5800);
         }
 
-        // Particle Background Animation Canvas
+        // Particle Background Canvas
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
