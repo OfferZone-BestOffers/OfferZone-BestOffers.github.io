@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OfferZone — Exclusive Gaming Rewards & Gift Cards</title>
+    
+    <!-- Favicon (أيقونة الصفحة لفوق) -->
+    <link rel="icon" type="image/svg+xml" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/gamepad.svg">
+
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -77,6 +81,12 @@
         .add-comment-box { display: flex; gap: 8px; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
         .add-comment-box input { flex: 1; padding: 10px 12px; background: #0b0e14; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.8rem; outline: none; }
         .add-comment-box button { padding: 10px 16px; background: #8a2be2; color: #fff; border: none; border-radius: 8px; font-weight: bold; font-size: 0.8rem; cursor: pointer; }
+
+        /* FAQ Section */
+        .faq-section { margin-top: 30px; background: rgba(20, 24, 36, 0.9); padding: 20px 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
+        .faq-section details { margin-bottom: 10px; cursor: pointer; background: rgba(255,255,255,0.02); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .faq-section summary { font-weight: 600; font-size: 0.85rem; color: #fff; outline: none; }
+        .faq-section p { font-size: 0.8rem; color: #b0b5c0; margin-top: 8px; line-height: 1.5; }
 
         /* Trust Badges */
         .trust-badges { display: flex; justify-content: center; gap: 20px; margin-top: 30px; font-size: 0.75rem; color: #8c93a4; flex-wrap: wrap; }
@@ -224,6 +234,23 @@
                 </div>
             </div>
 
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h4 style="margin-bottom: 12px; color: #8a2be2; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h4>
+                <details>
+                    <summary>Is this service completely free?</summary>
+                    <p>Yes! All reward codes are sponsored by our advertisers through quick promotional tasks.</p>
+                </details>
+                <details>
+                    <summary>Do I need to enter my password?</summary>
+                    <p>Never. We only require your Gamertag or Username to deliver the gift code to your account.</p>
+                </details>
+                <details>
+                    <summary>How long does delivery take?</summary>
+                    <p>Instantly after completing the quick human verification step.</p>
+                </details>
+            </div>
+
             <!-- Trust Badges -->
             <div class="trust-badges">
                 <div class="trust-item"><i class="fa-solid fa-shield-halved" style="color:#00ff66;"></i> 256-Bit SSL Encrypted</div>
@@ -245,10 +272,10 @@
                     <div class="input-group">
                         <label>Select Platform:</label>
                         <select id="platform">
-                            <option>PC / Windows</option>
-                            <option>PlayStation 4 / 5</option>
-                            <option>Xbox Series X/S / One</option>
-                            <option>Android / iOS</option>
+                            <option value="PC / Windows">PC / Windows</option>
+                            <option value="PlayStation">PlayStation 4 / 5</option>
+                            <option value="Xbox">Xbox Series X/S / One</option>
+                            <option value="Mobile">Android / iOS</option>
                         </select>
                     </div>
                     <button class="btn-cpa" onclick="startGenerator()"><i class="fa-solid fa-gear"></i> Generate Code</button>
@@ -294,6 +321,30 @@
         const CPA_LOCKER_URL = "https://appsave.store/cl/i/j74n1v";
         let isSoundMuted = false;
 
+        // Dynamic Tab Title Change
+        let originalTitle = document.title;
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                document.title = "⚠️ Don't leave! Claim your code...";
+            } else {
+                document.title = originalTitle;
+            }
+        });
+
+        // Auto Detect Platform
+        function detectPlatform() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const platformSelect = document.getElementById('platform');
+            if (!platformSelect) return;
+
+            if (/android|iPad|iPhone|iPod/i.test(userAgent)) {
+                platformSelect.value = "Mobile";
+            } else if (/Win/i.test(userAgent)) {
+                platformSelect.value = "PC / Windows";
+            }
+        }
+        window.addEventListener('DOMContentLoaded', detectPlatform);
+
         // Sound Toggle Handler
         function toggleSound() {
             isSoundMuted = !isSoundMuted;
@@ -334,12 +385,12 @@
         // Dynamic Gamers Online Counter
         let baseCount = 1420;
         setInterval(() => {
-            const change = Math.floor(Math.random() * 9) - 4; // -4 to +4
+            const change = Math.floor(Math.random() * 9) - 4;
             baseCount = Math.max(1390, Math.min(1480, baseCount + change));
             document.getElementById('onlineCount').innerText = baseCount.toLocaleString();
         }, 4000);
 
-        // Dynamic Stock Decrement (Scarcity Urgency)
+        // Dynamic Stock Decrement
         let stock1 = 3;
         setInterval(() => {
             if(stock1 > 1 && Math.random() > 0.6) {
@@ -459,7 +510,6 @@
             setTimeout(() => { statusLine.innerText = "> Key Found: XXXX-XXXX-9821-KEY"; }, 3400);
             setTimeout(() => { 
                 playSound('alert');
-                // Launch Confetti Effect
                 if (typeof confetti === 'function') {
                     confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
                 }
