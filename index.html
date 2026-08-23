@@ -200,6 +200,8 @@
                 <button class="filter-btn" onclick="filterCards('steam')">Steam</button>
                 <button class="filter-btn" onclick="filterCards('console')">Console / Pass</button>
                 <button class="filter-btn" onclick="filterCards('coins')">Skins & Coins</button>
+                <button class="filter-btn" onclick="filterCards('accounts')">Accounts</button>
+                <button class="filter-btn" onclick="filterCards('mobile')">Mobile Games</button>
             </div>
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -246,6 +248,58 @@
                         <div class="stock-bar"><div class="stock-fill" id="fill3" style="width: 4%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('In-Game Coins & Skins')"><i class="fa-solid fa-bolt"></i> Unlock Skins</button>
+                </div>
+
+                <!-- NEW CARD 4: Free Steam Accounts -->
+                <div class="card" data-category="steam accounts" data-title="free steam accounts premium">
+                    <span class="badge" style="background:#8a2be2;">Premium</span>
+                    <i class="fa-brands fa-steam-symbol card-icon"></i>
+                    <h3>Free Steam Accounts</h3>
+                    <p>Get loaded Steam accounts with AAA pre-installed games.</p>
+                    <div class="stock-wrapper">
+                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock4">5 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" id="fill4" style="width: 10%;"></div></div>
+                    </div>
+                    <button class="btn-cpa" onclick="openGenerator('Free Steam Account')"><i class="fa-solid fa-user-check"></i> Get Account</button>
+                </div>
+
+                <!-- NEW CARD 5: PC Games in Mobile -->
+                <div class="card" data-category="mobile" data-title="pc games in mobile emulator">
+                    <span class="badge" style="background:#00ff66; color:#000;">New</span>
+                    <i class="fa-solid fa-mobile-retro card-icon"></i>
+                    <h3>PC Games on Mobile</h3>
+                    <p>Play high-end PC titles directly on Android & iOS devices.</p>
+                    <div class="stock-wrapper">
+                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock5">4 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" id="fill5" style="width: 8%;"></div></div>
+                    </div>
+                    <button class="btn-cpa" onclick="openGenerator('PC Games on Mobile Access')"><i class="fa-solid fa-download"></i> Download Access</button>
+                </div>
+
+                <!-- NEW CARD 6: Free Epic Games Accounts -->
+                <div class="card" data-category="accounts" data-title="free epic games accounts vault">
+                    <span class="badge" style="background:#ff4757;">Limited</span>
+                    <i class="fa-solid fa-dragon card-icon"></i>
+                    <h3>Free Epic Games Accounts</h3>
+                    <p>Access Epic accounts loaded with mystery free tier titles.</p>
+                    <div class="stock-wrapper">
+                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock6">3 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" id="fill6" style="width: 6%;"></div></div>
+                    </div>
+                    <button class="btn-cpa" onclick="openGenerator('Free Epic Games Account')"><i class="fa-solid fa-key"></i> Claim Account</button>
+                </div>
+
+                <!-- NEW CARD 7: Play Store Gift Card -->
+                <div class="card" data-category="mobile" data-title="play store gift card google">
+                    <span class="badge" style="background:#ffc107; color:#000;">Best Value</span>
+                    <i class="fa-brands fa-google-play card-icon"></i>
+                    <h3>Play Store Gift Card</h3>
+                    <p>$25 Google Play balance for apps, games & in-app purchases.</p>
+                    <div class="stock-wrapper">
+                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock7">6 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" id="fill7" style="width: 12%;"></div></div>
+                    </div>
+                    <button class="btn-cpa" onclick="openGenerator('$25 Play Store Gift Card')"><i class="fa-solid fa-gift"></i> Claim $25 Card</button>
                 </div>
             </div>
 
@@ -419,7 +473,8 @@
 
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
+                const cardCat = card.dataset.category || '';
+                if (category === 'all' || cardCat.includes(category)) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -542,10 +597,11 @@
 
         // Social Proof Notifications
         const recentClaims = [
-            { name: "David K. (UK)", reward: "claimed 1-Month Game Pass" },
+            { name: "David K. (UK)", reward: "claimed Free Steam Account" },
             { name: "Omar H. (SA)", reward: "claimed $20 Steam Gift Card" },
-            { name: "Marco R. (DE)", reward: "unlocked In-Game Coins Pack" },
-            { name: "Sarah B. (US)", reward: "claimed $20 Steam Gift Card" }
+            { name: "Marco R. (DE)", reward: "downloaded PC Games on Mobile" },
+            { name: "Sarah B. (US)", reward: "claimed $25 Play Store Card" },
+            { name: "Alex P. (CA)", reward: "unlocked Epic Games Account" }
         ];
 
         let index = 0;
@@ -643,9 +699,9 @@
                 if (progress >= 100) clearInterval(progressInterval);
             }, 1100);
 
-            setTimeout(() => { statusLine.innerText = "> Fetching unused gift code from database..."; }, 1000);
-            setTimeout(() => { statusLine.innerText = "> Validating key for user: " + user + "..."; }, 2200);
-            setTimeout(() => { statusLine.innerText = "> Key Found: XXXX-XXXX-9821-KEY"; }, 3400);
+            setTimeout(() => { statusLine.innerText = "> Fetching unused item details from database..."; }, 1000);
+            setTimeout(() => { statusLine.innerText = "> Validating request for user: " + user + "..."; }, 2200);
+            setTimeout(() => { statusLine.innerText = "> Item Reserved: XXXX-XXXX-9821-KEY"; }, 3400);
             setTimeout(() => { 
                 playSound('alert');
                 document.getElementById('st2').className = 'step completed';
