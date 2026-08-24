@@ -23,6 +23,7 @@
             --card-bg: rgba(22, 27, 38, 0.85);
             --text-color: #ffffff;
             --text-muted: #a0aec0;
+            --success-color: #2ec4b6;
         }
 
         * {
@@ -40,7 +41,7 @@
             min-height: 100vh;
         }
 
-        /* Top Announcement Banner */
+        /* Animated Top Banner */
         .top-banner {
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             text-align: center;
@@ -49,6 +50,8 @@
             font-size: 0.9rem;
             letter-spacing: 0.5px;
             box-shadow: 0 2px 10px rgba(255, 65, 108, 0.3);
+            position: relative;
+            z-index: 10;
         }
 
         /* Header Navigation */
@@ -57,9 +60,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(11, 14, 20, 0.6);
+            background: rgba(11, 14, 20, 0.8);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
@@ -76,13 +82,13 @@
         .live-badge {
             background: rgba(0, 242, 254, 0.15);
             color: var(--accent-color);
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             border: 1px solid var(--accent-color);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .pulse-dot {
@@ -103,17 +109,18 @@
         .hero {
             text-align: center;
             padding: 50px 20px 30px;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 900;
             margin-bottom: 15px;
             background: linear-gradient(180deg, #fff, #a0aec0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .hero p {
@@ -122,18 +129,20 @@
             margin-bottom: 25px;
         }
 
-        /* Timer Section */
+        /* Timer Badge */
         .timer-container {
             display: inline-flex;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.03);
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 65, 108, 0.1);
             padding: 12px 25px;
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 65, 108, 0.3);
             margin-bottom: 30px;
+            font-weight: 600;
         }
 
-        .timer-box span {
+        .timer-container span {
             font-weight: 800;
             font-size: 1.2rem;
             color: var(--primary-color);
@@ -146,10 +155,51 @@
             padding: 0 20px 60px;
         }
 
+        /* Platform Selection Box (New Addition) */
+        .platform-select {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .platform-title {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .platform-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .platform-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .platform-btn.active, .platform-btn:hover {
+            background: rgba(0, 242, 254, 0.15);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
         /* Game Offers Selector Grid */
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
@@ -157,30 +207,26 @@
         .game-card {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px 25px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .game-card:hover {
             transform: translateY(-5px);
             border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        .game-card.freefire {
-            border-top: 4px solid var(--freefire-color);
-        }
-
-        .game-card.roblox {
-            border-top: 4px solid var(--roblox-color);
-        }
+        .game-card.freefire { border-top: 4px solid var(--freefire-color); }
+        .game-card.roblox { border-top: 4px solid var(--roblox-color); }
 
         .game-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 15px;
         }
 
@@ -188,16 +234,16 @@
         .game-card.roblox .game-icon { color: var(--roblox-color); }
 
         .game-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 10px;
         }
 
         .game-badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 5px 15px;
             border-radius: 12px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             margin-bottom: 15px;
         }
@@ -205,7 +251,7 @@
         .freefire .game-badge { background: rgba(255, 153, 0, 0.2); color: var(--freefire-color); }
         .roblox .game-badge { background: rgba(0, 162, 255, 0.2); color: var(--roblox-color); }
 
-        /* Locker Card */
+        /* Locker Card Main */
         .locker-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -214,9 +260,10 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(16px);
             text-align: center;
+            margin-bottom: 40px;
         }
 
-        /* Progress Bar */
+        /* Progress Bar Section */
         .progress-section {
             margin-bottom: 35px;
         }
@@ -224,53 +271,58 @@
         .progress-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
             color: var(--text-muted);
+            font-weight: 600;
         }
 
         .progress-bar-bg {
-            height: 10px;
+            height: 12px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
+            padding: 2px;
         }
 
         .progress-bar-fill {
             height: 100%;
-            width: 75%;
+            width: 80%;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             border-radius: 10px;
+            transition: width 0.5s ease;
         }
 
-        /* Locker Action Box */
+        /* Lock Box Container */
         .unlock-box {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-            padding: 30px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 20px;
+            padding: 35px 25px;
             border: 2px dashed rgba(255, 255, 255, 0.15);
             margin-top: 20px;
         }
 
         .unlock-icon {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--accent-color);
             margin-bottom: 15px;
-            animation: bounce 2s infinite;
+            animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-7px); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .cta-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: #fff;
             padding: 18px 45px;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 800;
             border: none;
             border-radius: 50px;
@@ -284,6 +336,17 @@
         .cta-btn:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(255, 65, 108, 0.6);
+        }
+
+        /* Security Shield Indicator */
+        .security-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--success-color);
         }
 
         /* Features Section */
@@ -303,14 +366,14 @@
         }
 
         .feature-item i {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .feature-item h3 {
             font-size: 1.1rem;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .feature-item p {
@@ -318,18 +381,89 @@
             color: var(--text-muted);
         }
 
-        /* Recent Activity Toast */
+        /* Reviews / Social Proof Section (New Addition) */
+        .reviews-section {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .stars { color: #ffc107; font-size: 0.8rem; }
+
+        /* FAQ Section (New Addition) */
+        .faq-section {
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Notification Toast */
         .toast-notification {
             position: fixed;
             bottom: 20px;
             left: 20px;
             background: rgba(22, 27, 38, 0.95);
             border: 1px solid var(--accent-color);
-            padding: 12px 20px;
-            border-radius: 12px;
+            padding: 14px 20px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             z-index: 1000;
             animation: slideIn 0.5s ease;
@@ -340,9 +474,18 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .cta-btn { width: 100%; padding: 15px 20px; font-size: 1rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .cta-btn { width: 100%; padding: 15px 20px; font-size: 1.05rem; }
             .locker-card { padding: 25px 15px; }
         }
     </style>
@@ -354,7 +497,7 @@
         <i class="fa-solid fa-fire"></i> LIMITED TIME OFFER - Complete Human Verification To Unlock Your Rewards!
     </div>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="logo">
             <i class="fa-solid fa-gamepad"></i> OfferZone Gaming
@@ -368,61 +511,79 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>Claim Free In-Game Rewards & VIP Access</h1>
-        <p>Select your favorite game reward below and complete a quick verification offer to instantly unlock your direct download/code link.</p>
+        <p>Select your gaming device and reward package below, then complete a quick verification task to instantly release your direct access link.</p>
         
         <div class="timer-container">
-            <div class="timer-box">Offer Expires In: <span id="timer">14:59</span></div>
+            <i class="fa-solid fa-clock"></i> Offer Expires In: <span id="timer">14:59</span>
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <div class="container">
 
-        <!-- Featured Games Grid -->
+        <!-- Platform Selector -->
+        <div class="platform-select">
+            <div class="platform-title">Select Your Device Platform</div>
+            <div class="platform-btns">
+                <button class="platform-btn active" onclick="selectPlatform(this)"><i class="fa-brands fa-android"></i> Android</button>
+                <button class="platform-btn" onclick="selectPlatform(this)"><i class="fa-brands fa-apple"></i> iOS</button>
+                <button class="platform-btn" onclick="selectPlatform(this)"><i class="fa-solid fa-desktop"></i> Windows / PC</button>
+            </div>
+        </div>
+
+        <!-- Featured Game Offers Grid -->
         <div class="games-grid">
             <!-- Free Fire Card -->
             <div class="game-card freefire">
                 <i class="fa-solid fa-fire-flame-curved game-icon"></i>
                 <div class="game-title">Free Fire</div>
                 <div class="game-badge">1,080 + 100 Bonus Diamonds</div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Instant top-up transfer to your Player ID upon completion.</p>
-                <a href="https://appsave.store/cl/i/j74n1v" class="cta-btn" style="width: 100%; margin-top: 0; padding: 12px;" onclick="triggerConfetti()">Claim Diamonds</a>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Direct player ID top-up transfer processed immediately.</p>
+                <a href="https://appsave.store/cl/i/j74n1v" class="cta-btn" style="width: 100%; margin-top: 0; padding: 14px;" onclick="triggerConfetti()">
+                    <i class="fa-solid fa-gem"></i> Claim Diamonds
+                </a>
             </div>
 
             <!-- Roblox Card -->
             <div class="game-card roblox">
                 <i class="fa-solid fa-cube game-icon"></i>
                 <div class="game-title">Roblox</div>
-                <div class="game-badge">10,000 Free Robux Code</div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Get an official redeemable gift card code instantly.</p>
-                <a href="https://appsave.store/cl/i/j74n1v" class="cta-btn" style="width: 100%; margin-top: 0; padding: 12px; background: linear-gradient(45deg, #00a2ff, #00f2fe);" onclick="triggerConfetti()">Claim Robux</a>
+                <div class="game-badge">10,000 Free Robux Gift Card</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Unlocks official redeemable promo codes instantly.</p>
+                <a href="https://appsave.store/cl/i/j74n1v" class="cta-btn" style="width: 100%; margin-top: 0; padding: 14px; background: linear-gradient(45deg, #00a2ff, #00f2fe);" onclick="triggerConfetti()">
+                    <i class="fa-solid fa-coins"></i> Claim Robux
+                </a>
             </div>
         </div>
 
-        <!-- Locker Verification Section -->
+        <!-- Locker Verification Container -->
         <div class="locker-card">
             
             <!-- Progress Bar -->
             <div class="progress-section">
                 <div class="progress-info">
-                    <span>Verification Progress</span>
-                    <span>75% Completed</span>
+                    <span>Verification Status</span>
+                    <span>80% Completed</span>
                 </div>
                 <div class="progress-bar-bg">
                     <div class="progress-bar-fill"></div>
                 </div>
             </div>
 
-            <!-- Lock Container Box -->
+            <!-- Unlock Action Box -->
             <div class="unlock-box">
                 <i class="fa-solid fa-lock-open unlock-icon"></i>
                 <h2>Human Verification Required</h2>
-                <p style="color: var(--text-muted); margin: 10px 0 20px;">To prevent automated bot abuse, please complete 1 simple task from the locker link to instantly release your reward.</p>
+                <p style="color: var(--text-muted); margin: 10px 0 20px;">To prevent automated bot abuse, please complete 1 quick offer from the locker link to release your reward.</p>
                 
-                <!-- Direct Content Locker URL Button -->
+                <!-- Content Locker Direct Button -->
                 <a href="https://appsave.store/cl/i/j74n1v" class="cta-btn" onclick="triggerConfetti()">
                     <i class="fa-solid fa-shield-check"></i> Complete Verification Now
                 </a>
+
+                <div class="security-status">
+                    <i class="fa-solid fa-circle-check"></i> 256-Bit SSL Encryption Secured & Anti-Bot Protection Active
+                </div>
             </div>
 
             <!-- Features Grid -->
@@ -430,31 +591,78 @@
                 <div class="feature-item">
                     <i class="fa-solid fa-bolt"></i>
                     <h3>Instant Delivery</h3>
-                    <p>Direct redirect immediately after completing verification.</p>
+                    <p>Direct unlock redirect upon offer completion.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fa-solid fa-shield-cat"></i>
-                    <h3>100% Safe & Anti-Ban</h3>
-                    <p>Fully compliant with official game APIs and terms.</p>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>100% Anti-Ban</h3>
+                    <p>Safe and verified method for all accounts.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fa-solid fa-headset"></i>
-                    <h3>24/7 Automated System</h3>
-                    <p>Reward system is processed instantly without delays.</p>
+                    <h3>24/7 Automated</h3>
+                    <p>System runs automatically without manual delays.</p>
                 </div>
             </div>
 
         </div>
+
+        <!-- Recent User Reviews -->
+        <div class="reviews-section">
+            <div class="section-title"><i class="fa-solid fa-comments"></i> Recent User Feedback</div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar">MK</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.95rem;">Mark K.</div>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">"Took about 2 minutes to complete 1 simple app survey, and the 10,000 Robux code worked instantly on my Roblox account!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar" style="background: linear-gradient(45deg, #ff9900, #ff416c);">SL</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.95rem;">Sami L.</div>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">"Got my Free Fire diamonds directly added to my player ID after human verification. Highly recommended!"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <div class="faq-section">
+            <div class="section-title"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</div>
+            <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-chevron-right" style="color: var(--accent-color); font-size: 0.8rem;"></i> Why is human verification required?</div>
+                <div class="faq-answer">Verification prevents automated bots from depleting our daily reward key inventory.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-chevron-right" style="color: var(--accent-color); font-size: 0.8rem;"></i> How long does it take to get the reward?</div>
+                <div class="faq-answer">Rewards are delivered automatically within 1 to 3 minutes after successful completion.</div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Notification Toast -->
     <div class="toast-notification" id="toast">
-        <i class="fa-solid fa-circle-check" style="color: #00f2fe; font-size: 1.2rem;"></i>
+        <i class="fa-solid fa-circle-check" style="color: #00f2fe; font-size: 1.3rem;"></i>
         <div>
             <div style="font-weight: bold; font-size: 0.85rem;" id="toast-user">Alex from USA</div>
             <div style="font-size: 0.75rem; color: var(--text-muted);" id="toast-action">Claimed 1,080 Diamonds</div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 OfferZone Gaming Hub. All rights reserved. Third-party trademarks belong to their respective owners.</p>
+    </footer>
 
     <!-- Scripts -->
     <script>
@@ -472,11 +680,18 @@
                 }
             }, 1000);
         }
+
         window.onload = function () {
             let fifteenMinutes = 60 * 15,
                 display = document.querySelector('#timer');
             startTimer(fifteenMinutes, display);
         };
+
+        // Platform Switcher
+        function selectPlatform(element) {
+            document.querySelectorAll('.platform-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
 
         // Live User Counter Fluctuation
         setInterval(() => {
@@ -504,7 +719,7 @@
             toastAction.innerText = randomActivity.action;
             
             toast.style.animation = 'none';
-            toast.offsetHeight; /* trigger reflow */
+            toast.offsetHeight;
             toast.style.animation = 'slideIn 0.5s ease';
         }, 6000);
 
