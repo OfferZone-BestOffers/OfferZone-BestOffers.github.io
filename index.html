@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OfferZone — Exclusive Gaming Rewards & Gift Cards</title>
-    <!-- Favicon SVG (Logo O) -->
+    <!-- Favicon SVG -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0e14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%238a2be2' stroke-width='14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300ff66' stroke-width='3' stroke-dasharray='10 15'/></svg>">
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -12,111 +12,115 @@
     <!-- JS Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background-color: #0b0e14; color: #fff; line-height: 1.6; overflow-x: hidden; position: relative; }
         
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
         .page-wrapper { position: relative; z-index: 1; }
         
-        .top-banner { background: linear-gradient(90deg, #ff416c, #ff4b2b); text-align: center; padding: 8px 15px; font-size: 0.85rem; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .top-banner { background: linear-gradient(90deg, #ff416c, #ff4b2b); text-align: center; padding: 8px 12px; font-size: 0.8rem; font-weight: 600; display: flex; justify-content: center; align-items: center; gap: 8px; }
         
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.6rem; font-weight: 900; color: #fff; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
-        .logo-icon { width: 32px; height: 32px; background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0e14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%238a2be2' stroke-width='14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300ff66' stroke-width='3' stroke-dasharray='10 15'/></svg>") center/contain no-repeat; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 10px; }
+        .logo { font-size: 1.5rem; font-weight: 900; color: #fff; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 30px; height: 30px; background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0e14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%238a2be2' stroke-width='14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300ff66' stroke-width='3' stroke-dasharray='10 15'/></svg>") center/contain no-repeat; }
         .logo span { color: #8a2be2; }
-        .header-controls { display: flex; align-items: center; gap: 10px; }
+        .header-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .geo-tag { background: rgba(138, 43, 226, 0.2); border: 1px solid rgba(138, 43, 226, 0.4); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: #00ff66; display: flex; align-items: center; gap: 5px; }
-        .live-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .live-status { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
         .dot { width: 8px; height: 8px; background: #00ff66; border-radius: 50%; box-shadow: 0 0 10px #00ff66; }
-        .sound-toggle { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; }
-        .sound-toggle:hover { border-color: #8a2be2; color: #00ff66; }
-
-        .hero { text-align: center; padding: 25px 15px 15px; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; background: linear-gradient(180deg, #fff, #a5a5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: #a0a0a0; font-size: 0.88rem; margin-bottom: 12px; }
+        .sound-toggle { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; }
+        
+        .hero { text-align: center; padding: 20px 15px 10px; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; background: linear-gradient(180deg, #fff, #a5a5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #a0a0a0; font-size: 0.85rem; margin-bottom: 12px; }
         .rating-box { font-size: 0.8rem; color: #ffca28; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 5px; }
         .rating-box span { color: #8c93a4; font-size: 0.75rem; }
         
-        .global-progress { max-width: 400px; margin: 0 auto 20px; text-align: left; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px 15px; border-radius: 12px; }
+        .global-progress { max-width: 400px; margin: 0 auto 15px; text-align: left; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px 15px; border-radius: 12px; }
         .global-progress-label { font-size: 0.75rem; display: flex; justify-content: space-between; margin-bottom: 5px; color: #b0b5c0; }
         .global-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
         .global-fill { height: 100%; width: 92%; background: linear-gradient(90deg, #8a2be2, #ff4757); border-radius: 10px; }
-        .timer-box { display: inline-flex; gap: 10px; background: rgba(138, 43, 226, 0.15); border: 1px solid rgba(138, 43, 226, 0.4); padding: 6px 15px; border-radius: 12px; margin-bottom: 25px; font-size: 0.85rem; font-weight: bold; }
+        .timer-box { display: inline-flex; gap: 8px; background: rgba(138, 43, 226, 0.15); border: 1px solid rgba(138, 43, 226, 0.4); padding: 6px 14px; border-radius: 12px; margin-bottom: 20px; font-size: 0.8rem; font-weight: bold; }
         .timer-box span { color: #00ff66; }
 
-        .filter-container { max-width: 1100px; margin: 0 auto 20px; padding: 0 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #b0b5c0; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+        .filter-container { max-width: 1100px; margin: 0 auto 20px; padding: 0 15px; display: flex; flex-direction: column; gap: 12px; }
+        .filter-btns { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
+        .filter-btns::-webkit-scrollbar { display: none; }
+        .filter-btn { white-space: nowrap; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #b0b5c0; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; cursor: pointer; transition: 0.2s; flex-shrink: 0; }
         .filter-btn.active, .filter-btn:hover { background: #8a2be2; color: #fff; border-color: #8a2be2; }
-        .search-box { position: relative; min-width: 200px; flex: 1; max-width: 300px; }
-        .search-box input { width: 100%; padding: 8px 12px 8px 32px; background: #141824; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; color: #fff; font-size: 0.8rem; outline: none; }
-        .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.8rem; color: #6c757d; }
+        .search-box { position: relative; width: 100%; }
+        .search-box input { width: 100%; padding: 10px 12px 10px 35px; background: #141824; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 0.85rem; outline: none; }
+        .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #6c757d; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 15px 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: rgba(20, 24, 36, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 20px; text-align: center; position: relative; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: #8a2be2; box-shadow: 0 8px 25px rgba(138, 43, 226, 0.2); }
-        .badge { position: absolute; top: 12px; right: 12px; background: #ff4757; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; }
-        .card-icon { font-size: 2.8rem; color: #8a2be2; margin-bottom: 12px; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 6px; }
-        .card p { color: #8c93a4; font-size: 0.82rem; margin-bottom: 12px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; }
+        .card { background: rgba(20, 24, 36, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 18px; text-align: center; position: relative; transition: transform 0.2s, border-color 0.2s; }
+        .card:hover { transform: translateY(-4px); border-color: #8a2be2; box-shadow: 0 8px 25px rgba(138, 43, 226, 0.25); }
+        .badge { position: absolute; top: 12px; right: 12px; background: #ff4757; color: #fff; font-size: 0.65rem; font-weight: bold; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; }
+        .card-icon { font-size: 2.5rem; color: #8a2be2; margin-bottom: 10px; }
+        .card h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .card p { color: #8c93a4; font-size: 0.8rem; margin-bottom: 12px; }
         
-        .stock-wrapper { margin-bottom: 15px; text-align: left; }
-        .stock-label { font-size: 0.72rem; color: #ff4757; font-weight: bold; display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .stock-wrapper { margin-bottom: 12px; text-align: left; }
+        .stock-label { font-size: 0.7rem; color: #ff4757; font-weight: bold; display: flex; justify-content: space-between; margin-bottom: 4px; }
         .stock-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
         .stock-fill { height: 100%; background: #ff4757; border-radius: 10px; transition: width 0.5s ease; }
         
-        .btn-cpa { display: block; width: 100%; padding: 13px; background: linear-gradient(45deg, #8a2be2, #4a00e0); color: #fff; font-weight: 700; border: none; border-radius: 10px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); cursor: pointer; transition: 0.2s; }
-        .btn-cpa:active { transform: scale(0.98); }
+        .btn-cpa { display: block; width: 100%; padding: 12px; background: linear-gradient(45deg, #8a2be2, #4a00e0); color: #fff; font-weight: 700; border: none; border-radius: 10px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4); cursor: pointer; transition: 0.2s; }
+        .btn-cpa:active { transform: scale(0.97); }
 
-        .share-box { text-align: center; margin-top: 30px; background: rgba(20, 24, 36, 0.5); padding: 15px; border-radius: 12px; border: 1px dashed rgba(138,43,226,0.3); }
+        .share-box { text-align: center; margin-top: 25px; background: rgba(20, 24, 36, 0.5); padding: 15px; border-radius: 12px; border: 1px dashed rgba(138,43,226,0.3); }
         .share-box p { font-size: 0.8rem; color: #b0b5c0; margin-bottom: 8px; }
         .share-btn { background: #25d366; color: #fff; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
 
-        .comments-section { margin-top: 40px; background: rgba(20, 24, 36, 0.9); padding: 20px 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
-        .comments-header { font-size: 1.05rem; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .comment-item { display: flex; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px; align-items: flex-start; }
-        .avatar { width: 38px; height: 38px; min-width: 38px; border-radius: 50%; background: #8a2be2; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.95rem; }
-        .comment-content { flex: 1; overflow: hidden; }
-        .comment-content h5 { font-size: 0.85rem; margin-bottom: 2px; color: #fff; }
-        .comment-content p { font-size: 0.8rem; color: #b0b5c0; margin-bottom: 4px; word-break: break-word; }
-        .comment-meta { font-size: 0.7rem; color: #6c757d; display: flex; gap: 10px; align-items: center; }
+        .comments-section { margin-top: 30px; background: rgba(20, 24, 36, 0.9); padding: 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
+        .comments-header { font-size: 0.95rem; font-weight: bold; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .comment-item { display: flex; gap: 10px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; align-items: flex-start; }
+        .avatar { width: 34px; height: 34px; min-width: 34px; border-radius: 50%; background: #8a2be2; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; }
+        .comment-content { flex: 1; }
+        .comment-content h5 { font-size: 0.8rem; margin-bottom: 2px; color: #fff; }
+        .comment-content p { font-size: 0.78rem; color: #b0b5c0; margin-bottom: 3px; word-break: break-word; }
+        .comment-meta { font-size: 0.68rem; color: #6c757d; display: flex; gap: 8px; align-items: center; }
         .comment-meta span.verified { color: #00ff66; display: flex; align-items: center; gap: 3px; }
 
-        .add-comment-box { display: flex; gap: 8px; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
-        .add-comment-box input { flex: 1; padding: 10px 12px; background: #0b0e14; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.8rem; outline: none; }
-        .add-comment-box button { padding: 10px 16px; background: #8a2be2; color: #fff; border: none; border-radius: 8px; font-weight: bold; font-size: 0.8rem; cursor: pointer; }
+        .add-comment-box { display: flex; gap: 8px; margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .add-comment-box input { flex: 1; padding: 8px 10px; background: #0b0e14; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.78rem; outline: none; }
+        .add-comment-box button { padding: 8px 14px; background: #8a2be2; color: #fff; border: none; border-radius: 8px; font-weight: bold; font-size: 0.78rem; cursor: pointer; }
 
-        .faq-section { margin-top: 30px; background: rgba(20, 24, 36, 0.9); padding: 20px 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
-        .faq-section details { margin-bottom: 10px; cursor: pointer; background: rgba(255,255,255,0.02); padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-        .faq-section summary { font-weight: 600; font-size: 0.85rem; color: #fff; outline: none; }
-        .faq-section p { font-size: 0.8rem; color: #b0b5c0; margin-top: 8px; line-height: 1.5; }
+        .faq-section { margin-top: 25px; background: rgba(20, 24, 36, 0.9); padding: 15px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
+        .faq-section details { margin-bottom: 8px; cursor: pointer; background: rgba(255,255,255,0.02); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .faq-section summary { font-weight: 600; font-size: 0.8rem; color: #fff; outline: none; }
+        .faq-section p { font-size: 0.75rem; color: #b0b5c0; margin-top: 6px; line-height: 1.4; }
 
-        .trust-badges { display: flex; justify-content: center; gap: 20px; margin-top: 30px; font-size: 0.75rem; color: #8c93a4; flex-wrap: wrap; }
-        .trust-item { display: flex; align-items: center; gap: 6px; }
+        .trust-badges { display: flex; justify-content: center; gap: 15px; margin-top: 25px; font-size: 0.7rem; color: #8c93a4; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 5px; }
 
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; align-items: center; justify-content: center; padding: 15px; }
-        .modal-box { background: #141824; border: 1px solid #8a2be2; border-radius: 16px; max-width: 420px; width: 100%; padding: 25px 20px; text-align: center; box-shadow: 0 0 30px rgba(138,43,226,0.3); position: relative; }
-        .modal-box h3 { margin-bottom: 12px; font-size: 1.25rem; }
+        .modal-box { background: #141824; border: 1px solid #8a2be2; border-radius: 16px; max-width: 400px; width: 100%; padding: 20px 15px; text-align: center; box-shadow: 0 0 30px rgba(138,43,226,0.3); position: relative; }
+        .modal-box h3 { margin-bottom: 12px; font-size: 1.15rem; }
         
-        .step-tracker { display: flex; justify-content: space-between; margin-bottom: 20px; position: relative; }
+        .step-tracker { display: flex; justify-content: space-between; margin-bottom: 15px; position: relative; }
         .step-tracker::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.1); z-index: 1; transform: translateY(-50%); }
-        .step { position: relative; z-index: 2; background: #141824; width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: #8c93a4; }
+        .step { position: relative; z-index: 2; background: #141824; width: 26px; height: 26px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: #8c93a4; }
         .step.active { border-color: #8a2be2; color: #8a2be2; background: rgba(138,43,226,0.2); }
         .step.completed { border-color: #00ff66; color: #000; background: #00ff66; }
 
-        .input-group { margin-bottom: 12px; text-align: left; }
-        .input-group label { display: block; font-size: 0.75rem; color: #8c93a4; margin-bottom: 4px; }
-        .input-group input, .input-group select { width: 100%; padding: 10px; background: #0b0e14; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.85rem; outline: none; }
+        .input-group { margin-bottom: 10px; text-align: left; }
+        .input-group label { display: block; font-size: 0.7rem; color: #8c93a4; margin-bottom: 4px; }
+        .input-group input, .input-group select { width: 100%; padding: 9px; background: #0b0e14; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.8rem; outline: none; }
 
-        .progress-container { display: none; margin-top: 15px; background: #0b0e14; border-radius: 10px; height: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .progress-container { display: none; margin-top: 15px; background: #0b0e14; border-radius: 10px; height: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
         .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #8a2be2, #00ff66); transition: width 0.4s ease; }
-        .gen-status { display: none; margin-top: 12px; background: #0b0e14; padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #00ff66; text-align: left; font-family: monospace; }
+        .gen-status { display: none; margin-top: 12px; background: #0b0e14; padding: 10px; border-radius: 8px; font-size: 0.75rem; color: #00ff66; text-align: left; font-family: monospace; }
 
-        .notification { position: fixed; bottom: 15px; left: 15px; right: 15px; max-width: 320px; background: #192030; border-left: 4px solid #00ff66; padding: 10px 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); animation: slideIn 0.5s ease-out; z-index: 1000; }
-        @keyframes slideIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        /* Social Proof Toast Notifications */
+        .toast-notification { position: fixed; bottom: 15px; left: 15px; background: rgba(20, 24, 36, 0.95); border: 1px solid #00ff66; padding: 10px 14px; border-radius: 10px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); z-index: 1000; transition: all 0.4s ease; transform: translateY(150%); opacity: 0; max-width: 280px; }
+        .toast-notification.show { transform: translateY(0); opacity: 1; }
+        .toast-icon { background: rgba(0,255,102,0.15); color: #00ff66; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .toast-text { font-size: 0.72rem; color: #fff; line-height: 1.2; }
+        .toast-text b { color: #00ff66; }
 
-        footer { text-align: center; padding: 25px 15px; border-top: 1px solid rgba(255,255,255,0.05); color: #6c757d; font-size: 0.75rem; }
+        footer { text-align: center; padding: 20px 15px; border-top: 1px solid rgba(255,255,255,0.05); color: #6c757d; font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -125,7 +129,7 @@
 
     <div class="page-wrapper">
         <div class="top-banner">
-            <span>⚡ SPECIAL PROMO:</span> Complete 1 quick task to claim your code!
+            <span>⚡ SPECIAL PROMO:</span> Complete 1 quick offer to claim your code!
         </div>
 
         <header>
@@ -133,8 +137,8 @@
                 <div class="logo-icon"></div> OFFER<span>ZONE</span>
             </div>
             <div class="header-controls">
-                <div class="geo-tag" id="geoTag"><i class="fa-solid fa-location-dot"></i> <span id="countryName">Global</span></div>
-                <button class="sound-toggle" id="soundBtn" onclick="toggleSound()" title="Toggle Sound">
+                <div class="geo-tag"><i class="fa-solid fa-location-dot"></i> <span id="countryName">Global</span></div>
+                <button class="sound-toggle" onclick="toggleSound()" title="Toggle Sound">
                     <i class="fa-solid fa-volume-high" id="soundIcon"></i>
                 </button>
                 <div class="live-status">
@@ -168,12 +172,12 @@
 
         <div class="filter-container">
             <div class="filter-btns">
-                <button class="filter-btn active" onclick="filterCards('all')">All Rewards</button>
-                <button class="filter-btn" onclick="filterCards('steam')">Steam</button>
-                <button class="filter-btn" onclick="filterCards('console')">Console / Pass</button>
-                <button class="filter-btn" onclick="filterCards('coins')">Skins & Coins</button>
-                <button class="filter-btn" onclick="filterCards('accounts')">Accounts</button>
-                <button class="filter-btn" onclick="filterCards('mobile')">Mobile Games</button>
+                <button class="filter-btn active" onclick="filterCards(event, 'all')">All Rewards</button>
+                <button class="filter-btn" onclick="filterCards(event, 'steam')">Steam</button>
+                <button class="filter-btn" onclick="filterCards(event, 'console')">Console / Pass</button>
+                <button class="filter-btn" onclick="filterCards(event, 'coins')">Skins & Coins</button>
+                <button class="filter-btn" onclick="filterCards(event, 'accounts')">Accounts</button>
+                <button class="filter-btn" onclick="filterCards(event, 'mobile')">Mobile Games</button>
             </div>
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -191,8 +195,8 @@
                     <h3>$20 Steam Gift Card</h3>
                     <p>Instant wallet funds for games & DLCs on PC.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock1">3 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill1" style="width: 6%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>3 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 6%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('$20 Steam Gift Card', 'Steam Key Reserved: STM-2026-XXXX-7768')">
                         <i class="fa-solid fa-bolt"></i> Claim Code
@@ -206,8 +210,8 @@
                     <h3>Free Game Pass Access</h3>
                     <p>1 Month access to 100+ high-quality games.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock2">7 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill2" style="width: 14%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>7 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 14%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('Free Game Pass Access', 'GamePass Key Reserved: XBX-PASS-XXXX-9012')">
                         <i class="fa-solid fa-bolt"></i> Claim Pass
@@ -221,7 +225,7 @@
                     <h3>Free Fire 1080 Diamonds</h3>
                     <p>Direct top-up diamonds sent to your Garena Player ID.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock8">3 Left</span></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>3 Left</span></div>
                         <div class="stock-bar"><div class="stock-fill" style="width: 6%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('Free Fire 1080 Diamonds', 'Diamonds Pack Reserved: 1,080 + 108 Bonus')">
@@ -236,7 +240,7 @@
                     <h3>2,000 Free Robux Code</h3>
                     <p>Unlock avatars, accessories & game passes on Roblox.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock9">5 Left</span></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>5 Left</span></div>
                         <div class="stock-bar"><div class="stock-fill" style="width: 10%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('2,000 Free Robux Code', 'Roblox Key Reserved: RBX-9981-XXXX-KEY')">
@@ -251,8 +255,8 @@
                     <h3>In-Game Coins & Skins</h3>
                     <p>Battle Pass, V-Bucks & Diamonds pack generator.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock3">2 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill3" style="width: 4%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>2 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 4%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('In-Game Coins & Skins', 'Skins Pack Reserved: VBUCKS-XXXX-8821')">
                         <i class="fa-solid fa-bolt"></i> Unlock Skins
@@ -266,8 +270,8 @@
                     <h3>Free Steam Accounts</h3>
                     <p>Get loaded Steam accounts with AAA pre-installed games.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock4">5 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill4" style="width: 10%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>5 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 10%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('Free Steam Account', 'Account Details Reserved: user_temp_XXXX:pass_XXXX')">
                         <i class="fa-solid fa-user-check"></i> Get Account
@@ -281,8 +285,8 @@
                     <h3>PC Games on Mobile</h3>
                     <p>Play high-end PC titles directly on Android & iOS devices.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock5">4 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill5" style="width: 8%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>4 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 8%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('PC Games on Mobile Access', 'Emulator License Reserved: MOB-PC-XXXX-1120')">
                         <i class="fa-solid fa-download"></i> Download Access
@@ -296,8 +300,8 @@
                     <h3>Free Epic Games Accounts</h3>
                     <p>Access Epic accounts loaded with mystery free tier titles.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock6">3 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill6" style="width: 6%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>3 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 6%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('Free Epic Games Account', 'Epic Vault Access Reserved: EPIC-XXXX-5542')">
                         <i class="fa-solid fa-key"></i> Claim Account
@@ -311,8 +315,8 @@
                     <h3>Play Store Gift Card</h3>
                     <p>$25 Google Play balance for apps, games & in-app purchases.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock7">6 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill7" style="width: 12%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>6 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 12%;"></div></div>
                     </div>
                     <button class="btn-cpa" onclick="openGenerator('$25 Play Store Gift Card', 'Google Code Reserved: GPLY-25USD-XXXX-3341')">
                         <i class="fa-solid fa-gift"></i> Claim $25 Card
@@ -351,7 +355,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comment-item" style="margin-left: 20px; border-left: 2px solid rgba(138,43,226,0.3); padding-left: 10px;">
+                    <div class="comment-item" style="margin-left: 15px; border-left: 2px solid rgba(138,43,226,0.3); padding-left: 8px;">
                         <div class="avatar" style="background:#ff9f43; color:#000;">S</div>
                         <div class="comment-content">
                             <h5>Sam_R (Admin)</h5>
@@ -370,7 +374,7 @@
             </div>
 
             <div class="faq-section">
-                <h4 style="margin-bottom: 12px; color: #8a2be2; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h4>
+                <h4 style="margin-bottom: 10px; color: #8a2be2; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h4>
                 <details>
                     <summary>Is this service completely free?</summary>
                     <p>Yes! All reward codes are sponsored by our advertisers through quick promotional tasks.</p>
@@ -428,6 +432,12 @@
             </div>
         </div>
 
+        <!-- Social Proof Toast Container -->
+        <div class="toast-notification" id="toast">
+            <div class="toast-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="toast-text" id="toastText"><b>Alex_99</b> just claimed <b>$20 Steam Card</b>!</div>
+        </div>
+
         <footer>
             <p>&copy; 2026 OfferZone Rewards. All rights reserved. Tradenames & logos are trademarks of their respective owners.</p>
             <p style="margin-top: 5px;">
@@ -438,30 +448,35 @@
     </div>
 
     <script>
-        const CPA_LOCKER_URL = "https://www.google.com"; // أبدل هذا بالرابط الخاص بك لاحقاً
+        // ========================================================
+        // 🚨 ضع رابط الـ CONTENT LOCKER الخاص بك هنا بدلاً من google.com 🚨
+        // ========================================================
+        const CPA_LOCKER_URL = "YOUR_CPA_LOCKER_LINK_HERE"; 
 
         let soundEnabled = true;
         let currentReservedText = "Item Reserved: XXXX-XXXX-KEY";
 
         function playSound(type) {
             if (!soundEnabled) return;
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.connect(gain);
-            gain.connect(ctx.destination);
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
 
-            if (type === 'click') {
-                osc.frequency.setValueAtTime(400, ctx.currentTime);
-                gain.gain.setValueAtTime(0.05, ctx.currentTime);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.05);
-            } else if (type === 'alert') {
-                osc.frequency.setValueAtTime(800, ctx.currentTime);
-                gain.gain.setValueAtTime(0.08, ctx.currentTime);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.15);
-            }
+                if (type === 'click') {
+                    osc.frequency.setValueAtTime(400, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.05, ctx.currentTime);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.05);
+                } else if (type === 'alert') {
+                    osc.frequency.setValueAtTime(800, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.15);
+                }
+            } catch(e){}
         }
 
         function toggleSound() {
@@ -483,10 +498,10 @@
         }, 1000);
 
         // Filter and Search
-        function filterCards(cat) {
+        function filterCards(e, cat) {
             playSound('click');
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            e.target.classList.add('active');
             document.querySelectorAll('.card').forEach(card => {
                 if (cat === 'all' || card.dataset.category.includes(cat)) {
                     card.style.display = 'block';
@@ -561,8 +576,22 @@
             }, 4600);
 
             setTimeout(() => {
+                // Redirecting to CPA Content Locker Link
                 window.location.href = CPA_LOCKER_URL;
             }, 5800);
+        }
+
+        // Share Website
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Free Gaming Rewards',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Link copied to clipboard!");
+            }
         }
 
         // Comments System
@@ -588,6 +617,25 @@
             input.value = '';
         }
 
+        // Live Toast Notifications
+        const usernames = ["GamerPro_9", "Alex_K", "DragonSlayer", "ShadowNinja", "FreeFireKing", "RobloxFan2026", "GamerGirl_x"];
+        const rewards = ["$20 Steam Card", "1080 FF Diamonds", "2000 Robux", "Game Pass Access", "$25 Play Store Card"];
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toastText');
+            const randomUser = usernames[Math.floor(Math.random() * usernames.length)];
+            const randomReward = rewards[Math.floor(Math.random() * rewards.length)];
+
+            toastText.innerHTML = `<b>${randomUser}</b> just claimed <b>${randomReward}</b>!`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+        setInterval(showToast, 9000);
+
         // Canvas Particles Animation
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
@@ -598,7 +646,7 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        const particles = Array.from({ length: 45 }, () => ({
+        const particles = Array.from({ length: 35 }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             radius: Math.random() * 2 + 1,
