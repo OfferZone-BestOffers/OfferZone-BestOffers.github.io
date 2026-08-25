@@ -94,8 +94,6 @@
         .progress-container { display: none; margin-top: 15px; background: #0b0e14; border-radius: 10px; height: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
         .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #8a2be2, #00ff66); transition: width 0.4s ease; }
         .gen-status { display: none; margin-top: 12px; background: #0b0e14; padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #00ff66; text-align: left; font-family: monospace; line-height: 1.5; }
-        .notification { position: fixed; bottom: 15px; left: 15px; right: 15px; max-width: 320px; background: #192030; border-left: 4px solid #00ff66; padding: 10px 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); animation: slideIn 0.5s ease-out; z-index: 1000; }
-        @keyframes slideIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
         footer { text-align: center; padding: 25px 15px; border-top: 1px solid rgba(255,255,255,0.05); color: #6c757d; font-size: 0.75rem; }
     </style>
 </head>
@@ -154,7 +152,7 @@
 
         <div class="container">
             <div class="grid" id="rewardsGrid">
-                <!-- Offer Card 1 -->
+                <!-- Offer Card 1: Steam Gift Card -->
                 <div class="card" data-category="steam" data-title="$20 steam gift card">
                     <span class="badge">Popular</span>
                     <i class="fa-brands fa-steam card-icon"></i>
@@ -167,7 +165,7 @@
                     <button class="btn-cpa" onclick="openGenerator('$20 Steam Gift Card', 'giftcard')"><i class="fa-solid fa-bolt"></i> Claim Code</button>
                 </div>
 
-                <!-- Offer Card 2 -->
+                <!-- Offer Card 2: Game Pass -->
                 <div class="card" data-category="console" data-title="free game pass access">
                     <span class="badge" style="background:#00d2d3; color:#000;">In Stock</span>
                     <i class="fa-solid fa-gamepad card-icon"></i>
@@ -180,20 +178,33 @@
                     <button class="btn-cpa" onclick="openGenerator('Free Game Pass Access', 'giftcard')"><i class="fa-solid fa-bolt"></i> Claim Pass</button>
                 </div>
 
-                <!-- Offer Card 3 -->
-                <div class="card" data-category="coins" data-title="in-game coins skins">
-                    <span class="badge" style="background:#ff9f43; color:#000;">Hot</span>
-                    <i class="fa-solid fa-coins card-icon"></i>
-                    <h3>In-Game Coins & Skins</h3>
-                    <p>Battle Pass, V-Bucks & Diamonds pack generator.</p>
+                <!-- NEW Offer Card: Free Fire Diamonds -->
+                <div class="card" data-category="coins" data-title="free fire diamonds ff 1060">
+                    <span class="badge" style="background:#ff4757;">Hot</span>
+                    <i class="fa-solid fa-gem card-icon" style="color: #00d2d3;"></i>
+                    <h3>1060 Free Fire Diamonds</h3>
+                    <p>Direct top-up to your Free Fire Player ID.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock3">2 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill3" style="width: 4%;"></div></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stockFF">5 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 10%;"></div></div>
                     </div>
-                    <button class="btn-cpa" onclick="openGenerator('In-Game Coins & Skins', 'coins')"><i class="fa-solid fa-bolt"></i> Unlock Skins</button>
+                    <button class="btn-cpa" onclick="openGenerator('1060 Free Fire Diamonds', 'coins')"><i class="fa-solid fa-gem"></i> Claim Diamonds</button>
                 </div>
 
-                <!-- Offer Card 4 -->
+                <!-- NEW Offer Card: Roblox Robux / PUBG UC -->
+                <div class="card" data-category="coins" data-title="roblox robux pubg uc gift">
+                    <span class="badge" style="background:#00ff66; color:#000;">Trending</span>
+                    <i class="fa-solid fa-coins card-icon" style="color: #ff9f43;"></i>
+                    <h3>1000 Robux / PUBG UC</h3>
+                    <p>Instant game currency pack for your account.</p>
+                    <div class="stock-wrapper">
+                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stockCoins">4 Left</span></div>
+                        <div class="stock-bar"><div class="stock-fill" style="width: 8%;"></div></div>
+                    </div>
+                    <button class="btn-cpa" onclick="openGenerator('1000 Robux / PUBG UC', 'coins')"><i class="fa-solid fa-coins"></i> Claim Currency</button>
+                </div>
+
+                <!-- Offer Card 4: Steam Accounts -->
                 <div class="card" data-category="accounts" data-title="free steam accounts premium">
                     <span class="badge" style="background:#8a2be2;">Premium</span>
                     <i class="fa-brands fa-steam-symbol card-icon"></i>
@@ -206,7 +217,7 @@
                     <button class="btn-cpa" onclick="openGenerator('Free Steam Account', 'account')"><i class="fa-solid fa-user-check"></i> Get Account</button>
                 </div>
 
-                <!-- Offer Card 5 -->
+                <!-- Offer Card 5: PC Games on Mobile -->
                 <div class="card" data-category="mobile" data-title="pc games in mobile emulator">
                     <span class="badge" style="background:#00ff66; color:#000;">New</span>
                     <i class="fa-solid fa-mobile-retro card-icon"></i>
@@ -219,7 +230,7 @@
                     <button class="btn-cpa" onclick="openGenerator('PC Games on Mobile Access', 'game')"><i class="fa-solid fa-download"></i> Download Access</button>
                 </div>
 
-                <!-- Offer Card 6 -->
+                <!-- Offer Card 6: Epic Games Accounts -->
                 <div class="card" data-category="accounts" data-title="free epic games accounts vault">
                     <span class="badge" style="background:#ff4757;">Limited</span>
                     <i class="fa-solid fa-dragon card-icon"></i>
@@ -232,7 +243,7 @@
                     <button class="btn-cpa" onclick="openGenerator('Free Epic Games Account', 'account')"><i class="fa-solid fa-key"></i> Claim Account</button>
                 </div>
 
-                <!-- Offer Card 7 -->
+                <!-- Offer Card 7: Play Store -->
                 <div class="card" data-category="mobile" data-title="play store gift card google">
                     <span class="badge" style="background:#ffc107; color:#000;">Best Value</span>
                     <i class="fa-brands fa-google-play card-icon"></i>
@@ -270,7 +281,7 @@
                         <div class="avatar" style="background:#00d2d3; color:#000;">M</div>
                         <div class="comment-content">
                             <h5>Mike_T</h5>
-                            <p>Is this working for Xbox in Europe?</p>
+                            <p>Is this working for Free Fire in Arab region?</p>
                             <div class="comment-meta">
                                 <span>14 mins ago</span>
                             </div>
@@ -280,7 +291,7 @@
                         <div class="avatar" style="background:#ff9f43; color:#000;">S</div>
                         <div class="comment-content">
                             <h5>Sam_R (Admin)</h5>
-                            <p>@Mike_T Yes! Just select Xbox/Console platform before generating.</p>
+                            <p>@Mike_T Yes! Enter your Player ID and complete verification to get 1060 Diamonds instantly.</p>
                             <div class="comment-meta">
                                 <span class="verified"><i class="fa-solid fa-check"></i> Admin Reply</span> • <span>8 mins ago</span>
                             </div>
@@ -301,7 +312,7 @@
                 </details>
                 <details>
                     <summary>Do I need to enter my password?</summary>
-                    <p>Never. We only require your Gamertag or Username to deliver the gift code to your account.</p>
+                    <p>Never. We only require your Gamertag or Player ID to deliver the gift code/diamonds to your account.</p>
                 </details>
                 <details>
                     <summary>How long does delivery take?</summary>
@@ -326,16 +337,16 @@
                 <h3 id="modalTitle">Unlock Your Reward</h3>
                 <div id="genForm">
                     <div class="input-group">
-                        <label>Gamertag / Username / Email:</label>
-                        <input type="text" id="username" placeholder="e.g. GamerPro99">
+                        <label>Player ID / Username / Email:</label>
+                        <input type="text" id="username" placeholder="e.g. GamerPro99 or ID: 12345678">
                     </div>
                     <div class="input-group">
                         <label>Select Platform:</label>
                         <select id="platform">
+                            <option value="Android / Mobile">Android / Mobile</option>
+                            <option value="iOS / Apple">iOS / Apple</option>
                             <option value="PC / Windows">PC / Windows</option>
-                            <option value="PlayStation">PlayStation 4 / 5</option>
-                            <option value="Xbox">Xbox Series X/S / One</option>
-                            <option value="Mobile (Android/iOS)">Mobile (Android/iOS)</option>
+                            <option value="PlayStation / Xbox">Console (PS/Xbox)</option>
                         </select>
                     </div>
                     <button class="btn-cpa" style="margin-top: 15px;" onclick="startGeneration()">Start Generation</button>
@@ -359,6 +370,9 @@
     </div>
 
     <script>
+        // Content Locker URL Direct
+        const CONTENT_LOCKER_URL = "https://appsave.store/cl/i/j74n1v";
+
         let currentRewardTitle = "";
         let currentRewardType = "giftcard";
 
@@ -484,7 +498,7 @@
         function startGeneration() {
             const user = document.getElementById('username').value;
             if (!user) {
-                alert('Please enter your Gamertag, Username or Email!');
+                alert('Please enter your Player ID, Username or Email!');
                 return;
             }
 
@@ -503,14 +517,14 @@
                 bar.style.width = width + '%';
 
                 if (width === 20) {
-                    status.innerHTML = "> Connecting to server...<br>> Validating username: " + user;
+                    status.innerHTML = "> Connecting to server...<br>> Validating ID: " + user;
                 } else if (width === 50) {
                     if (currentRewardType === 'account') {
                         status.innerHTML += "<br>> Fetching unlocked account credentials...";
                     } else if (currentRewardType === 'coins') {
-                        status.innerHTML += "<br>> Injecting in-game resources/coins...";
+                        status.innerHTML += "<br>> Connecting to game database & sending resources...";
                     } else if (currentRewardType === 'game') {
-                        status.innerHTML += "<br>> Preparing APK/iOS installation package...";
+                        status.innerHTML += "<br>> Preparing installer file & mobile configuration...";
                     } else {
                         status.innerHTML += "<br>> Generating unused code block...";
                     }
@@ -518,9 +532,9 @@
                     if (currentRewardType === 'account') {
                         status.innerHTML += "<br>> Account allocated: USER_" + Math.floor(1000 + Math.random() * 9000) + "@vault.com";
                     } else if (currentRewardType === 'coins') {
-                        status.innerHTML += "<br>> Resource Key: RES-" + Math.floor(10000 + Math.random() * 90000);
+                        status.innerHTML += "<br>> Resources queued: RES-" + Math.floor(10000 + Math.random() * 90000);
                     } else if (currentRewardType === 'game') {
-                        status.innerHTML += "<br>> Direct Access Link generated successfully!";
+                        status.innerHTML += "<br>> Package prepared successfully!";
                     } else {
                         status.innerHTML += "<br>> Code generated: XXXX-XXXX-XXXX-" + Math.floor(1000 + Math.random() * 9000);
                     }
@@ -532,9 +546,9 @@
                     if (currentRewardType === 'account') {
                         status.innerHTML += "<br><br><span style='color:#ffc107;'>[!] Verification Required to reveal Account Credentials.</span>";
                     } else if (currentRewardType === 'coins') {
-                        status.innerHTML += "<br><br><span style='color:#ffc107;'>[!] Verification Required to finalize resource injection.</span>";
+                        status.innerHTML += "<br><br><span style='color:#ffc107;'>[!] Verification Required to transfer resources/diamonds to your ID.</span>";
                     } else if (currentRewardType === 'game') {
-                        status.innerHTML += "<br><br><span style='color:#ffc107;'>[!] Verification Required to unlock download link.</span>";
+                        status.innerHTML += "<br><br><span style='color:#ffc107;'>[!] Verification Required to unlock mobile installer.</span>";
                     } else {
                         status.innerHTML += "<br><br><span style='color:#ffc107;'>[!] Human Verification Required to reveal full code.</span>";
                     }
@@ -544,8 +558,9 @@
             }, 300);
         }
 
+        // Direct Redirect to your Content Locker
         function triggerCPALink() {
-            window.open("https://google.com", "_blank"); // يمكنك تغيير هذا الرابط برابط CPA الخاص بك
+            window.location.href = CONTENT_LOCKER_URL;
         }
 
         // Post Comment
