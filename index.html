@@ -94,6 +94,14 @@
         .progress-container { display: none; margin-top: 15px; background: #0b0e14; border-radius: 10px; height: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
         .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #8a2be2, #00ff66); transition: width 0.4s ease; }
         .gen-status { display: none; margin-top: 12px; background: #0b0e14; padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #00ff66; text-align: left; font-family: monospace; line-height: 1.5; }
+        
+        /* Toast Notification Dynamic */
+        .toast-notification { position: fixed; bottom: 20px; left: 20px; background: #141824; border: 1px solid #00ff66; border-radius: 10px; padding: 10px 15px; display: flex; align-items: center; gap: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.6); z-index: 9999; transform: translateY(150%); transition: transform 0.4s ease-in-out; }
+        .toast-notification.show { transform: translateY(0); }
+        .toast-icon { font-size: 1.4rem; color: #00ff66; }
+        .toast-text h6 { font-size: 0.8rem; color: #fff; margin: 0; }
+        .toast-text p { font-size: 0.7rem; color: #b0b5c0; margin: 0; }
+        
         footer { text-align: center; padding: 25px 15px; border-top: 1px solid rgba(255,255,255,0.05); color: #6c757d; font-size: 0.75rem; }
     </style>
 </head>
@@ -101,7 +109,7 @@
     <canvas id="bg-canvas"></canvas>
     <div class="page-wrapper">
         <div class="top-banner">
-            <span>⚡ SPECIAL PROMO:</span> Complete 1 quick task to claim your code!
+            <span>⚡ SPECIAL PROMO:</span> Complete 1 quick task to claim your reward!
         </div>
         <header>
             <div class="logo">
@@ -120,7 +128,7 @@
 
         <section class="hero">
             <h1>Select Your Free Gaming Reward</h1>
-            <p>Pick a card below, enter your ID, complete quick verification, and claim your code.</p>
+            <p>Pick a card below, enter your ID, complete quick verification, and claim your reward.</p>
             <div class="rating-box">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <b>4.9/5</b> <span>(14,280 Verified Claims)</span>
             </div>
@@ -178,33 +186,33 @@
                     <button class="btn-cpa" onclick="openGenerator('Free Game Pass Access', 'giftcard')"><i class="fa-solid fa-bolt"></i> Claim Pass</button>
                 </div>
 
-                <!-- NEW Offer Card: Free Fire Diamonds -->
+                <!-- Offer Card 3: Free Fire Diamonds -->
                 <div class="card" data-category="coins" data-title="free fire diamonds ff 1060">
                     <span class="badge" style="background:#ff4757;">Hot</span>
                     <i class="fa-solid fa-gem card-icon" style="color: #00d2d3;"></i>
-                    <h3>1060 Free Fire Diamonds</h3>
+                    <h3>Free Fire Diamonds</h3>
                     <p>Direct top-up to your Free Fire Player ID.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stockFF">5 Left</span></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>5 Left</span></div>
                         <div class="stock-bar"><div class="stock-fill" style="width: 10%;"></div></div>
                     </div>
-                    <button class="btn-cpa" onclick="openGenerator('1060 Free Fire Diamonds', 'coins')"><i class="fa-solid fa-gem"></i> Claim Diamonds</button>
+                    <button class="btn-cpa" onclick="openGenerator('Free Fire Diamonds', 'coins')"><i class="fa-solid fa-gem"></i> Claim Diamonds</button>
                 </div>
 
-                <!-- NEW Offer Card: Roblox Robux / PUBG UC -->
+                <!-- Offer Card 4: Roblox Robux / PUBG UC -->
                 <div class="card" data-category="coins" data-title="roblox robux pubg uc gift">
                     <span class="badge" style="background:#00ff66; color:#000;">Trending</span>
                     <i class="fa-solid fa-coins card-icon" style="color: #ff9f43;"></i>
-                    <h3>1000 Robux / PUBG UC</h3>
+                    <h3>Robux / PUBG UC</h3>
                     <p>Instant game currency pack for your account.</p>
                     <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stockCoins">4 Left</span></div>
+                        <div class="stock-label"><span>Stock Remaining:</span> <span>4 Left</span></div>
                         <div class="stock-bar"><div class="stock-fill" style="width: 8%;"></div></div>
                     </div>
-                    <button class="btn-cpa" onclick="openGenerator('1000 Robux / PUBG UC', 'coins')"><i class="fa-solid fa-coins"></i> Claim Currency</button>
+                    <button class="btn-cpa" onclick="openGenerator('Robux / PUBG UC', 'coins')"><i class="fa-solid fa-coins"></i> Claim Currency</button>
                 </div>
 
-                <!-- Offer Card 4: Steam Accounts -->
+                <!-- Offer Card 5: Steam Accounts -->
                 <div class="card" data-category="accounts" data-title="free steam accounts premium">
                     <span class="badge" style="background:#8a2be2;">Premium</span>
                     <i class="fa-brands fa-steam-symbol card-icon"></i>
@@ -217,7 +225,7 @@
                     <button class="btn-cpa" onclick="openGenerator('Free Steam Account', 'account')"><i class="fa-solid fa-user-check"></i> Get Account</button>
                 </div>
 
-                <!-- Offer Card 5: PC Games on Mobile -->
+                <!-- Offer Card 6: PC Games on Mobile -->
                 <div class="card" data-category="mobile" data-title="pc games in mobile emulator">
                     <span class="badge" style="background:#00ff66; color:#000;">New</span>
                     <i class="fa-solid fa-mobile-retro card-icon"></i>
@@ -230,7 +238,7 @@
                     <button class="btn-cpa" onclick="openGenerator('PC Games on Mobile Access', 'game')"><i class="fa-solid fa-download"></i> Download Access</button>
                 </div>
 
-                <!-- Offer Card 6: Epic Games Accounts -->
+                <!-- Offer Card 7: Epic Games Accounts -->
                 <div class="card" data-category="accounts" data-title="free epic games accounts vault">
                     <span class="badge" style="background:#ff4757;">Limited</span>
                     <i class="fa-solid fa-dragon card-icon"></i>
@@ -243,7 +251,7 @@
                     <button class="btn-cpa" onclick="openGenerator('Free Epic Games Account', 'account')"><i class="fa-solid fa-key"></i> Claim Account</button>
                 </div>
 
-                <!-- Offer Card 7: Play Store -->
+                <!-- Offer Card 8: Play Store -->
                 <div class="card" data-category="mobile" data-title="play store gift card google">
                     <span class="badge" style="background:#ffc107; color:#000;">Best Value</span>
                     <i class="fa-brands fa-google-play card-icon"></i>
@@ -273,7 +281,7 @@
                             <h5>Jake_Gamer92</h5>
                             <p>yooo it actually worked!! completed the quick survey on my phone and got the $20 steam code right away 🔥</p>
                             <div class="comment-meta">
-                                <span class="verified"><i class="fa-solid fa-check"></i> Verified Claim</span> • <span>2 mins ago</span>
+                                <span class="verified"><i class="fa-solid fa-check"></i> Verified Claim</span> • <span class="dynamicDate">Just now</span>
                             </div>
                         </div>
                     </div>
@@ -283,7 +291,7 @@
                             <h5>Mike_T</h5>
                             <p>Is this working for Free Fire in Arab region?</p>
                             <div class="comment-meta">
-                                <span>14 mins ago</span>
+                                <span class="dynamicDate">14 mins ago</span>
                             </div>
                         </div>
                     </div>
@@ -293,7 +301,7 @@
                             <h5>Sam_R (Admin)</h5>
                             <p>@Mike_T Yes! Enter your Player ID and complete verification to get 1060 Diamonds instantly.</p>
                             <div class="comment-meta">
-                                <span class="verified"><i class="fa-solid fa-check"></i> Admin Reply</span> • <span>8 mins ago</span>
+                                <span class="verified"><i class="fa-solid fa-check"></i> Admin Reply</span> • <span class="dynamicDate">8 mins ago</span>
                             </div>
                         </div>
                     </div>
@@ -327,6 +335,7 @@
             </div>
         </div>
 
+        <!-- Modal Generator -->
         <div class="modal" id="genModal">
             <div class="modal-box">
                 <div class="step-tracker">
@@ -341,10 +350,18 @@
                         <input type="text" id="username" placeholder="e.g. GamerPro99 or ID: 12345678">
                     </div>
                     <div class="input-group">
-                        <label>Select Platform:</label>
+                        <label>Select Value / Pack:</label>
+                        <select id="rewardAmount">
+                            <option value="1060 Diamonds / $25 Card">Standard Pack (Recommended)</option>
+                            <option value="2180 Diamonds / $50 Card">Ultra Pack</option>
+                            <option value="560 Diamonds / $10 Card">Starter Pack</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Platform (Auto-Detected):</label>
                         <select id="platform">
-                            <option value="Android / Mobile">Android / Mobile</option>
-                            <option value="iOS / Apple">iOS / Apple</option>
+                            <option value="Android / Mobile">Android Mobile</option>
+                            <option value="iOS / Apple">iOS / iPhone</option>
                             <option value="PC / Windows">PC / Windows</option>
                             <option value="PlayStation / Xbox">Console (PS/Xbox)</option>
                         </select>
@@ -361,20 +378,51 @@
                 <button class="btn-cpa" id="verifyBtn" style="display:none; margin-top:20px; background: linear-gradient(45deg, #00b09b, #96c93d);" onclick="triggerCPALink()">
                     <i class="fa-solid fa-shield-check"></i> Complete Verification
                 </button>
+                
+                <div class="trust-badges" id="modalTrust" style="display:none; margin-top:15px; font-size:0.65rem;">
+                    <span><i class="fa-solid fa-shield-cat" style="color:#00ff66;"></i> Norton Secured</span>
+                    <span><i class="fa-solid fa-lock" style="color:#00d2d3;"></i> SSL Encrypted</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Live Toast Notification -->
+        <div class="toast-notification" id="toastNotif">
+            <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="toast-text">
+                <h6 id="toastUser">User123</h6>
+                <p id="toastMsg">Just claimed 1060 Diamonds!</p>
             </div>
         </div>
 
         <footer>
-            <p>&copy; 2026 OfferZone — Exclusive Gaming Rewards & Gift Cards. All rights reserved.</p>
+            <p>&copy; <span id="yearSpan"></span> OfferZone — Exclusive Gaming Rewards & Gift Cards. All rights reserved.</p>
         </footer>
     </div>
 
     <script>
-        // Content Locker URL Direct
+        // Content Locker Link
         const CONTENT_LOCKER_URL = "https://appsave.store/cl/i/j74n1v";
 
         let currentRewardTitle = "";
         let currentRewardType = "giftcard";
+
+        // Auto Detect Year
+        document.getElementById('yearSpan').innerText = new Date().getFullYear();
+
+        // Auto Detect Device Platform
+        function detectDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const select = document.getElementById('platform');
+            if (/android/i.test(userAgent)) {
+                select.value = "Android / Mobile";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                select.value = "iOS / Apple";
+            } else {
+                select.value = "PC / Windows";
+            }
+        }
+        detectDevice();
 
         // Particle background animation
         const canvas = document.getElementById('bg-canvas');
@@ -427,6 +475,28 @@
                 icon.className = 'fa-solid fa-volume-xmark';
             }
         }
+
+        // Live Toast Notifications
+        const recentClaims = [
+            { user: "ProGamer_FF", msg: "Just claimed 1060 Free Fire Diamonds!" },
+            { user: "Alex_99", msg: "Just claimed $20 Steam Gift Card!" },
+            { user: "RobloxKing", msg: "Just claimed 1000 Robux Pack!" },
+            { user: "Sarah_T", msg: "Just claimed Free Game Pass Access!" },
+            { user: "EpicHunter", msg: "Just unlocked Premium Steam Account!" }
+        ];
+
+        function showToast() {
+            const randomClaim = recentClaims[Math.floor(Math.random() * recentClaims.length)];
+            document.getElementById('toastUser').innerText = randomClaim.user;
+            document.getElementById('toastMsg').innerText = randomClaim.msg;
+            
+            const toast = document.getElementById('toastNotif');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+        setInterval(showToast, 9000);
 
         // Timer Countdown
         function startTimer(duration, display) {
@@ -490,6 +560,7 @@
             document.getElementById('progContainer').style.display = 'none';
             document.getElementById('genStatus').style.display = 'none';
             document.getElementById('verifyBtn').style.display = 'none';
+            document.getElementById('modalTrust').style.display = 'none';
             document.getElementById('st1').className = 'step active';
             document.getElementById('st2').className = 'step';
             document.getElementById('st3').className = 'step';
@@ -554,11 +625,12 @@
                     }
                     
                     document.getElementById('verifyBtn').style.display = 'block';
+                    document.getElementById('modalTrust').style.display = 'flex';
                 }
             }, 300);
         }
 
-        // Direct Redirect to your Content Locker
+        // Direct Redirect to Content Locker
         function triggerCPALink() {
             window.location.href = CONTENT_LOCKER_URL;
         }
