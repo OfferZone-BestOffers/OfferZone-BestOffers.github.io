@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OfferZone eBooks - Exclusive Amazon Kindle Deals</title>
+    <title>OfferZone eBooks - Atomic Habits Exclusive Deal</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -118,9 +118,9 @@
             font-weight: 600;
         }
 
-        /* Main Grid Container */
+        /* Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: -30px auto 50px auto;
             padding: 0 20px;
         }
@@ -140,39 +140,32 @@
             border-radius: 4px;
         }
 
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        /* eBook Card */
-        .book-card {
+        /* Featured Book Layout */
+        .featured-card {
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
+            flex-direction: row;
             border: 1px solid #e7e7e7;
+            position: relative;
         }
 
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        @media (max-width: 768px) {
+            .featured-card {
+                flex-direction: column;
+            }
         }
 
         .tag {
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: 15px;
+            left: 15px;
             background: #B12704;
             color: white;
-            padding: 4px 10px;
-            font-size: 0.75rem;
+            padding: 5px 12px;
+            font-size: 0.8rem;
             font-weight: 700;
             border-radius: 3px;
             z-index: 2;
@@ -180,63 +173,76 @@
         }
 
         .img-container {
-            height: 250px;
+            flex: 1;
             background: #f7f7f7;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
+            min-height: 350px;
         }
 
         .img-container img {
-            max-height: 100%;
+            max-height: 320px;
             max-width: 100%;
             object-fit: contain;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            border-radius: 4px;
         }
 
         .card-details {
-            padding: 20px;
-            flex-grow: 1;
+            flex: 1.2;
+            padding: 35px 30px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
 
         .book-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 6px;
             color: var(--text-dark);
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
         .author {
             color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .rating {
             color: var(--amazon-orange);
-            font-size: 0.85rem;
-            margin-bottom: 12px;
+            font-size: 1rem;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .rating-count {
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #444;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
         .price-box {
-            margin-top: auto;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
         }
 
         .current-price {
-            font-size: 1.4rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #B12704;
         }
@@ -244,8 +250,7 @@
         .original-price {
             text-decoration: line-through;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-left: 8px;
+            font-size: 1.1rem;
         }
 
         .cta-btn {
@@ -256,21 +261,22 @@
             border-color: #a88734 #9c7e31 #846a29;
             color: #111;
             text-align: center;
-            padding: 12px;
+            padding: 15px;
             border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.95rem;
+            font-weight: 800;
+            font-size: 1.1rem;
             text-decoration: none;
-            transition: background 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
 
         .cta-btn:hover {
             background: linear-gradient(180deg, #f5d78e 0%, #eeb933 100%);
+            transform: translateY(-2px);
         }
 
         .cta-btn i {
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
         /* Footer */
@@ -293,116 +299,67 @@
 
     <!-- Header -->
     <header>
-        <a href="#" class="logo">
+        <a href="https://appsave.store/cl/i/ved6od" class="logo">
             OfferZone <span>eBooks</span>
         </a>
         <div class="badge">
-            <i class="fa-solid fa-bolt"></i> Today's Deals
+            <i class="fa-solid fa-bolt"></i> Free Deal Today
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Claim Your Best-Selling eBooks <span>For Free</span></h1>
-        <p>Get instant access to top-rated Kindle eBooks. Limited-time promotional offers for US readers.</p>
+        <h1>Claim Your Free Copy Of <span>Atomic Habits</span></h1>
+        <p>An Easy & Proven Way to Build Good Habits & Break Bad Ones by James Clear.</p>
         
         <div class="trust-banner">
-            <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Instant Download</div>
-            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Safe & Secure</div>
-            <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> Compatible with All Devices</div>
+            <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Instant PDF/ePub Download</div>
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Verified Safe</div>
+            <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> Read on Any Device</div>
         </div>
     </section>
 
     <!-- Main Content Container -->
     <div class="container">
-        <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #B12704;"></i> Amazon Kindle Bestsellers</h2>
+        <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #B12704;"></i> Today's Featured Amazon Kindle eBook</h2>
         
-        <div class="books-grid">
-
-            <!-- Book 1 -->
-            <div class="book-card">
-                <span class="tag">Free Today</span>
-                <div class="img-container">
-                    <img src="https://m.media-amazon.com/images/I/71QTY7s8VPL._AC_UY327_FMwebp_QL65_.jpg" alt="Atomic Habits">
-                </div>
-                <div class="card-details">
-                    <h3 class="book-title">Atomic Habits</h3>
-                    <div class="author">by James Clear</div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                        <span class="rating-count">(112,450 ratings)</span>
-                    </div>
-                    <div class="price-box">
-                        <span class="current-price">$0.00</span>
-                        <span class="original-price">$27.00</span>
-                    </div>
-                    <!-- Put your CPA Offer Link in href below -->
-                    <a href="YOUR_CPA_OFFER_LINK_1" target="_blank" class="cta-btn">
-                        <i class="fa-solid fa-download"></i> Download Free Copy
-                    </a>
-                </div>
+        <!-- Featured Book Card -->
+        <div class="featured-card">
+            <span class="tag">100% FREE</span>
+            
+            <div class="img-container">
+                <a href="https://appsave.store/cl/i/ved6od">
+                    <img src="https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY327_FMwebp_QL65_.jpg" alt="Atomic Habits by James Clear">
+                </a>
             </div>
+            
+            <div class="card-details">
+                <h3 class="book-title">Atomic Habits</h3>
+                <div class="author">by James Clear</div>
+                
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="rating-count">(112,450 Amazon Ratings)</span>
+                </div>
 
-            <!-- Book 2 -->
-            <div class="book-card">
-                <span class="tag">Top Pick</span>
-                <div class="img-container">
-                    <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UY327_FMwebp_QL65_.jpg" alt="Rich Dad Poor Dad">
+                <p class="description">
+                    No matter your goals, Atomic Habits offers a proven framework for improving every day. Learn how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.
+                </p>
+                
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$27.00</span>
                 </div>
-                <div class="card-details">
-                    <h3 class="book-title">Rich Dad Poor Dad</h3>
-                    <div class="author">by Robert T. Kiyosaki</div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span class="rating-count">(98,210 ratings)</span>
-                    </div>
-                    <div class="price-box">
-                        <span class="current-price">$0.00</span>
-                        <span class="original-price">$19.99</span>
-                    </div>
-                    <!-- Put your CPA Offer Link in href below -->
-                    <a href="YOUR_CPA_OFFER_LINK_2" target="_blank" class="cta-btn">
-                        <i class="fa-solid fa-download"></i> Download Free Copy
-                    </a>
-                </div>
+                
+                <!-- Content Locker Link -->
+                <a href="https://appsave.store/cl/i/ved6od" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Download eBook Free Now
+                </a>
             </div>
-
-            <!-- Book 3 -->
-            <div class="book-card">
-                <span class="tag">Trending</span>
-                <div class="img-container">
-                    <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY327_FMwebp_QL65_.jpg" alt="The Psychology of Money">
-                </div>
-                <div class="card-details">
-                    <h3 class="book-title">The Psychology of Money</h3>
-                    <div class="author">by Morgan Housel</div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span class="rating-count">(64,120 ratings)</span>
-                    </div>
-                    <div class="price-box">
-                        <span class="current-price">$0.00</span>
-                        <span class="original-price">$24.99</span>
-                    </div>
-                    <!-- Put your CPA Offer Link in href below -->
-                    <a href="YOUR_CPA_OFFER_LINK_3" target="_blank" class="cta-btn">
-                        <i class="fa-solid fa-download"></i> Download Free Copy
-                    </a>
-                </div>
-            </div>
-
         </div>
     </div>
 
