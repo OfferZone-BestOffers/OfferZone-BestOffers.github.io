@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OfferZone - Best Amazon eBooks Deals</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --amazon-navy: #131921;
+            --amazon-light-navy: #232f3e;
+            --amazon-orange: #FF9900;
+            --amazon-orange-hover: #e88b00;
+            --amazon-yellow: #febd69;
+            --bg-light: #eaeded;
+            --text-dark: #0F1111;
+            --text-muted: #565959;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Header */
+        header {
+            background-color: var(--amazon-navy);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--amazon-orange);
+        }
+
+        .badge {
+            background-color: var(--amazon-orange);
+            color: var(--amazon-navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(180deg, var(--amazon-light-navy) 0%, var(--amazon-navy) 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px 70px 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: var(--amazon-yellow);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ddd;
+            max-width: 650px;
+            margin: 0 auto 20px auto;
+        }
+
+        .trust-banner {
+            display: inline-flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--amazon-yellow);
+        }
+
+        /* Main Grid Container */
+        .container {
+            max-width: 1200px;
+            margin: -30px auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-right: 5px solid var(--amazon-orange);
+            padding-right: 12px;
+            background: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* eBook Card */
+        .book-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            border: 1px solid #e7e7e7;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #B12704;
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 3px;
+            z-index: 2;
+        }
+
+        .img-container {
+            height: 240px;
+            background: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .img-container img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-details {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .author {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: var(--amazon-orange);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rating-count {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .price-box {
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #B12704;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(180deg, #f7dfa5 0%, #f0c14b 100%);
+            border: 1px solid;
+            border-color: #a88734 #9c7e31 #846a29;
+            color: #111;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(180deg, #f5d78e 0%, #eeb933 100%);
+        }
+
+        .cta-btn i {
+            margin-left: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--amazon-navy);
+            color: #ddd;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--amazon-orange);
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: var(--amazon-yellow);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            OfferZone <span>eBooks</span>
+        </a>
+        <div class="badge">
+            <i class="fa-solid fa-bolt"></i> عروض مجهزة لليوم
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>أفضل الكتب الإلكترونية <span>بالمجان لفترة محدودة</span></h1>
+        <p>حمل أحدث Ebooks الأكثر مبيعاً على Amazon مجاناً عبر عروضنا الحصرية اليوم.</p>
+        
+        <div class="trust-banner">
+            <div class="trust-item"><i class="fa-solid fa-circle-check"></i> تحميل مباشر</div>
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> آمن 100%</div>
+            <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> متوافق مع جميع الأجهزة</div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #B12704;"></i> الأكتبار رواجاً على Amazon Kindle</h2>
+        
+        <div class="books-grid">
+
+            <!-- الكتاب الأول -->
+            <div class="book-card">
+                <span class="tag">مجاناً اليوم</span>
+                <div class="img-container">
+                    <img src="https://m.media-amazon.com/images/I/71QTY7s8VPL._AC_UY327_FMwebp_QL65_.jpg" alt="Book 1">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Atomic Habits (العادات الذرية)</h3>
+                    <div class="author">بواسطة James Clear</div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span class="rating-count">(112,450 تقييم)</span>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">$0.00</span>
+                        <span class="original-price">$27.00</span>
+                    </div>
+                    <!-- حط رابط CPA ديالك فـ href -->
+                    <a href="YOUR_CPA_OFFER_LINK_1" target="_blank" class="cta-btn">
+                        <i class="fa-solid fa-download"></i> حمل الكتاب مجاناً الآن
+                    </a>
+                </div>
+            </div>
+
+            <!-- الكتاب الثاني -->
+            <div class="book-card">
+                <span class="tag">عروض خاوية</span>
+                <div class="img-container">
+                    <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UY327_FMwebp_QL65_.jpg" alt="Book 2">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Rich Dad Poor Dad (الأب الغني والأب الفقير)</h3>
+                    <div class="author">بواسطة Robert T. Kiyosaki</div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span class="rating-count">(98,210 تقييم)</span>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">$0.00</span>
+                        <span class="original-price">$19.99</span>
+                    </div>
+                    <!-- حط رابط CPA ديالك فـ href -->
+                    <a href="YOUR_CPA_OFFER_LINK_2" target="_blank" class="cta-btn">
+                        <i class="fa-solid fa-download"></i> حمل الكتاب مجاناً الآن
+                    </a>
+                </div>
+            </div>
+
+            <!-- الكتاب الثالث -->
+            <div class="book-card">
+                <span class="tag">الأكثر طلباً</span>
+                <div class="img-container">
+                    <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY327_FMwebp_QL65_.jpg" alt="Book 3">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">The Psychology of Money</h3>
+                    <div class="author">بواسطة Morgan Housel</div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span class="rating-count">(64,120 تقييم)</span>
+                    </div>
+                    <div class="price-box">
+                        <span class="current-price">$0.00</span>
+                        <span class="original-price">$24.99</span>
+                    </div>
+                    <!-- حط رابط CPA ديالك فـ href -->
+                    <a href="YOUR_CPA_OFFER_LINK_3" target="_blank" class="cta-btn">
+                        <i class="fa-solid fa-download"></i> حمل الكتاب مجاناً الآن
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 OfferZone Best Offers. All rights reserved.</p>
+        <p style="font-size: 0.8rem; color: #888;">هذا الموقع غير تابع لموقع Amazon.com بشكل مباشر، وإنما يشارك عروض ترويجية للكتب فقط.</p>
+    </footer>
+
+</body>
+</html>
