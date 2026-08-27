@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OfferZone eBooks - Atomic Habits Exclusive Deal</title>
+    <title>OfferZone eBooks - Premium Kindle Deals</title>
+    
+    <!-- Favicon / Tab Logo -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23131921'/><circle cx='50' cy='50' r='38' fill='none' stroke='%23FF9900' stroke-width='6'/><text x='50%' y='68%' font-size='48' font-weight='900' font-family='sans-serif' fill='%23FF9900' text-anchor='middle'>O</text></svg>">
+    
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -51,12 +55,25 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-size: 1.5rem;
             font-weight: 800;
             color: white;
             text-decoration: none;
             letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            background: var(--amazon-orange);
+            color: var(--amazon-navy);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 900;
         }
 
         .logo span {
@@ -120,7 +137,7 @@
 
         /* Main Container */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: -30px auto 50px auto;
             padding: 0 20px;
         }
@@ -140,7 +157,7 @@
             border-radius: 4px;
         }
 
-        /* Featured Book Layout */
+        /* Featured Main Book */
         .featured-card {
             background: var(--card-bg);
             border-radius: 8px;
@@ -150,6 +167,7 @@
             flex-direction: row;
             border: 1px solid #e7e7e7;
             position: relative;
+            margin-bottom: 40px;
         }
 
         @media (max-width: 768px) {
@@ -279,6 +297,57 @@
             margin-right: 10px;
         }
 
+        /* Secondary Grid Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e7e7e7;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .grid-img {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .grid-img img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .grid-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .grid-author {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
         /* Footer */
         footer {
             background-color: var(--amazon-navy);
@@ -300,17 +369,18 @@
     <!-- Header -->
     <header>
         <a href="https://appsave.store/cl/i/ved6od" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
             OfferZone <span>eBooks</span>
         </a>
         <div class="badge">
-            <i class="fa-solid fa-bolt"></i> Free Deal Today
+            <i class="fa-solid fa-fire"></i> US Free Deals
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Claim Your Free Copy Of <span>Atomic Habits</span></h1>
-        <p>An Easy & Proven Way to Build Good Habits & Break Bad Ones by James Clear.</p>
+        <h1>Claim Best-Selling eBooks <span>100% Free</span></h1>
+        <p>Instant digital downloads for Amazon Kindle bestsellers. Limited promotional period.</p>
         
         <div class="trust-banner">
             <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Instant PDF/ePub Download</div>
@@ -321,11 +391,12 @@
 
     <!-- Main Content Container -->
     <div class="container">
-        <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #B12704;"></i> Today's Featured Amazon Kindle eBook</h2>
         
-        <!-- Featured Book Card -->
+        <!-- #1 Main Featured Offer -->
+        <h2 class="section-title"><i class="fa-solid fa-star" style="color: #FF9900;"></i> Top Featured eBook Today</h2>
+        
         <div class="featured-card">
-            <span class="tag">100% FREE</span>
+            <span class="tag">#1 Bestseller</span>
             
             <div class="img-container">
                 <a href="https://appsave.store/cl/i/ved6od">
@@ -347,7 +418,7 @@
                 </div>
 
                 <p class="description">
-                    No matter your goals, Atomic Habits offers a proven framework for improving every day. Learn how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.
+                    Learn how tiny habits can lead to remarkable results. The #1 world bestseller on habit formation and personal growth.
                 </p>
                 
                 <div class="price-box">
@@ -355,12 +426,73 @@
                     <span class="original-price">$27.00</span>
                 </div>
                 
-                <!-- Content Locker Link -->
                 <a href="https://appsave.store/cl/i/ved6od" target="_blank" class="cta-btn">
-                    <i class="fa-solid fa-download"></i> Download eBook Free Now
+                    <i class="fa-solid fa-download"></i> Download Free eBook Now
                 </a>
             </div>
         </div>
+
+        <!-- #2 More Popular Amazon eBooks Grid -->
+        <h2 class="section-title"><i class="fa-solid fa-book-open" style="color: #FF9900;"></i> Also Trending On Amazon</h2>
+
+        <div class="books-grid">
+
+            <!-- Book 2: Rich Dad Poor Dad -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://appsave.store/cl/i/ved6od">
+                        <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UY327_FMwebp_QL65_.jpg" alt="Rich Dad Poor Dad">
+                    </a>
+                </div>
+                <h4 class="grid-title">Rich Dad Poor Dad</h4>
+                <div class="grid-author">by Robert T. Kiyosaki</div>
+                <div class="price-box" style="margin-bottom:10px;">
+                    <span class="current-price" style="font-size: 1.4rem;">$0.00</span>
+                    <span class="original-price">$19.99</span>
+                </div>
+                <a href="https://appsave.store/cl/i/ved6od" target="_blank" class="cta-btn" style="padding:10px; font-size:0.9rem;">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 3: Psychology of Money -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://appsave.store/cl/i/ved6od">
+                        <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY327_FMwebp_QL65_.jpg" alt="The Psychology of Money">
+                    </a>
+                </div>
+                <h4 class="grid-title">The Psychology of Money</h4>
+                <div class="grid-author">by Morgan Housel</div>
+                <div class="price-box" style="margin-bottom:10px;">
+                    <span class="current-price" style="font-size: 1.4rem;">$0.00</span>
+                    <span class="original-price">$24.99</span>
+                </div>
+                <a href="https://appsave.store/cl/i/ved6od" target="_blank" class="cta-btn" style="padding:10px; font-size:0.9rem;">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 4: 48 Laws of Power -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://appsave.store/cl/i/ved6od">
+                        <img src="https://m.media-amazon.com/images/I/611X8GI7hpL._AC_UY327_FMwebp_QL65_.jpg" alt="The 48 Laws of Power">
+                    </a>
+                </div>
+                <h4 class="grid-title">The 48 Laws of Power</h4>
+                <div class="grid-author">by Robert Greene</div>
+                <div class="price-box" style="margin-bottom:10px;">
+                    <span class="current-price" style="font-size: 1.4rem;">$0.00</span>
+                    <span class="original-price">$26.00</span>
+                </div>
+                <a href="https://appsave.store/cl/i/ved6od" target="_blank" class="cta-btn" style="padding:10px; font-size:0.9rem;">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+        </div>
+
     </div>
 
     <!-- Footer -->
