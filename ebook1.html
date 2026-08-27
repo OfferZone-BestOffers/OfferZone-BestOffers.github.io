@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OfferZone - Best Amazon eBooks Deals</title>
+    <title>OfferZone eBooks - Exclusive Amazon Kindle Deals</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --amazon-navy: #131921;
@@ -25,7 +25,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Open Sans', Arial, sans-serif;
         }
 
         body {
@@ -51,11 +51,12 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-size: 1.5rem;
             font-weight: 800;
             color: white;
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -65,10 +66,11 @@
         .badge {
             background-color: var(--amazon-orange);
             color: var(--amazon-navy);
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 700;
+            text-transform: uppercase;
         }
 
         /* Hero Banner */
@@ -94,7 +96,7 @@
             font-size: 1.1rem;
             color: #ddd;
             max-width: 650px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 25px auto;
         }
 
         .trust-banner {
@@ -104,6 +106,8 @@
             padding: 10px 25px;
             border-radius: 30px;
             font-size: 0.9rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .trust-item {
@@ -111,6 +115,7 @@
             align-items: center;
             gap: 8px;
             color: var(--amazon-yellow);
+            font-weight: 600;
         }
 
         /* Main Grid Container */
@@ -121,17 +126,17 @@
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
-            border-right: 5px solid var(--amazon-orange);
-            padding-right: 12px;
+            border-left: 5px solid var(--amazon-orange);
+            padding-left: 12px;
             background: white;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 12px;
+            padding-bottom: 12px;
             border-radius: 4px;
         }
 
@@ -163,7 +168,7 @@
         .tag {
             position: absolute;
             top: 12px;
-            right: 12px;
+            left: 12px;
             background: #B12704;
             color: white;
             padding: 4px 10px;
@@ -171,10 +176,11 @@
             font-weight: 700;
             border-radius: 3px;
             z-index: 2;
+            text-transform: uppercase;
         }
 
         .img-container {
-            height: 240px;
+            height: 250px;
             background: #f7f7f7;
             display: flex;
             align-items: center;
@@ -199,9 +205,9 @@
         .book-title {
             font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             color: var(--text-dark);
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .author {
@@ -239,7 +245,7 @@
             text-decoration: line-through;
             color: var(--text-muted);
             font-size: 0.9rem;
-            margin-right: 8px;
+            margin-left: 8px;
         }
 
         .cta-btn {
@@ -253,7 +259,7 @@
             padding: 12px;
             border-radius: 6px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
             transition: background 0.2s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -264,7 +270,7 @@
         }
 
         .cta-btn i {
-            margin-left: 8px;
+            margin-right: 8px;
         }
 
         /* Footer */
@@ -274,17 +280,12 @@
             text-align: center;
             padding: 30px 20px;
             margin-top: 60px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-top: 4px solid var(--amazon-orange);
         }
 
         footer p {
             margin-bottom: 8px;
-        }
-
-        footer a {
-            color: var(--amazon-yellow);
-            text-decoration: none;
         }
     </style>
 </head>
@@ -296,108 +297,108 @@
             OfferZone <span>eBooks</span>
         </a>
         <div class="badge">
-            <i class="fa-solid fa-bolt"></i> عروض مجهزة لليوم
+            <i class="fa-solid fa-bolt"></i> Today's Deals
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>أفضل الكتب الإلكترونية <span>بالمجان لفترة محدودة</span></h1>
-        <p>حمل أحدث Ebooks الأكثر مبيعاً على Amazon مجاناً عبر عروضنا الحصرية اليوم.</p>
+        <h1>Claim Your Best-Selling eBooks <span>For Free</span></h1>
+        <p>Get instant access to top-rated Kindle eBooks. Limited-time promotional offers for US readers.</p>
         
         <div class="trust-banner">
-            <div class="trust-item"><i class="fa-solid fa-circle-check"></i> تحميل مباشر</div>
-            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> آمن 100%</div>
-            <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> متوافق مع جميع الأجهزة</div>
+            <div class="trust-item"><i class="fa-solid fa-circle-check"></i> Instant Download</div>
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Safe & Secure</div>
+            <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> Compatible with All Devices</div>
         </div>
     </section>
 
     <!-- Main Content Container -->
     <div class="container">
-        <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #B12704;"></i> الأكتبار رواجاً على Amazon Kindle</h2>
+        <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #B12704;"></i> Amazon Kindle Bestsellers</h2>
         
         <div class="books-grid">
 
-            <!-- الكتاب الأول -->
+            <!-- Book 1 -->
             <div class="book-card">
-                <span class="tag">مجاناً اليوم</span>
+                <span class="tag">Free Today</span>
                 <div class="img-container">
-                    <img src="https://m.media-amazon.com/images/I/71QTY7s8VPL._AC_UY327_FMwebp_QL65_.jpg" alt="Book 1">
+                    <img src="https://m.media-amazon.com/images/I/71QTY7s8VPL._AC_UY327_FMwebp_QL65_.jpg" alt="Atomic Habits">
                 </div>
                 <div class="card-details">
-                    <h3 class="book-title">Atomic Habits (العادات الذرية)</h3>
-                    <div class="author">بواسطة James Clear</div>
+                    <h3 class="book-title">Atomic Habits</h3>
+                    <div class="author">by James Clear</div>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star-half-stroke"></i>
-                        <span class="rating-count">(112,450 تقييم)</span>
+                        <span class="rating-count">(112,450 ratings)</span>
                     </div>
                     <div class="price-box">
                         <span class="current-price">$0.00</span>
                         <span class="original-price">$27.00</span>
                     </div>
-                    <!-- حط رابط CPA ديالك فـ href -->
+                    <!-- Put your CPA Offer Link in href below -->
                     <a href="YOUR_CPA_OFFER_LINK_1" target="_blank" class="cta-btn">
-                        <i class="fa-solid fa-download"></i> حمل الكتاب مجاناً الآن
+                        <i class="fa-solid fa-download"></i> Download Free Copy
                     </a>
                 </div>
             </div>
 
-            <!-- الكتاب الثاني -->
+            <!-- Book 2 -->
             <div class="book-card">
-                <span class="tag">عروض خاوية</span>
+                <span class="tag">Top Pick</span>
                 <div class="img-container">
-                    <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UY327_FMwebp_QL65_.jpg" alt="Book 2">
+                    <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UY327_FMwebp_QL65_.jpg" alt="Rich Dad Poor Dad">
                 </div>
                 <div class="card-details">
-                    <h3 class="book-title">Rich Dad Poor Dad (الأب الغني والأب الفقير)</h3>
-                    <div class="author">بواسطة Robert T. Kiyosaki</div>
+                    <h3 class="book-title">Rich Dad Poor Dad</h3>
+                    <div class="author">by Robert T. Kiyosaki</div>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <span class="rating-count">(98,210 تقييم)</span>
+                        <span class="rating-count">(98,210 ratings)</span>
                     </div>
                     <div class="price-box">
                         <span class="current-price">$0.00</span>
                         <span class="original-price">$19.99</span>
                     </div>
-                    <!-- حط رابط CPA ديالك فـ href -->
+                    <!-- Put your CPA Offer Link in href below -->
                     <a href="YOUR_CPA_OFFER_LINK_2" target="_blank" class="cta-btn">
-                        <i class="fa-solid fa-download"></i> حمل الكتاب مجاناً الآن
+                        <i class="fa-solid fa-download"></i> Download Free Copy
                     </a>
                 </div>
             </div>
 
-            <!-- الكتاب الثالث -->
+            <!-- Book 3 -->
             <div class="book-card">
-                <span class="tag">الأكثر طلباً</span>
+                <span class="tag">Trending</span>
                 <div class="img-container">
-                    <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY327_FMwebp_QL65_.jpg" alt="Book 3">
+                    <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY327_FMwebp_QL65_.jpg" alt="The Psychology of Money">
                 </div>
                 <div class="card-details">
                     <h3 class="book-title">The Psychology of Money</h3>
-                    <div class="author">بواسطة Morgan Housel</div>
+                    <div class="author">by Morgan Housel</div>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <span class="rating-count">(64,120 تقييم)</span>
+                        <span class="rating-count">(64,120 ratings)</span>
                     </div>
                     <div class="price-box">
                         <span class="current-price">$0.00</span>
                         <span class="original-price">$24.99</span>
                     </div>
-                    <!-- حط رابط CPA ديالك فـ href -->
+                    <!-- Put your CPA Offer Link in href below -->
                     <a href="YOUR_CPA_OFFER_LINK_3" target="_blank" class="cta-btn">
-                        <i class="fa-solid fa-download"></i> حمل الكتاب مجاناً الآن
+                        <i class="fa-solid fa-download"></i> Download Free Copy
                     </a>
                 </div>
             </div>
@@ -408,7 +409,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 OfferZone Best Offers. All rights reserved.</p>
-        <p style="font-size: 0.8rem; color: #888;">هذا الموقع غير تابع لموقع Amazon.com بشكل مباشر، وإنما يشارك عروض ترويجية للكتب فقط.</p>
+        <p style="font-size: 0.75rem; color: #888;">This site is an independent promotional portal and is not directly affiliated with Amazon.com, Inc.</p>
     </footer>
 
 </body>
