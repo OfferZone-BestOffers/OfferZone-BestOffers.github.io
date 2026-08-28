@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OfferZone eBooks - Page 2 - Premium Kindle Deals</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23131921'/><circle cx='50' cy='50' r='38' fill='none' stroke='%23FF9900' stroke-width='6'/><text x='50%' y='68%' font-size='48' font-weight='900' font-family='sans-serif' fill='%23FF9900' text-anchor='middle'>O</text></svg>">
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --amazon-navy: #131921;
+            --amazon-light-navy: #232f3e;
+            --amazon-orange: #FF9900;
+            --amazon-yellow: #febd69;
+            --bg-light: #eaeded;
+            --text-dark: #0F1111;
+            --text-muted: #565959;
+            --card-bg: #ffffff;
+            --danger-red: #B12704;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Header */
+        header {
+            background-color: var(--amazon-navy);
+            color: white;
+            padding: 12px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: var(--amazon-orange);
+            color: var(--amazon-navy);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+
+        .logo span { color: var(--amazon-orange); }
+
+        .badge {
+            background-color: var(--amazon-orange);
+            color: var(--amazon-navy);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Countdown Bar */
+        .timer-bar {
+            background: #fff3cd;
+            color: #856404;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-bottom: 1px solid #ffeeba;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timer-bar span {
+            color: var(--danger-red);
+            font-weight: 800;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(180deg, var(--amazon-light-navy) 0%, var(--amazon-navy) 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 15px 45px 15px;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+
+        .hero h1 span { color: var(--amazon-yellow); }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: -20px auto 40px auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            color: var(--text-dark);
+            border-left: 4px solid var(--amazon-orange);
+        }
+
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .grid-card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e7e7e7;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .grid-img {
+            min-height: 240px;
+            width: 100%;
+            background: #f9f9f9;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            padding: 12px;
+        }
+
+        .grid-img img {
+            max-height: 220px;
+            max-width: 100%;
+            object-fit: contain;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+
+        .grid-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+
+        .grid-author {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .price-box {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .current-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--danger-red);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(180deg, #f7dfa5 0%, #f0c14b 100%);
+            border: 1px solid;
+            border-color: #a88734 #9c7e31 #846a29;
+            color: #111;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(180deg, #f5d78e 0%, #eeb933 100%);
+        }
+
+        /* Pagination Section */
+        .pagination-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            gap: 12px;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 8px;
+        }
+
+        .page-link {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: var(--amazon-navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .page-link.active, .page-link:hover {
+            background: var(--amazon-orange);
+            color: var(--amazon-navy);
+            border-color: var(--amazon-orange);
+        }
+
+        /* Social Media Buttons */
+        .social-section {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .social-btn.insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-btn.tiktok {
+            background: #000000;
+            border: 1px solid #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--amazon-navy);
+            color: #ddd;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 40px;
+            font-size: 0.78rem;
+            border-top: 4px solid var(--amazon-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+            OfferZone <span>eBooks</span>
+        </a>
+        <div class="badge">
+            <i class="fa-solid fa-fire"></i> Page 2 Deals
+        </div>
+    </header>
+
+    <!-- Urgency Countdown Timer -->
+    <div class="timer-bar">
+        <i class="fa-solid fa-clock"></i> Promotional Offer Expiring Soon!
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>More Free Bestselling <span>eBooks</span></h1>
+        <p>Explore more premium titles available for free download.</p>
+    </section>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        
+        <div class="section-title">
+            <i class="fa-solid fa-book-open" style="color: #FF9900;"></i> Page 2 - Popular Collection
+        </div>
+
+        <div class="books-grid">
+
+            <!-- Book 1 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81LFAyYfS2L._AC_UL600_SR600,600_.jpg" alt="Thinking, Fast and Slow">
+                    </a>
+                </div>
+                <h4 class="grid-title">Thinking, Fast and Slow</h4>
+                <div class="grid-author">by Daniel Kahneman</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$22.00</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/710X2ptLD-L._AC_UL600_SR600,600_.jpg" alt="Deep Work">
+                    </a>
+                </div>
+                <h4 class="grid-title">Deep Work</h4>
+                <div class="grid-author">by Cal Newport</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$28.00</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71QXf-eI23L._AC_UL600_SR600,600_.jpg" alt="Show Your Work!">
+                    </a>
+                </div>
+                <h4 class="grid-title">Show Your Work!</h4>
+                <div class="grid-author">by Austin Kleon</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$15.95</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71uL+mXy1kL._AC_UL600_SR600,600_.jpg" alt="How to Win Friends and Influence People">
+                    </a>
+                </div>
+                <h4 class="grid-title">How to Win Friends</h4>
+                <div class="grid-author">by Dale Carnegie</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$18.00</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L._AC_UL600_SR600,600_.jpg" alt="The Subtle Art of Not Giving a F*ck">
+                    </a>
+                </div>
+                <h4 class="grid-title">The Subtle Art...</h4>
+                <div class="grid-author">by Mark Manson</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$24.99</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/718yP5532vL._AC_UL600_SR600,600_.jpg" alt="Ego Is the Enemy">
+                    </a>
+                </div>
+                <h4 class="grid-title">Ego Is the Enemy</h4>
+                <div class="grid-author">by Ryan Holiday</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$25.00</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81KGjsBXQ7L._AC_UL600_SR600,600_.jpg" alt="The 7 Habits of Highly Effective People">
+                    </a>
+                </div>
+                <h4 class="grid-title">7 Habits of Highly Effective People</h4>
+                <div class="grid-author">by Stephen R. Covey</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$30.00</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 8 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/812+84-u0aL._AC_UL600_SR600,600_.jpg" alt="Zero to One">
+                    </a>
+                </div>
+                <h4 class="grid-title">Zero to One</h4>
+                <div class="grid-author">by Peter Thiel</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$27.00</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+            <!-- Book 9 -->
+            <div class="grid-card">
+                <div class="grid-img">
+                    <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81t3A2zQ2FL._AC_UL600_SR600,600_.jpg" alt="Mindset">
+                    </a>
+                </div>
+                <h4 class="grid-title">Mindset: The New Psychology of Success</h4>
+                <div class="grid-author">by Carol S. Dweck</div>
+                <div class="price-box">
+                    <span class="current-price">$0.00</span>
+                    <span class="original-price">$18.00</span>
+                </div>
+                <a href="https://singingfiles.com/show.php?l=0&u=2415512&id=70230" target="_blank" class="cta-btn">
+                    <i class="fa-solid fa-download"></i> Claim Free Copy
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Pagination Section -->
+        <div class="pagination-container">
+            <div class="pagination">
+                <a href="ebook1.html" class="page-link">&laquo; Back to Page 1</a>
+                <a href="ebook1.html" class="page-link">1</a>
+                <a href="#" class="page-link active">2</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 OfferZone Best Offers. All rights reserved.</p>
+        <p style="font-size: 0.72rem; color: #888; margin-bottom: 12px;">This site is an independent promotional portal and is not directly affiliated with Amazon.com, Inc.</p>
+        
+        <div class="social-section">
+            <a href="https://www.instagram.com/ebook_offerzone" target="_blank" class="social-btn insta">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.tiktok.com/@ebookoffers" target="_blank" class="social-btn tiktok">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
