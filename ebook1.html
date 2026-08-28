@@ -330,7 +330,7 @@
             background: linear-gradient(180deg, #f5d78e 0%, #eeb933 100%);
         }
 
-        /* Books Grid */
+        /* Books Grid Fixes */
         .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -348,29 +348,32 @@
             justify-content: space-between;
         }
 
+        /* إصلاح ارتفاع إطار الصورة باش تظهر كاملا */
         .grid-img {
-            height: 180px;
+            min-height: 240px;
             width: 100%;
             background: #f9f9f9;
             border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
-            padding: 8px;
+            margin-bottom: 12px;
+            padding: 12px;
         }
 
         .grid-img img {
-            max-height: 100%;
+            max-height: 220px;
             max-width: 100%;
             object-fit: contain;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-radius: 4px;
         }
 
         .grid-title {
             font-size: 0.95rem;
             font-weight: 700;
             margin-bottom: 3px;
+            line-height: 1.3;
         }
 
         .grid-author {
@@ -471,12 +474,17 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .social-btn:hover {
+            opacity: 0.9;
         }
 
         .social-btn.insta {
@@ -664,7 +672,7 @@
                 </a>
             </div>
 
-            <!-- Book 5 (Added) -->
+            <!-- Book 5 -->
             <div class="grid-card">
                 <div class="grid-img">
                     <a href="https://appsave.store/cl/i/ved6od">
@@ -682,7 +690,7 @@
                 </a>
             </div>
 
-            <!-- Book 6 (Added) -->
+            <!-- Book 6 -->
             <div class="grid-card">
                 <div class="grid-img">
                     <a href="https://appsave.store/cl/i/ved6od">
@@ -746,12 +754,12 @@
         <p>&copy; 2026 OfferZone Best Offers. All rights reserved.</p>
         <p style="font-size: 0.72rem; color: #888; margin-bottom: 12px;">This site is an independent promotional portal and is not directly affiliated with Amazon.com, Inc.</p>
         
-        <!-- Social Media Buttons -->
+        <!-- Corrected Direct Social Media Links -->
         <div class="social-section">
-            <a href="https://www.instagram.com/ebook_offerzone" target="_blank" class="social-btn insta">
+            <a href="https://www.instagram.com/ebook_offerzone" target="_blank" rel="noopener noreferrer" class="social-btn insta">
                 <i class="fa-brands fa-instagram"></i> Instagram
             </a>
-            <a href="https://www.tiktok.com/@ebookoffers" target="_blank" class="social-btn tiktok">
+            <a href="https://www.tiktok.com/@ebookoffers" target="_blank" rel="noopener noreferrer" class="social-btn tiktok">
                 <i class="fa-brands fa-tiktok"></i> TikTok
             </a>
         </div>
