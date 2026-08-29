@@ -3,603 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OfferZone — Exclusive Gaming Rewards & Gift Cards</title>
-    <!-- Favicon SVG -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0e14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%238a2be2' stroke-width='14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300ff66' stroke-width='3' stroke-dasharray='10 15'/></svg>">
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Slovenia Relocation & Expat Guide 2026</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: #080b10; color: #f1f5f9; line-height: 1.6; overflow-x: hidden; position: relative; }
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .page-wrapper { position: relative; z-index: 1; }
-        
-        /* Premium Header Design */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; max-width: 1240px; margin: 0 auto; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
-        .logo-icon { width: 34px; height: 34px; background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b0e14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%238a2be2' stroke-width='14'/><circle cx='50' cy='50' r='30' fill='none' stroke='%2300ff66' stroke-width='3' stroke-dasharray='10 15'/></svg>") center/contain no-repeat; }
-        .logo span { color: #8a2be2; background: linear-gradient(135deg, #a855f7, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .header-controls { display: flex; align-items: center; gap: 12px; }
-        .geo-tag { background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.25); padding: 6px 14px; border-radius: 30px; font-size: 0.78rem; font-weight: 600; color: #00ff66; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); }
-        .live-status { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 500; background: rgba(255,255,255,0.03); padding: 6px 14px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(8px); }
-        .dot { width: 8px; height: 8px; background: #00ff66; border-radius: 50%; box-shadow: 0 0 12px #00ff66; }
-        .sound-toggle { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #94a3b8; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; }
-        .sound-toggle:hover { border-color: #a855f7; color: #00ff66; background: rgba(168, 85, 247, 0.1); }
-        
-        /* Hero Section */
-        .hero { text-align: center; padding: 40px 20px 20px; max-width: 850px; margin: 0 auto; }
-        .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; text-transform: uppercase; background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 16px; font-weight: 400; }
-        .rating-box { font-size: 0.85rem; color: #fbbf24; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 6px; }
-        .rating-box span { color: #64748b; font-size: 0.8rem; }
-        
-        /* Sleek Allocation Bar & Timer */
-        .global-progress { max-width: 440px; margin: 0 auto 20px; text-align: left; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.06); padding: 12px 18px; border-radius: 16px; backdrop-filter: blur(12px); }
-        .global-progress-label { font-size: 0.78rem; font-weight: 600; display: flex; justify-content: space-between; margin-bottom: 8px; color: #94a3b8; }
-        .global-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
-        .global-fill { height: 100%; width: 92%; background: linear-gradient(90deg, #6366f1, #a855f7, #ef4444); border-radius: 10px; }
-        .timer-box { display: inline-flex; gap: 10px; background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.2); padding: 8px 18px; border-radius: 30px; margin-bottom: 30px; font-size: 0.82rem; font-weight: 600; color: #cbd5e1; }
-        .timer-box span { color: #00ff66; font-weight: 700; }
-        
-        /* Filters & Search Header */
-        .filter-container { max-width: 1200px; margin: 0 auto 25px; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-        .filter-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #94a3b8; padding: 8px 18px; border-radius: 30px; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.25s ease; }
-        .filter-btn.active, .filter-btn:hover { background: #8a2be2; color: #fff; border-color: #8a2be2; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3); }
-        .search-box { position: relative; min-width: 220px; flex: 1; max-width: 300px; }
-        .search-box input { width: 100%; padding: 9px 14px 9px 36px; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 30px; color: #fff; font-size: 0.82rem; outline: none; transition: 0.2s; }
-        .search-box input:focus { border-color: #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
-        .search-box i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.8rem; color: #64748b; }
-        
-        /* Modern Cards Grid */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
-        .card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; padding: 24px 20px; text-align: center; position: relative; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card:hover { transform: translateY(-6px); border-color: rgba(168, 85, 247, 0.5); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.15); }
-        .badge { position: absolute; top: 16px; right: 16px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; font-size: 0.68rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .card-icon { font-size: 2.8rem; color: #a855f7; margin-bottom: 14px; display: inline-block; }
-        .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.3px; }
-        
-        .code-preview-box { background: rgba(0,0,0,0.3); border: 1px dashed rgba(168, 85, 247, 0.4); padding: 8px; border-radius: 10px; font-family: monospace; font-size: 0.82rem; color: #00ff66; margin-bottom: 16px; letter-spacing: 1px; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --gray-light: #f8fafc;
+            --text-dark: #334155;
+            --text-muted: #64748b;
+        }
 
-        .stock-wrapper { margin-bottom: 18px; text-align: left; }
-        .stock-label { font-size: 0.75rem; color: #f87171; font-weight: 600; display: flex; justify-content: space-between; margin-bottom: 6px; }
-        .stock-bar { width: 100%; height: 5px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
-        .stock-fill { height: 100%; background: #ef4444; border-radius: 10px; transition: width 0.5s ease; }
-        .btn-cpa { display: block; width: 100%; padding: 13px; background: linear-gradient(135deg, #8a2be2, #4a00e0); color: #fff; font-weight: 700; border: none; border-radius: 12px; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3); cursor: pointer; transition: all 0.2s ease; }
-        .btn-cpa:hover { box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5); transform: translateY(-1px); }
-        .btn-cpa:active { transform: scale(0.98); }
-        
-        /* Share & Comments Section */
-        .share-box { text-align: center; margin-top: 35px; background: rgba(15, 23, 42, 0.5); padding: 18px; border-radius: 16px; border: 1px dashed rgba(168,85,247,0.25); }
-        .share-box p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px; }
-        .share-btn { background: #10b981; color: #fff; border: none; padding: 9px 20px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
-        .share-btn:hover { background: #059669; }
-        
-        .comments-section { margin-top: 40px; background: rgba(15, 23, 42, 0.75); padding: 24px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(16px); }
-        .comments-header { font-size: 1rem; font-weight: 700; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .comment-item { display: flex; gap: 14px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 14px; align-items: flex-start; }
-        .avatar { width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: linear-gradient(135deg, #8a2be2, #6366f1); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
-        .comment-content { flex: 1; overflow: hidden; }
-        .comment-content h5 { font-size: 0.85rem; font-weight: 700; margin-bottom: 2px; color: #fff; }
-        .comment-content p { font-size: 0.82rem; color: #94a3b8; margin-bottom: 6px; word-break: break-word; }
-        .comment-meta { font-size: 0.72rem; color: #64748b; display: flex; gap: 10px; align-items: center; }
-        .comment-meta span.verified { color: #00ff66; font-weight: 600; display: flex; align-items: center; gap: 4px; }
-        .add-comment-box { display: flex; gap: 10px; margin-top: 18px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
-        .add-comment-box input { flex: 1; padding: 10px 14px; background: #080b10; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: #fff; font-size: 0.82rem; outline: none; }
-        .add-comment-box button { padding: 10px 18px; background: #8a2be2; color: #fff; border: none; border-radius: 10px; font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: 0.2s; }
-        
-        .faq-section { margin-top: 30px; background: rgba(15, 23, 42, 0.75); padding: 24px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); }
-        .faq-section details { margin-bottom: 12px; cursor: pointer; background: rgba(255,255,255,0.02); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); }
-        .faq-section summary { font-weight: 600; font-size: 0.88rem; color: #f1f5f9; outline: none; }
-        .faq-section p { font-size: 0.82rem; color: #94a3b8; margin-top: 10px; line-height: 1.6; }
-        .trust-badges { display: flex; justify-content: center; gap: 24px; margin-top: 35px; font-size: 0.78rem; font-weight: 500; color: #64748b; flex-wrap: wrap; }
-        .trust-item { display: flex; align-items: center; gap: 8px; }
-        
-        /* Modern Modal Generator */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
-        .modal-box { background: #0f172a; border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 24px; max-width: 420px; width: 100%; padding: 28px 24px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(168, 85, 247, 0.2); position: relative; }
-        .modal-box h3 { margin-bottom: 16px; font-size: 1.25rem; font-weight: 700; }
-        .step-tracker { display: flex; justify-content: space-between; margin-bottom: 24px; position: relative; }
-        .step-tracker::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.08); z-index: 1; transform: translateY(-50%); }
-        .step { position: relative; z-index: 2; background: #0f172a; width: 32px; height: 32px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: #64748b; }
-        .step.active { border-color: #a855f7; color: #a855f7; background: rgba(168,85,247,0.15); }
-        .step.completed { border-color: #00ff66; color: #000; background: #00ff66; }
-        .input-group { margin-bottom: 14px; text-align: left; }
-        .input-group label { display: block; font-size: 0.75rem; font-weight: 600; color: #94a3b8; margin-bottom: 6px; }
-        .input-group input, .input-group select { width: 100%; padding: 11px 14px; background: #080b10; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: #fff; font-size: 0.85rem; outline: none; }
-        .progress-container { display: none; margin-top: 18px; background: #080b10; border-radius: 10px; height: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
-        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #8a2be2, #00ff66); transition: width 0.4s ease; }
-        .gen-status { display: none; margin-top: 14px; background: #080b10; padding: 14px; border-radius: 12px; font-size: 0.78rem; color: #00ff66; text-align: left; font-family: monospace; line-height: 1.6; border: 1px solid rgba(255,255,255,0.04); }
-        
-        /* Dynamic Toast Notification */
-        .toast-notification { position: fixed; bottom: 20px; left: 20px; background: #0f172a; border: 1px solid rgba(0,255,102,0.4); border-radius: 14px; padding: 12px 18px; display: flex; align-items: center; gap: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 9999; transform: translateY(150%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .toast-notification.show { transform: translateY(0); }
-        .toast-icon { font-size: 1.3rem; color: #00ff66; }
-        .toast-text h6 { font-size: 0.82rem; font-weight: 700; color: #fff; margin: 0; }
-        .toast-text p { font-size: 0.72rem; color: #94a3b8; margin: 0; }
-        
-        footer { text-align: center; padding: 30px 20px; border-top: 1px solid rgba(255,255,255,0.04); color: #64748b; font-size: 0.78rem; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--gray-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        .privacy-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.8rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: #ffffff;
+            padding: 4rem 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: var(--gray-light);
+            border: 1px solid #f1f5f9;
+        }
+
+        .feature-card i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            max-width: 800px;
+            margin: 4rem auto;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial cite {
+            font-weight: 600;
+            color: var(--secondary);
+            font-style: normal;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <canvas id="bg-canvas"></canvas>
-    <div class="page-wrapper">
-        <header>
-            <div class="logo">
-                <div class="logo-icon"></div> OFFER<span>ZONE</span>
-            </div>
-            <div class="header-controls">
-                <div class="geo-tag" id="geoTag"><i class="fa-solid fa-location-dot"></i> <span id="countryName">Global</span></div>
-                <button class="sound-toggle" id="soundBtn" onclick="toggleSound()" title="Toggle Sound">
-                    <i class="fa-solid fa-volume-high" id="soundIcon"></i>
-                </button>
-                <div class="live-status">
-                    <span class="dot"></span> <span id="onlineCount">1,420</span> Gamers Online
-                </div>
-            </div>
-        </header>
 
-        <section class="hero">
-            <h1>Select Your Free Gaming Reward</h1>
-            <p>Pick a card below, enter your ID, complete quick verification, and claim your reward.</p>
-            <div class="rating-box">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <b>4.9/5</b> <span>(14,280 Verified Claims)</span>
-            </div>
-            <div class="global-progress">
-                <div class="global-progress-label">
-                    <span>Daily Stock Allocation:</span> <b style="color: #ef4444;">92% Claimed</b>
-                </div>
-                <div class="global-bar"><div class="global-fill"></div></div>
-            </div>
-            <div class="timer-box">
-                Offers Refresh In: <span id="timer">04:59</span>
-            </div>
-        </section>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-compass"></i>
+            <span>Slovenia Expat Guide</span>
+        </div>
+    </header>
 
-        <div class="filter-container">
-            <div class="filter-btns">
-                <button class="filter-btn active" onclick="filterCards('all')">All Rewards</button>
-                <button class="filter-btn" onclick="filterCards('steam')">Steam</button>
-                <button class="filter-btn" onclick="filterCards('console')">Console / Pass</button>
-                <button class="filter-btn" onclick="filterCards('coins')">Skins & Coins</button>
-                <button class="filter-btn" onclick="filterCards('accounts')">Accounts</button>
-                <button class="filter-btn" onclick="filterCards('mobile')">Mobile Games</button>
-            </div>
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" onkeyup="searchCards()" placeholder="Search reward...">
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Moving, Working, or Studying in Slovenia in 2026?</h1>
+            <p>Avoid expensive bureaucracy mistakes, find housing without extra fees, and navigate life in Slovenia easily with our free comprehensive handbook.</p>
         </div>
 
+        <div class="form-card">
+            <h3>Get Your Free 2026 Guide</h3>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-download"></i> Download Free PDF
+                </button>
+            </form>
+            <p class="privacy-note"><i class="fa-solid fa-lock"></i> 100% Free. No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <div class="grid" id="rewardsGrid">
-                <!-- Offer Card 1: Steam Gift Card -->
-                <div class="card" data-category="steam" data-title="$20 steam gift card">
-                    <span class="badge">Popular</span>
-                    <i class="fa-brands fa-steam card-icon"></i>
-                    <h3>$20 Steam Gift Card</h3>
-                    <div class="code-preview-box"><i class="fa-solid fa-key"></i> STM-882K-XXXX</div>
-                    <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock1">3 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill1" style="width: 6%;"></div></div>
-                    </div>
-                    <button class="btn-cpa" onclick="openGenerator('$20 Steam Gift Card', 'giftcard')"><i class="fa-solid fa-lock-open"></i> Unlock Code</button>
-                </div>
-
-                <!-- Offer Card 2: Game Pass -->
-                <div class="card" data-category="console" data-title="free game pass access">
-                    <span class="badge" style="background:rgba(0, 210, 211, 0.15); border-color:rgba(0, 210, 211, 0.3); color:#00d2d3;">In Stock</span>
-                    <i class="fa-solid fa-gamepad card-icon"></i>
-                    <h3>Free Game Pass Access</h3>
-                    <div class="code-preview-box"><i class="fa-solid fa-key"></i> XBOX-PASS-XXXX</div>
-                    <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock2">7 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill2" style="width: 14%;"></div></div>
-                    </div>
-                    <button class="btn-cpa" onclick="openGenerator('Free Game Pass Access', 'giftcard')"><i class="fa-solid fa-bolt"></i> Claim Pass</button>
-                </div>
-
-                <!-- Offer Card 3: Free Fire Diamonds -->
-                <div class="card" data-category="coins" data-title="free fire diamonds ff 1060">
-                    <span class="badge">Hot</span>
-                    <i class="fa-solid fa-gem card-icon" style="color: #38bdf8;"></i>
-                    <h3>Free Fire Diamonds</h3>
-                    <div class="code-preview-box"><i class="fa-solid fa-bolt"></i> ID: Direct Top-Up</div>
-                    <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span>5 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" style="width: 10%;"></div></div>
-                    </div>
-                    <button class="btn-cpa" onclick="openGenerator('Free Fire Diamonds', 'coins')"><i class="fa-solid fa-gem"></i> Claim Diamonds</button>
-                </div>
-
-                <!-- Offer Card 4: Roblox Robux / PUBG UC -->
-                <div class="card" data-category="coins" data-title="roblox robux pubg uc gift">
-                    <span class="badge" style="background:rgba(0, 255, 102, 0.15); border-color:rgba(0, 255, 102, 0.3); color:#00ff66;">Trending</span>
-                    <i class="fa-solid fa-coins card-icon" style="color: #fbbf24;"></i>
-                    <h3>Robux / PUBG UC</h3>
-                    <div class="code-preview-box"><i class="fa-solid fa-coins"></i> RBX-9941-XXXX</div>
-                    <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span>4 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" style="width: 8%;"></div></div>
-                    </div>
-                    <button class="btn-cpa" onclick="openGenerator('Robux / PUBG UC', 'coins')"><i class="fa-solid fa-coins"></i> Claim Currency</button>
-                </div>
-
-                <!-- Offer Card 5: Steam Accounts -->
-                <div class="card" data-category="accounts" data-title="free steam accounts premium">
-                    <span class="badge" style="background:rgba(168, 85, 247, 0.15); border-color:rgba(168, 85, 247, 0.3); color:#c084fc;">Premium</span>
-                    <i class="fa-brands fa-steam-symbol card-icon"></i>
-                    <h3>Free Steam Accounts</h3>
-                    <div class="code-preview-box"><i class="fa-solid fa-user-shield"></i> ACC-VAULT-XXXX</div>
-                    <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock4">5 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill4" style="width: 10%;"></div></div>
-                    </div>
-                    <button class="btn-cpa" onclick="openGenerator('Free Steam Account', 'account')"><i class="fa-solid fa-user-check"></i> Get Account</button>
-                </div>
-
-                <!-- Offer Card 6: PC Games on Mobile -->
-                <div class="card" data-category="mobile" data-title="pc games in mobile emulator">
-                    <span class="badge" style="background:rgba(0, 255, 102, 0.15); border-color:rgba(0, 255, 102, 0.3); color:#00ff66;">New</span>
-                    <i class="fa-solid fa-mobile-retro card-icon"></i>
-                    <h3>PC Games on Mobile</h3>
-                    <div class="code-preview-box"><i class="fa-solid fa-download"></i> APK-CONFIG-XXXX</div>
-                    <div class="stock-wrapper">
-                        <div class="stock-label"><span>Stock Remaining:</span> <span id="stock5">4 Left</span></div>
-                        <div class="stock-bar"><div class="stock-fill" id="fill5" style="width: 8%;"></div></div>
-                    </div>
-                    <button class="btn-cpa" onclick="openGenerator('PC Games on Mobile Access', 'game')"><i class="fa-solid fa-download"></i> Download Access</button>
-                </div>
+            <div class="section-title">
+                <h2>What You Will Learn Inside</h2>
             </div>
-
-            <div class="share-box">
-                <p>Want 1 Extra Claim? Share this reward portal with a gamer friend!</p>
-                <button class="share-btn" onclick="shareWebsite()"><i class="fa-solid fa-share-nodes"></i> Share Offer Link</button>
-            </div>
-
-            <div class="comments-section">
-                <div class="comments-header">
-                    <i class="fa-solid fa-comments" style="color: #a855f7;"></i> Community Feedback & Activity
+            <div class="grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <h4>Bureaucracy Made Easy</h4>
+                    <p>Clear checklists for residency permits, visas, and registration paperwork.</p>
                 </div>
-                <div id="commentsList">
-                    <div class="comment-item">
-                        <div class="avatar">J</div>
-                        <div class="comment-content">
-                            <h5>Jake_Gamer92</h5>
-                            <p>yooo it actually worked!! completed the quick survey on my phone and got the $20 steam code right away 🔥</p>
-                            <div class="comment-meta">
-                                <span class="verified"><i class="fa-solid fa-check"></i> Verified Claim</span> • <span>Just now</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-item">
-                        <div class="avatar" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">M</div>
-                        <div class="comment-content">
-                            <h5>Mike_T</h5>
-                            <p>Is this working for Free Fire in Arab region?</p>
-                            <div class="comment-meta">
-                                <span>14 mins ago</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-house-user"></i>
+                    <h4>Housing & Living Costs</h4>
+                    <p>Direct platforms to find rentals in Ljubljana and Maribor without high agency costs.</p>
                 </div>
-                <div class="add-comment-box">
-                    <input type="text" id="userCommentInput" placeholder="Write a comment...">
-                    <button onclick="postComment()">Post</button>
+                <div class="feature-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h4>Jobs & Student Rights</h4>
+                    <p>Insights into English-speaking jobs and legal working hours for students.</p>
                 </div>
-            </div>
-
-            <div class="faq-section">
-                <h4 style="margin-bottom: 14px; color: #a855f7; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h4>
-                <details>
-                    <summary>Is this service completely free?</summary>
-                    <p>Yes! All reward codes are sponsored by our advertisers through quick promotional tasks.</p>
-                </details>
-                <details>
-                    <summary>Do I need to enter my password?</summary>
-                    <p>Never. We only require your Gamertag or Player ID to deliver the gift code/diamonds to your account.</p>
-                </details>
-            </div>
-
-            <div class="trust-badges">
-                <div class="trust-item"><i class="fa-solid fa-shield-halved" style="color:#00ff66;"></i> 256-Bit SSL Encrypted</div>
-                <div class="trust-item"><i class="fa-solid fa-lock" style="color:#a855f7;"></i> No Password Needed</div>
-                <div class="trust-item"><i class="fa-solid fa-bolt" style="color:#fbbf24;"></i> Instant Delivery</div>
-            </div>
-        </div>
-
-        <!-- Modal Generator -->
-        <div class="modal" id="genModal">
-            <div class="modal-box">
-                <div class="step-tracker">
-                    <div class="step active" id="st1">1</div>
-                    <div class="step" id="st2">2</div>
-                    <div class="step" id="st3">3</div>
-                </div>
-                <h3 id="modalTitle">Unlock Your Reward</h3>
-                <div id="genForm">
-                    <div class="input-group">
-                        <label>Player ID / Username / Email:</label>
-                        <input type="text" id="username" placeholder="e.g. GamerPro99 or ID: 12345678">
-                    </div>
-                    <div class="input-group">
-                        <label>Select Value / Pack:</label>
-                        <select id="rewardAmount">
-                            <option value="Standard Pack">Standard Pack (Recommended)</option>
-                            <option value="Ultra Pack">Ultra Pack</option>
-                            <option value="Starter Pack">Starter Pack</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label>Platform (Auto-Detected):</label>
-                        <select id="platform">
-                            <option value="Android / Mobile">Android Mobile</option>
-                            <option value="iOS / Apple">iOS / iPhone</option>
-                            <option value="PC / Windows">PC / Windows</option>
-                            <option value="PlayStation / Xbox">Console (PS/Xbox)</option>
-                        </select>
-                    </div>
-                    <button class="btn-cpa" style="margin-top: 15px;" onclick="startGeneration()">Start Generation</button>
-                </div>
-
-                <div class="progress-container" id="progContainer">
-                    <div class="progress-bar" id="progBar"></div>
-                </div>
-
-                <div class="gen-status" id="genStatus"></div>
-
-                <button class="btn-cpa" id="verifyBtn" style="display:none; margin-top:20px; background: linear-gradient(135deg, #10b981, #059669);" onclick="triggerCPALink()">
-                    <i class="fa-solid fa-shield-check"></i> Complete Verification
-                </button>
-                
-                <div class="trust-badges" id="modalTrust" style="display:none; margin-top:15px; font-size:0.7rem;">
-                    <span><i class="fa-solid fa-shield-cat" style="color:#00ff66;"></i> Norton Secured</span>
-                    <span><i class="fa-solid fa-lock" style="color:#38bdf8;"></i> SSL Encrypted</span>
+                <div class="feature-card">
+                    <i class="fa-solid fa-car"></i>
+                    <h4>Car Import & Logistics</h4>
+                    <p>Updated 2026 procedures for importing vehicles and getting local insurance.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Dynamic Live Toast Notification -->
-        <div class="toast-notification" id="toastNotif">
-            <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
-            <div class="toast-text">
-                <h6 id="toastUser">User123</h6>
-                <p id="toastMsg">Just claimed 1060 Diamonds!</p>
-            </div>
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <blockquote>"This guide saved me weeks of stress when dealing with paperwork and finding an apartment in Ljubljana. A must-read for any newcomer."</blockquote>
+            <cite>— Alex M. (Expat & Software Engineer)</cite>
         </div>
+    </section>
 
-        <footer>
-            <p>&copy; <span id="yearSpan"></span> OfferZone — Exclusive Gaming Rewards & Gift Cards. All rights reserved.</p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Slovenia Relocation Guide. All rights reserved.</p>
+    </footer>
 
-    <script>
-        const CONTENT_LOCKER_URL = "https://appsave.store/cl/i/j74n1v";
-        let currentRewardTitle = "";
-        let currentRewardType = "giftcard";
-        let soundEnabled = true;
-
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        function playSound(freq, duration) {
-            if (!soundEnabled) return;
-            try {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration);
-            } catch (e) {}
-        }
-
-        document.getElementById('yearSpan').innerText = new Date().getFullYear();
-
-        function detectDevice() {
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            const select = document.getElementById('platform');
-            if (/android/i.test(userAgent)) {
-                select.value = "Android / Mobile";
-            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                select.value = "iOS / Apple";
-            } else {
-                select.value = "PC / Windows";
-            }
-        }
-        detectDevice();
-
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        for (let i = 0; i < 45; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 2 + 1,
-                dx: (Math.random() - 0.5) * 0.3,
-                dy: (Math.random() - 0.5) * 0.3
-            });
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(168, 85, 247, 0.18)';
-            particles.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
-
-                p.x += p.dx;
-                p.y += p.dy;
-
-                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            const icon = document.getElementById('soundIcon');
-            icon.className = soundEnabled ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
-        }
-
-        const recentClaims = [
-            { user: "ProGamer_FF", msg: "Just claimed 1060 Free Fire Diamonds!" },
-            { user: "Alex_99", msg: "Just claimed $20 Steam Gift Card!" },
-            { user: "RobloxKing", msg: "Just claimed 1000 Robux Pack!" },
-            { user: "Sarah_T", msg: "Just claimed Free Game Pass Access!" }
-        ];
-
-        function showToast() {
-            const randomClaim = recentClaims[Math.floor(Math.random() * recentClaims.length)];
-            document.getElementById('toastUser').innerText = randomClaim.user;
-            document.getElementById('toastMsg').innerText = randomClaim.msg;
-            
-            const toast = document.getElementById('toastNotif');
-            toast.classList.add('show');
-            playSound(600, 0.1);
-            setTimeout(() => toast.classList.remove('show'), 4000);
-        }
-        setInterval(showToast, 9000);
-
-        function startTimer(duration, display) {
-            let timer = duration, minutes, seconds;
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-                display.textContent = minutes + ":" + seconds;
-                if (--timer < 0) timer = duration;
-            }, 1000);
-        }
-        window.onload = function () {
-            startTimer(300, document.querySelector('#timer'));
-        };
-
-        function filterCards(category) {
-            playSound(400, 0.05);
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.display = (category === 'all' || card.dataset.category.includes(category)) ? 'block' : 'none';
-            });
-        }
-
-        function searchCards() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.display = card.dataset.title.toLowerCase().includes(input) ? 'block' : 'none';
-            });
-        }
-
-        function openGenerator(title, type = 'giftcard') {
-            playSound(500, 0.08);
-            currentRewardTitle = title;
-            currentRewardType = type;
-            document.getElementById('modalTitle').innerText = "Unlock " + title;
-            document.getElementById('genModal').style.display = 'flex';
-            document.getElementById('genForm').style.display = 'block';
-            document.getElementById('progContainer').style.display = 'none';
-            document.getElementById('genStatus').style.display = 'none';
-            document.getElementById('verifyBtn').style.display = 'none';
-            document.getElementById('modalTrust').style.display = 'none';
-            document.getElementById('st1').className = 'step active';
-            document.getElementById('st2').className = 'step';
-            document.getElementById('st3').className = 'step';
-        }
-
-        function startGeneration() {
-            const user = document.getElementById('username').value;
-            if (!user) {
-                alert('Please enter your Player ID, Username or Email!');
-                return;
-            }
-
-            playSound(700, 0.1);
-            document.getElementById('genForm').style.display = 'none';
-            document.getElementById('progContainer').style.display = 'block';
-            document.getElementById('genStatus').style.display = 'block';
-            document.getElementById('st1').className = 'step completed';
-            document.getElementById('st2').className = 'step active';
-
-            let bar = document.getElementById('progBar');
-            let status = document.getElementById('genStatus');
-            let width = 0;
-
-            let interval = setInterval(() => {
-                width += 10;
-                bar.style.width = width + '%';
-                playSound(300 + (width * 5), 0.03);
-
-                if (width === 20) {
-                    status.innerHTML = "> Connecting to server...<br>> Validating ID: " + user;
-                } else if (width === 50) {
-                    status.innerHTML += "<br>> Generating code block & allocation...";
-                } else if (width === 80) {
-                    status.innerHTML += "<br>> Key created: XXXX-XXXX-XXXX-" + Math.floor(1000 + Math.random() * 9000);
-                } else if (width >= 100) {
-                    clearInterval(interval);
-                    playSound(900, 0.2);
-                    document.getElementById('st2').className = 'step completed';
-                    document.getElementById('st3').className = 'step active';
-                    status.innerHTML += "<br><br><span style='color:#fbbf24;'>[!] Verification Required to reveal remaining digits.</span>";
-                    document.getElementById('verifyBtn').style.display = 'block';
-                    document.getElementById('modalTrust').style.display = 'flex';
-                }
-            }, 300);
-        }
-
-        function triggerCPALink() {
-            playSound(800, 0.1);
-            window.location.href = CONTENT_LOCKER_URL;
-        }
-
-        function postComment() {
-            const input = document.getElementById('userCommentInput');
-            if (!input.value) return;
-            playSound(500, 0.05);
-            const list = document.getElementById('commentsList');
-            const newComment = document.createElement('div');
-            newComment.className = 'comment-item';
-            newComment.innerHTML = `
-                <div class="avatar" style="background:#00ff66; color:#000;">U</div>
-                <div class="comment-content">
-                    ##### You
-                    <p>${input.value}</p>
-                    <div class="comment-meta"><span>Just now</span></div>
-                </div>
-            `;
-            list.prepend(newComment);
-            input.value = '';
-        }
-
-        function shareWebsite() {
-            if (navigator.share) {
-                navigator.share({ title: 'OfferZone Gaming Rewards', url: window.location.href });
-            } else {
-                alert('Share this link: ' + window.location.href);
-            }
-        }
-
-        window.onclick = function(e) {
-            const modal = document.getElementById('genModal');
-            if (e.target === modal) modal.style.display = 'none';
-        }
-    </script>
 </body>
 </html>
